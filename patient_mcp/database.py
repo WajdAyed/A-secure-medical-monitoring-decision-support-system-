@@ -6,8 +6,8 @@ from datetime import date
 DATA = (
     Path(__file__).parent.parent
     / "datasets"
-    / "processed"
-    / "patients_db.json"
+    / "samples_10"
+    / "patients_sample_10.json"
 )
 
 
