@@ -13,7 +13,11 @@
       }
     ],
     "gender": "female",
+<<<<<<< HEAD
     "birthDate": "1964-04-10",
+=======
+    "birthDate": "2083-04-10",
+>>>>>>> 55c685d14583087c7074ae6c9d9472e9b6e32d64
     "extension": [
       {
         "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
@@ -99,7 +103,11 @@
       }
     ],
     "gender": "female",
+<<<<<<< HEAD
     "birthDate": "1971-04-05",
+=======
+    "birthDate": "2070-04-05",
+>>>>>>> 55c685d14583087c7074ae6c9d9472e9b6e32d64
     "extension": [
       {
         "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
@@ -185,7 +193,11 @@
       }
     ],
     "gender": "male",
+<<<<<<< HEAD
     "birthDate": "1973-09-17",
+=======
+    "birthDate": "2095-09-17",
+>>>>>>> 55c685d14583087c7074ae6c9d9472e9b6e32d64
     "extension": [
       {
         "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
@@ -259,7 +271,11 @@
       }
     ],
     "gender": "male",
+<<<<<<< HEAD
     "birthDate": "1959-12-15",
+=======
+    "birthDate": "2079-12-15",
+>>>>>>> 55c685d14583087c7074ae6c9d9472e9b6e32d64
     "extension": [
       {
         "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
@@ -345,14 +361,21 @@
       }
     ],
     "gender": "male",
+<<<<<<< HEAD
     "birthDate": "1981-09-17",
+=======
+    "birthDate": "2075-09-17",
+>>>>>>> 55c685d14583087c7074ae6c9d9472e9b6e32d64
     "extension": [
       {
         "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
         "extension": [
           {
+<<<<<<< HEAD
             "id": "10007928",
             "gender": "female",
+=======
+>>>>>>> 55c685d14583087c7074ae6c9d9472e9b6e32d64
             "url": "ombCategory",
             "valueCoding": {
               "code": "2106-3",
@@ -433,7 +456,11 @@
       }
     ],
     "gender": "male",
+<<<<<<< HEAD
     "birthDate": "1955-01-02",
+=======
+    "birthDate": "2090-01-02",
+>>>>>>> 55c685d14583087c7074ae6c9d9472e9b6e32d64
     "extension": [
       {
         "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
@@ -519,7 +546,11 @@
       }
     ],
     "gender": "female",
+<<<<<<< HEAD
     "birthDate": "1988-08-21",
+=======
+    "birthDate": "2106-08-21",
+>>>>>>> 55c685d14583087c7074ae6c9d9472e9b6e32d64
     "extension": [
       {
         "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
@@ -588,7 +619,11 @@
       }
     ],
     "gender": "female",
+<<<<<<< HEAD
     "birthDate": "1962-06-05",
+=======
+    "birthDate": "2062-06-05",
+>>>>>>> 55c685d14583087c7074ae6c9d9472e9b6e32d64
     "extension": [
       {
         "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
@@ -675,7 +710,11 @@
       }
     ],
     "gender": "female",
+<<<<<<< HEAD
     "birthDate": "1976-01-14",
+=======
+    "birthDate": "2106-01-14",
+>>>>>>> 55c685d14583087c7074ae6c9d9472e9b6e32d64
     "extension": [
       {
         "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
@@ -749,7 +788,11 @@
       }
     ],
     "gender": "male",
+<<<<<<< HEAD
     "birthDate": "1967-05-22",
+=======
+    "birthDate": "2086-05-22",
+>>>>>>> 55c685d14583087c7074ae6c9d9472e9b6e32d64
     "extension": [
       {
         "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
