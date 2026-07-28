@@ -53,7 +53,7 @@ function Wait-ForService {
     
     for ($i = 0; $i -lt $MaxAttempts; $i++) {
         if (Test-ServiceRunning -Url $Url) {
-            Write-Host "  ✓ $ServiceName is ready" -ForegroundColor Green
+            Write-Host "  [OK] $ServiceName is ready" -ForegroundColor Green
             return $true
         }
         Start-Sleep -Seconds 1
@@ -135,12 +135,12 @@ if ($allReady) {
     try {
         $response = Invoke-RestMethod -Uri "http://127.0.0.1:11434/api/tags" -Method Get -TimeoutSec 3
         $ollamaRunning = $true
-        Write-Host "  ✓ Ollama is running" -ForegroundColor Green
+        Write-Host "  [OK] Ollama is running" -ForegroundColor Green
         
         # Check if required models are available
         $models = $response.models | ForEach-Object { $_.name }
         if ($models -contains "llama3" -and $models -contains "nomic-embed-text") {
-            Write-Host "  ✓ Required models (llama3, nomic-embed-text) found" -ForegroundColor Green
+            Write-Host "  [OK] Required models (llama3, nomic-embed-text) found" -ForegroundColor Green
         }
         else {
             Write-Host "  ⚠ Missing models. Please run:" -ForegroundColor Yellow
@@ -155,7 +155,7 @@ if ($allReady) {
     # Check ZKP engine
     $zkpEngine = "$root\zkp_engine\target\release\zkp_engine.exe"
     if (Test-Path $zkpEngine) {
-        Write-Host "  ✓ ZKP Engine found" -ForegroundColor Green
+        Write-Host "  [OK] ZKP Engine found" -ForegroundColor Green
     }
     else {
         Write-Host "  ⚠ ZKP Engine not found. Please build it with:" -ForegroundColor Yellow
@@ -166,7 +166,7 @@ if ($allReady) {
     # Check ChromaDB
     $chromaDb = "$root\knowledge_mcp\chroma_db"
     if (Test-Path $chromaDb) {
-        Write-Host "  ✓ ChromaDB vector database found" -ForegroundColor Green
+        Write-Host "  [OK] ChromaDB vector database found" -ForegroundColor Green
     }
     else {
         Write-Host "  ⚠ ChromaDB not found. Please build it with:" -ForegroundColor Yellow

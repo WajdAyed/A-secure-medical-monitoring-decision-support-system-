@@ -1,8 +1,35 @@
 import json
 from pathlib import Path
+from datetime import date
 
 
-DATA = Path("datasets/processed/patients_db.json")
+DATA = (
+    Path(__file__).parent.parent
+    / "datasets"
+    / "processed"
+    / "patients_db.json"
+)
+
+
+def calculate_age(birth_date):
+    """Calculate age from FHIR birthDate."""
+
+    if not birth_date:
+        return None
+
+    try:
+        birth = date.fromisoformat(birth_date)
+        today = date.today()
+
+        age = today.year - birth.year
+
+        if (today.month, today.day) < (birth.month, birth.day):
+            age -= 1
+
+        return age
+
+    except Exception:
+        return None
 
 
 def get_patient_by_id(patient_id):
@@ -11,87 +38,98 @@ def get_patient_by_id(patient_id):
     print("PATIENT DATABASE")
     print("=" * 70)
 
-    print("Database file:")
-    print(DATA)
-
-    print("\nSearching for patient:")
+    print("Requested patient ID:")
     print(patient_id)
 
+    print("\nDataset:")
+    print(DATA)
+
+    # ------------------------------------------------
+    # Check dataset
+    # ------------------------------------------------
+
+    if not DATA.exists():
+
+        print("\n❌ DATASET NOT FOUND")
+        print(DATA)
+
+        return None
+
+    print("\n✓ Dataset found")
+
+    # ------------------------------------------------
+    # Load FHIR dataset
+    # ------------------------------------------------
 
     try:
 
         with open(DATA, encoding="utf-8") as f:
-
             patients = json.load(f)
-
 
     except Exception as e:
 
-        print("\n❌ DATABASE ERROR")
+        print("\n❌ DATASET READ ERROR")
         print(e)
-
-        print("=" * 70)
 
         return None
 
+    print("Number of FHIR patients:")
+    print(len(patients))
 
-    print("\nDatabase loaded successfully")
-
-    print(
-        "Total patients loaded:",
-        len(patients)
-    )
-
-
-    # temporary thesis patient
-    if patient_id.lower() == "ahmed":
-
-        print("\n⚠️ Using temporary thesis patient")
-
-        patient = {
-            "id": "ahmed",
-            "age": 67,
-            "condition": "hypertension"
-        }
-
-        print(patient)
-
-        print("=" * 70)
-
-        return patient
-
-
+    # ------------------------------------------------
+    # Search patient
+    # ------------------------------------------------
 
     for p in patients:
 
+        identifiers = p.get("identifier", [])
 
-        if p["patient_id"] == patient_id:
+        for identifier in identifiers:
 
+            identifier_value = str(
+                identifier.get("value", "")
+            )
 
-            print("\n✅ Patient found in database")
+            if identifier_value == str(patient_id):
 
+                print("\n✓ PATIENT FOUND")
 
-            patient = {
-                "id": p["patient_id"],
-                "gender": p["gender"],
-                "age": p["age"],
-                "condition": p["condition"]
-            }
+                gender = p.get("gender")
 
+                birth_date = p.get("birthDate")
 
-            print("Returned patient:")
-            print(patient)
+                age = calculate_age(birth_date)
 
-            print("=" * 70)
+                # Your original system needs a condition.
+                # For now we use hypertension for the
+                # thesis demo patients.
 
+                condition = "hypertension"
 
-            return patient
+                patient = {
+                    "id": identifier_value,
+                    "gender": gender,
+                    "age": age,
+                    "condition": condition
+                }
 
+                print("\nPatient information:")
 
+                print(patient)
 
-    print("\n❌ Patient not found")
+                print("=" * 70)
+
+                return patient
+
+    # ------------------------------------------------
+    # Patient not found
+    # ------------------------------------------------
+
+    print("\n❌ PATIENT NOT FOUND")
+
+    print("Requested ID:")
+    print(patient_id)
 
     print("=" * 70)
-
 
     return None
