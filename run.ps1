@@ -366,7 +366,7 @@ Write-Host ""
 if (-not $allReady) {
 
     Write-Host "====================================================" -ForegroundColor Red
-    Write-Host "  ❌ SYSTEM STARTUP FAILED" -ForegroundColor Red
+    Write-Host "  XXXXXXX SYSTEM STARTUP FAILED" -ForegroundColor Red
     Write-Host "====================================================" -ForegroundColor Red
     Write-Host ""
 
@@ -378,19 +378,19 @@ if (-not $allReady) {
 }
 
 Write-Host "====================================================" -ForegroundColor Green
-Write-Host "  ✅ ALL CDSS SERVICES ARE RUNNING" -ForegroundColor Green
+Write-Host "  -/ ALL CDSS SERVICES ARE RUNNING" -ForegroundColor Green
 Write-Host "====================================================" -ForegroundColor Green
 Write-Host ""
 
 Write-Host "System status:" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "  Ollama                 :11434   ✅" -ForegroundColor Green
-Write-Host "  Patient MCP            :8005    ✅" -ForegroundColor Green
-Write-Host "  Rule Engine            :8004    ✅" -ForegroundColor Green
-Write-Host "  Privacy MCP            :8003    ✅" -ForegroundColor Green
-Write-Host "  Decision Engine        :8002    ✅" -ForegroundColor Green
-Write-Host "  Knowledge MCP / RAG    :8010    ✅" -ForegroundColor Green
-Write-Host "  LangGraph Coordinator  :8007    ✅" -ForegroundColor Green
+Write-Host "  Ollama                 :11434   -/" -ForegroundColor Green
+Write-Host "  Patient MCP            :8005    -/" -ForegroundColor Green
+Write-Host "  Rule Engine            :8004    -/" -ForegroundColor Green
+Write-Host "  Privacy MCP            :8003    -/" -ForegroundColor Green
+Write-Host "  Decision Engine        :8002    -/" -ForegroundColor Green
+Write-Host "  Knowledge MCP / RAG    :8010    -/" -ForegroundColor Green
+Write-Host "  LangGraph Coordinator  :8007    -/" -ForegroundColor Green
 Write-Host ""
 
 Write-Host "====================================================" -ForegroundColor Cyan
