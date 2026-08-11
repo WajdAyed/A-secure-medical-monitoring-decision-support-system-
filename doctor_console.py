@@ -9,6 +9,35 @@ import os
 LANGGRAPH_URL = "http://127.0.0.1:8007"
 
 
+# Timings include automated work only; time spent waiting for doctor input is not
+# part of the total process time.
+ACTION_TIMES = []
+
+
+def record_action(action, start_time):
+    """Record and return an action's elapsed time in seconds."""
+    elapsed = time.perf_counter() - start_time
+    ACTION_TIMES.append((action, elapsed))
+    return elapsed
+
+
+def print_timing_summary():
+    """Display all recorded timings and their active processing total."""
+    if not ACTION_TIMES:
+        return
+
+    total_time = sum(elapsed for _, elapsed in ACTION_TIMES)
+
+    print("\n====================================================")
+    print(" PROCESS TIMING")
+    print("====================================================")
+    for action, elapsed in ACTION_TIMES:
+        print(f"{action}: {elapsed:.3f} seconds")
+    print("----------------------------------------------------")
+    print(f"Total process time: {total_time:.3f} seconds")
+    print("====================================================")
+
+
 # ====================================================
 # Spinner
 # ====================================================
@@ -33,6 +62,8 @@ def spinner(message, stop_event):
 
 def process_stage(message, duration=1.2):
 
+    start_time = time.perf_counter()
+
     stop = threading.Event()
 
     t = threading.Thread(
@@ -47,6 +78,8 @@ def process_stage(message, duration=1.2):
     stop.set()
     t.join()
 
+    record_action(message, start_time)
+
     print(f"[✓] {message}")
 
 
@@ -56,6 +89,8 @@ def process_stage(message, duration=1.2):
 
 def get_patients():
 
+    start_time = time.perf_counter()
+
     # Temporary list
     # Later you can replace this with:
     #
@@ -63,13 +98,17 @@ def get_patients():
     #   "http://127.0.0.1:8005/patients"
     # )
 
-    return [
+    patients = [
         "10007795",
         "10007928",
         "10009628",
-        "10011398"
+        "10011398",
+
         
     ]
+
+    record_action("Loading available patients", start_time)
+    return patients
 
 
 # ====================================================
@@ -77,6 +116,8 @@ def get_patients():
 # ====================================================
 
 def main():
+
+    ACTION_TIMES.clear()
 
     os.system(
         "cls" if os.name == "nt"
@@ -108,10 +149,12 @@ def main():
     )
 
     # extract patient id
+    patient_id_start_time = time.perf_counter()
     match = re.search(
         r"\d+",
         query
     )
+    record_action("Extracting patient ID", patient_id_start_time)
 
     if not match:
 
@@ -169,10 +212,14 @@ def main():
             f"{LANGGRAPH_URL}/run/{patient_id}"
         )
 
-        response = requests.get(
-            f"{LANGGRAPH_URL}/run/{patient_id}",
-            timeout=120
-        )
+        request_start_time = time.perf_counter()
+        try:
+            response = requests.get(
+                f"{LANGGRAPH_URL}/run/{patient_id}",
+                timeout=120
+            )
+        finally:
+            record_action("LangGraph request", request_start_time)
 
         print("\n==============================")
         print("LANGGRAPH RESPONSE")
@@ -219,9 +266,19 @@ def main():
 
         try:
 
+            response_parse_start_time = time.perf_counter()
             result = response.json()
+            record_action(
+                "Parsing LangGraph response",
+                response_parse_start_time
+            )
 
         except Exception as json_error:
+
+            record_action(
+                "Parsing LangGraph response",
+                response_parse_start_time
+            )
 
             print(
                 "\n❌ JSON PARSE ERROR"
@@ -281,6 +338,8 @@ def main():
     # ====================================================
     # Final Report
     # ====================================================
+
+    report_start_time = time.perf_counter()
 
     patient = result.get(
         "patient",
@@ -374,6 +433,11 @@ def main():
 ====================================================
 """)
 
+    record_action("Generating clinical decision report", report_start_time)
+
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    finally:
+        print_timing_summary()
