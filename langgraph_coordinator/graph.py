@@ -1,6 +1,11 @@
+import os
 from typing import TypedDict
 import requests
 
+PATIENT_MCP_URL = os.getenv("PATIENT_MCP_URL", "http://127.0.0.1:8005")
+RULE_ENGINE_URL = os.getenv("RULE_ENGINE_URL", "http://127.0.0.1:8004")
+PRIVACY_MCP_URL = os.getenv("PRIVACY_MCP_URL", "http://127.0.0.1:8003")
+DECISION_ENGINE_URL = os.getenv("DECISION_ENGINE_URL", "http://127.0.0.1:8002")
 
 
 class State(TypedDict):
@@ -28,7 +33,7 @@ def get_patient(state):
 
 
     url = (
-        f"http://127.0.0.1:8005/patient/{state['patient_id']}"
+        f"{PATIENT_MCP_URL}/patient/{state['patient_id']}"
     )
 
 
@@ -81,7 +86,7 @@ def get_policy(state):
 
     response = requests.post(
 
-        "http://127.0.0.1:8004/policy",
+        f"{RULE_ENGINE_URL}/policy",
 
         json=state["patient"],
 
@@ -145,7 +150,7 @@ def get_proof(state):
 
     response = requests.post(
 
-        "http://127.0.0.1:8003/request-proof",
+        f"{PRIVACY_MCP_URL}/request-proof",
 
         json={
 
@@ -199,7 +204,7 @@ def get_decision(state):
 
     response = requests.post(
 
-        "http://127.0.0.1:8002/decision",
+        f"{DECISION_ENGINE_URL}/decision",
 
         json={
 

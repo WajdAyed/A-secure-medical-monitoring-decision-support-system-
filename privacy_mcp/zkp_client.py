@@ -1,16 +1,22 @@
 import json
+import os
 import subprocess
 from pathlib import Path
 
 
+DEFAULT_ENGINE_NAME = "zkp_engine.exe" if os.name == "nt" else "zkp_engine"
+ENGINE_PATH_OVERRIDE = os.getenv("ZKP_ENGINE_PATH")
 
-ENGINE = (
-    Path(__file__).parent.parent
-    / "zkp_engine"
-    / "target"
-    / "release"
-    / "zkp_engine.exe"
-)
+if ENGINE_PATH_OVERRIDE:
+    ENGINE = Path(ENGINE_PATH_OVERRIDE).expanduser().resolve()
+else:
+    ENGINE = (
+        Path(__file__).resolve().parent.parent
+        / "zkp_engine"
+        / "target"
+        / "release"
+        / DEFAULT_ENGINE_NAME
+    )
 
 
 

@@ -1,16 +1,18 @@
+import os
 from fastapi import FastAPI
 from pathlib import Path
 
 from langchain_chroma import Chroma
 from langchain_ollama import OllamaEmbeddings
 
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
 
 app = FastAPI(
     title="Knowledge MCP - RAG"
 )
 
 
-DB_DIR = Path(__file__).parent / "chroma_db"
+DB_DIR = Path(__file__).resolve().parent / "chroma_db"
 
 
 print("\n" + "=" * 70)
@@ -23,7 +25,7 @@ print(DB_DIR)
 
 embeddings = OllamaEmbeddings(
     model="nomic-embed-text",
-    base_url="http://127.0.0.1:11434"
+    base_url=OLLAMA_BASE_URL
 )
 
 
@@ -31,7 +33,7 @@ print("\nEmbedding model:")
 print("nomic-embed-text")
 
 print("Ollama endpoint:")
-print("http://127.0.0.1:11434")
+print(OLLAMA_BASE_URL)
 
 
 db = Chroma(

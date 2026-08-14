@@ -6,7 +6,7 @@ import re
 import os
 
 
-LANGGRAPH_URL = "http://127.0.0.1:8007"
+LANGGRAPH_URL = os.getenv("LANGGRAPH_URL", "http://127.0.0.1:8007")
 
 
 # Timings include automated work only; time spent waiting for doctor input is not

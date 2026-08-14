@@ -1,7 +1,11 @@
+import os
 import requests
 import ollama
 import json
 import re
+
+KNOWLEDGE_MCP_URL = os.getenv("KNOWLEDGE_MCP_URL", "http://127.0.0.1:8010")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://127.0.0.1:11434")
 
 
 def generate_policy(patient):
@@ -27,7 +31,7 @@ def generate_policy(patient):
     print("\nCalling Knowledge MCP (RAG)...")
 
     rag_url = (
-        f"http://127.0.0.1:8010/guidelines/{condition}"
+        f"{KNOWLEDGE_MCP_URL}/guidelines/{condition}"
     )
 
 
@@ -150,7 +154,9 @@ Example:
 
     try:
 
-        response = ollama.chat(
+        client = ollama.Client(host=OLLAMA_HOST)
+
+        response = client.chat(
 
             model="llama3",
 

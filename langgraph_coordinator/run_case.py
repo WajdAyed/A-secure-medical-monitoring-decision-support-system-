@@ -1,28 +1,19 @@
-from patient_mcp.database import get_patient_by_id
-from RAG.rag import search_guidelines
-from rule_engine.rules import (
-    build_policy,
-    validate_policy
-)
+import os
+import sys
 
-patient = get_patient_by_id(
-    "10009628"
-)
+import requests
 
-if patient is None:
-    raise ValueError(
-        "Patient not found"
-    )
 
-guidelines = search_guidelines(
-    patient["condition"]
-)
+def main() -> None:
+    patient_id = sys.argv[1] if len(sys.argv) > 1 else "10009628"
+    base_url = os.getenv("LANGGRAPH_URL", "http://127.0.0.1:8007")
+    url = f"{base_url}/run/{patient_id}"
 
-policy = build_policy(
-    patient,
-    guidelines
-)
+    response = requests.get(url, timeout=180)
+    response.raise_for_status()
 
-policy = validate_policy(policy)
+    print(response.json())
 
-print(policy)
+
+if __name__ == "__main__":
+    main()
