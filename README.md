@@ -48,14 +48,12 @@ A privacy-preserving Clinical Decision Support System that uses Zero-Knowledge P
 
 ## Prerequisites
 
-- Python 3.9+
-- Ollama (with `llama3` and `nomic-embed-text` models)
-- Rust (for ZKP engine)
-- PostgreSQL (for patient database)
-- Chrome/Chromium (for ChromaDB)
+- Docker and Docker Compose
+- Git
+- Optional: Python 3.11+ if you want to run the console locally outside Docker
+- Optional: Ollama CLI if you want to manage local models manually
 
 ## Installation
-
 
 ### 1. Clone the Repository
 
@@ -64,83 +62,182 @@ git clone https://github.com/WajdAyed/Privacy-Preserving-CDSS.git
 cd Privacy-Preserving-CDSS
 ```
 
-### One-Command Startup (Recommended)
+### 2. Start the full stack with Docker
+
+From the project root:
+
+```bash
+docker compose up --build -d
+```
+
+On Windows PowerShell, this is also valid:
 
 ```powershell
-# Windows PowerShell - This will start all services and launch the Doctor Console
-.\run.ps1
-```
-### 2. Install Python Dependencies
-
-```bash
-pip install -r requirements.txt
+docker-compose up --build -d
 ```
 
-### 3. Install Rust Dependencies
+This starts all required services from [docker-compose.yml](docker-compose.yml):
+
+- Ollama
+- PostgreSQL
+- Patient MCP
+- Rule Engine
+- Privacy MCP
+- Decision Engine
+- Knowledge MCP
+- LangGraph Coordinator
+- Doctor Console
+
+### 3. Check the running services
 
 ```bash
-cd zkp_engine
-cargo build --release
-cd ..
+docker compose ps
 ```
 
-### 4. Setup Ollama
+You can verify the main API entrypoints:
 
 ```bash
-# Install Ollama from https://ollama.ai
+curl http://localhost:8007/docs
+curl http://localhost:8005/docs
+curl http://localhost:8010/docs
+```
 
-# Pull required models
+### 4. Pull Ollama models (if not already available in the container)
+
+The project expects LLM and embedding models. If needed, run:
+
+```bash
+docker exec -it cdss-ollama ollama pull llama3
+docker exec -it cdss-ollama ollama pull nomic-embed-text
+```
+
+If you are running Ollama outside Docker instead of the containerized service, use:
+
+```bash
 ollama pull llama3
 ollama pull nomic-embed-text
-
-# Start Ollama service
-ollama serve
 ```
 
-### 5. Setup PostgreSQL
+### 5. Build the vector database
 
-```bash
-# Create database and run schema
-psql -U postgres -f datasets/processed/schema.sql
-```
-
-### 6. Build Vector Database
+The knowledge service uses ChromaDB and embeddings. If the vector database is not initialized yet, run:
 
 ```bash
 python scripts/build_rag.py
 ```
 
+This is often needed once on the host machine before using the RAG pipeline.
+
 ## Running the System
 
+The Docker-based setup is the recommended way to run the project.
 
+### Start everything
 
-This single command will:
-1. ✓ Check if virtual environment exists
-2. ✓ Start all 6 microservices in separate windows
-3. ✓ Wait for all services to be ready
-4. ✓ Check dependencies (Ollama, ZKP engine, ChromaDB)
-5. ✓ Automatically launch the Doctor Console
+```bash
+docker compose up --build -d
+```
 
-### Manual Startup (Alternative)
+### Stop everything
 
-If you prefer to start services manually:
+```bash
+docker compose down
+```
+
+### Restart a single service
+
+```bash
+docker compose restart langgraph-coordinator
+```
+
+### View logs
+
+```bash
+docker compose logs -f
+```
+
+### Run the doctor console locally against the Docker host
+
+If you want to use the interactive terminal UI from your own machine while the services run in Docker on another host, set the coordinator URL:
+
+```powershell
+$env:LANGGRAPH_URL="http://<HOST_IP>:8007"
+python doctor_console.py
+```
+
+For example:
+
+```powershell
+$env:LANGGRAPH_URL="http://192.168.1.50:8007"
+python doctor_console.py
+```
+
+### Run a test case against the running services
+
+```bash
+python langgraph_coordinator/run_case.py
+```
+
+If the app is running remotely, set the environment variable first:
+
+```powershell
+$env:LANGGRAPH_URL="http://<HOST_IP>:8007"
+python langgraph_coordinator/run_case.py
+```
+
+## Running from another machine
+
+The Docker host is still the machine running the containers. Another machine cannot directly access the internal service names such as `patient-mcp` or `rule-engine`.
+
+Use the host IP or public IP instead:
+
+```text
+http://<HOST_IP>:8007
+```
+
+Example:
+
+```text
+http://192.168.1.50:8007
+```
+
+You must also make sure the following ports are reachable from the network:
+
+- 8002
+- 8003
+- 8004
+- 8005
+- 8007
+- 8010
+- 11434
+- 5432
+
+## Alternative local startup (without Docker)
+
+If you prefer not to use Docker, the project also supports a local setup:
 
 ```powershell
 # Windows PowerShell
+.\run.ps1
+```
+
+Or start services individually:
+
+```powershell
 .\start.ps1
 ```
 
-Then in a separate terminal, launch the Doctor Console:
+Then launch the console manually:
 
 ```bash
 python doctor_console.py
 ```
 
-### Run a Test Case
+## Notes
 
-```bash
-python langgraph_coordinator/run_case.py
-```
+- The Docker Compose configuration is the recommended deployment method.
+- Internal container communication uses Docker service names, while external clients must use the host IP and mapped ports.
+- The Ollama service is required for both the LLM and embeddings used by the RAG and policy generation components.
 
 ## How It Works
 
