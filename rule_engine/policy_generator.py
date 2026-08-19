@@ -8,7 +8,7 @@ KNOWLEDGE_MCP_URL = os.getenv("KNOWLEDGE_MCP_URL", "http://127.0.0.1:8010")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://127.0.0.1:11434")
 
 
-def generate_policy(patient):
+def generate_policy(patient, use_rag=True):
 
 
     print("\n" + "=" * 70)
@@ -18,6 +18,9 @@ def generate_policy(patient):
 
     condition = patient["condition"]
     age = patient["age"]
+
+    if not use_rag:
+        return generate_policy_without_rag(patient)
 
 
     print("\nPatient information:")
@@ -229,3 +232,34 @@ Example:
 
 
     return policy
+
+
+def generate_policy_without_rag(patient):
+    """Generate the evaluation baseline without retrieving guideline context."""
+    prompt = f"""
+Patient:
+
+Age: {patient['age']}
+Condition: {patient['condition']}
+
+No retrieved medical guidelines are available. Generate personalized safe limits.
+Return ONLY JSON.
+
+Example:
+
+{{
+   "parameter":"systolic_bp",
+   "min":110,
+   "max":135
+}}
+"""
+    client = ollama.Client(host=OLLAMA_HOST)
+    response = client.chat(
+        model="llama3",
+        format="json",
+        messages=[{"role": "user", "content": prompt}],
+    )
+    match = re.search(r"\{.*\}", response["message"]["content"], re.S)
+    if not match:
+        raise ValueError("No JSON found in no-RAG baseline response")
+    return json.loads(match.group())

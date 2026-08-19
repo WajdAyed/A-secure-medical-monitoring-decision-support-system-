@@ -8,7 +8,7 @@ app = FastAPI(
 
 
 @app.post("/policy")
-def policy(patient: dict):
+def policy(patient: dict, use_rag: bool = True):
 
     print("\n" + "=" * 70)
     print("RULE ENGINE")
@@ -25,9 +25,7 @@ def policy(patient: dict):
 
     try:
 
-        result = generate_policy(
-            patient
-        )
+        result = generate_policy(patient, use_rag=use_rag)
 
 
         print("\n✅ Policy generated")

@@ -109,6 +109,14 @@ def search_guidelines(condition: str):
         "guidelines": [
             d.page_content
             for d in docs
+        ],
+
+        # Source metadata lets clients audit retrieval quality without having
+        # to infer it from the returned text.  Existing clients can continue
+        # to use the ``guidelines`` field unchanged.
+        "sources": [
+            Path(d.metadata.get("source", "")).name
+            for d in docs
         ]
 
     }
