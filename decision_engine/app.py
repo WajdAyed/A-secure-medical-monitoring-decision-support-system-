@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
+from fastapi import FastAPI, Request
+from cdss_rpc import MCPJsonRpcServer
 
 from .engine import evaluate
 
@@ -7,18 +7,14 @@ from .engine import evaluate
 app = FastAPI(
     title="Decision Engine"
 )
+rpc = MCPJsonRpcServer("decision-engine")
 
 
 
-class DecisionRequest(BaseModel):
-
-    status: str
-
-
-
-
-@app.post("/decision")
-def decision(req: DecisionRequest):
+@rpc.tool("evaluate_decision", "Generate a clinical decision from a proof status.", {
+    "type": "object", "properties": {"status": {"type": "string"}}, "required": ["status"],
+})
+def decision(status: str):
 
 
     print("\n" + "=" * 70)
@@ -33,7 +29,7 @@ def decision(req: DecisionRequest):
     print("Proof status:")
 
     print(
-        req.status
+        status
     )
 
 
@@ -58,7 +54,7 @@ def decision(req: DecisionRequest):
 
 
         result = evaluate(
-            req.status
+            status
         )
 
 
@@ -88,3 +84,8 @@ def decision(req: DecisionRequest):
 
 
     return result
+
+
+@app.post("/rpc")
+async def handle_rpc(request: Request):
+    return await rpc.handle(request)

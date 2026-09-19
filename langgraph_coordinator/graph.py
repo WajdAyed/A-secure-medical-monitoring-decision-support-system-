@@ -1,6 +1,6 @@
 import os
 from typing import TypedDict
-import requests
+from cdss_rpc import call_tool
 
 PATIENT_MCP_URL = os.getenv("PATIENT_MCP_URL", "http://127.0.0.1:8005")
 RULE_ENGINE_URL = os.getenv("RULE_ENGINE_URL", "http://127.0.0.1:8004")
@@ -32,23 +32,9 @@ def get_patient(state):
     print("Requesting patient data from Patient MCP")
 
 
-    url = (
-        f"{PATIENT_MCP_URL}/patient/{state['patient_id']}"
-    )
-
-
-    print("URL:")
-    print(url)
-
-
-
-    response = requests.get(
-        url,
-        timeout=10
-    )
-
-
-    patient = response.json()
+    print("JSON-RPC endpoint:")
+    print(f"{PATIENT_MCP_URL}/rpc")
+    patient = call_tool(PATIENT_MCP_URL, "get_patient", {"patient_id": state["patient_id"]}, timeout=10)
 
 
 
@@ -84,19 +70,7 @@ def get_policy(state):
 
 
 
-    response = requests.post(
-
-        f"{RULE_ENGINE_URL}/policy",
-
-        json=state["patient"],
-
-        timeout=60
-
-    )
-
-
-
-    policy = response.json()
+    policy = call_tool(RULE_ENGINE_URL, "generate_policy", {"patient": state["patient"]}, timeout=60)
 
 
 
@@ -148,23 +122,7 @@ def get_proof(state):
 
 
 
-    response = requests.post(
-
-        f"{PRIVACY_MCP_URL}/request-proof",
-
-        json={
-
-            "bounds": bounds
-
-        },
-
-        timeout=30
-
-    )
-
-
-
-    proof = response.json()
+    proof = call_tool(PRIVACY_MCP_URL, "request_proof", {"bounds": bounds}, timeout=30)
 
 
 
@@ -202,23 +160,7 @@ def get_decision(state):
 
 
 
-    response = requests.post(
-
-        f"{DECISION_ENGINE_URL}/decision",
-
-        json={
-
-            "status": state["proof"]["status"]
-
-        },
-
-        timeout=10
-
-    )
-
-
-
-    decision = response.json()
+    decision = call_tool(DECISION_ENGINE_URL, "evaluate_decision", {"status": state["proof"]["status"]}, timeout=10)
 
 
 

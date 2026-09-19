@@ -1,5 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from langgraph.graph import StateGraph, END
+from cdss_rpc import MCPJsonRpcServer
 
 from .graph import (
     State,
@@ -13,6 +14,7 @@ from .graph import (
 app = FastAPI(
     title="LangGraph Coordinator"
 )
+rpc = MCPJsonRpcServer("langgraph-coordinator")
 
 
 
@@ -95,7 +97,9 @@ print("=" * 70)
 
 
 
-@app.get("/run/{patient_id}")
+@rpc.tool("run_cdss", "Run the privacy-preserving CDSS workflow for a patient.", {
+    "type": "object", "properties": {"patient_id": {"type": "string"}}, "required": ["patient_id"],
+})
 def run(patient_id: str):
 
 
@@ -170,3 +174,8 @@ def run(patient_id: str):
             "error": str(e)
 
         }
+
+
+@app.post("/rpc")
+async def handle_rpc(request: Request):
+    return await rpc.handle(request)

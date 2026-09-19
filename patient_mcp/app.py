@@ -1,12 +1,16 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from cdss_rpc import MCPJsonRpcServer
 from .database import get_patient_by_id
 
 app = FastAPI(
     title="Patient MCP"
 )
+rpc = MCPJsonRpcServer("patient-mcp")
 
 
-@app.get("/patient/{patient_id}")
+@rpc.tool("get_patient", "Retrieve the minimum patient profile for a patient ID.", {
+    "type": "object", "properties": {"patient_id": {"type": "string"}}, "required": ["patient_id"],
+})
 def get_patient(patient_id: str):
 
     print("\n" + "=" * 70)
@@ -42,3 +46,8 @@ def get_patient(patient_id: str):
 
 
     return patient
+
+
+@app.post("/rpc")
+async def handle_rpc(request: Request):
+    return await rpc.handle(request)

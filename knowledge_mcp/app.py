@@ -1,6 +1,7 @@
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from pathlib import Path
+from cdss_rpc import MCPJsonRpcServer
 
 from langchain_chroma import Chroma
 from langchain_ollama import OllamaEmbeddings
@@ -10,6 +11,7 @@ OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
 app = FastAPI(
     title="Knowledge MCP - RAG"
 )
+rpc = MCPJsonRpcServer("knowledge-mcp")
 
 
 DB_DIR = Path(__file__).resolve().parent / "chroma_db"
@@ -47,7 +49,9 @@ print("=" * 70)
 
 
 
-@app.get("/guidelines/{condition}")
+@rpc.tool("search_guidelines", "Retrieve the most relevant clinical guideline passages.", {
+    "type": "object", "properties": {"condition": {"type": "string"}}, "required": ["condition"],
+})
 def search_guidelines(condition: str):
 
     print("\n" + "=" * 70)
@@ -120,3 +124,8 @@ def search_guidelines(condition: str):
         ]
 
     }
+
+
+@app.post("/rpc")
+async def handle_rpc(request: Request):
+    return await rpc.handle(request)

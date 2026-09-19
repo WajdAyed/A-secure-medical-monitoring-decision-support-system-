@@ -1,15 +1,21 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from cdss_rpc import MCPJsonRpcServer
 from .zkp_client import generate_and_verify_proof
 
 
 app = FastAPI(
     title="Privacy MCP"
 )
+rpc = MCPJsonRpcServer("privacy-mcp")
 
 
 
-@app.post("/request-proof")
-def request_proof(data: dict):
+@rpc.tool("request_proof", "Generate and verify a proof using clinical bounds only.", {
+    "type": "object", "properties": {"bounds": {"type": "object"}}, "required": ["bounds"],
+})
+def request_proof(bounds: dict):
+
+    data = {"bounds": bounds}
 
 
     print("\n" + "=" * 70)
@@ -106,3 +112,8 @@ def request_proof(data: dict):
 
 
     return result
+
+
+@app.post("/rpc")
+async def handle_rpc(request: Request):
+    return await rpc.handle(request)

@@ -11,15 +11,16 @@ from pathlib import Path
 import requests
 
 ROOT = Path(__file__).resolve().parents[2]
+import sys
+sys.path.insert(0, str(ROOT))
+from cdss_rpc import call_tool
 
 
 def request_pipeline(base_url: str, patient_id: str, timeout: float) -> dict:
     started = time.perf_counter()
     try:
-        response = requests.get(f"{base_url.rstrip('/')}/run/{patient_id}", timeout=timeout)
-        payload = response.json() if response.content else {}
-        response.raise_for_status()
-        return {"ok": True, "status_code": response.status_code, "latency_ms": (time.perf_counter()-started)*1000,
+        payload = call_tool(base_url, "run_cdss", {"patient_id": patient_id}, timeout=timeout)
+        return {"ok": True, "status_code": 200, "latency_ms": (time.perf_counter()-started)*1000,
                 "proof_status": payload.get("proof", {}).get("status"), "decision": payload.get("decision", {}).get("stable")}
     except (requests.RequestException, ValueError) as exc:
         return {"ok": False, "status_code": None, "latency_ms": (time.perf_counter()-started)*1000,

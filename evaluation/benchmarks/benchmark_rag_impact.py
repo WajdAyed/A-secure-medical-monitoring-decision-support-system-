@@ -12,6 +12,9 @@ from pathlib import Path
 import requests
 
 ROOT = Path(__file__).resolve().parents[2]
+import sys
+sys.path.insert(0, str(ROOT))
+from cdss_rpc import call_tool
 
 
 def score(policy: dict, reference: dict, tolerance: float) -> tuple[bool, bool, float | None, float | None]:
@@ -40,19 +43,16 @@ def main() -> None:
     rows = []
     for case in cases:
         for mode, use_rag in (("without_rag", False), ("with_rag", True)):
-            endpoint = f"{args.url.rstrip('/')}/policy"
             for _ in range(args.warmup):
-                requests.post(endpoint, params={"use_rag": use_rag}, json=case["patient"], timeout=args.timeout)
+                call_tool(args.url, "generate_policy", {"patient": case["patient"], "use_rag": use_rag}, timeout=args.timeout)
             for run in range(1, args.runs + 1):
                 started = time.perf_counter()
                 try:
-                    response = requests.post(endpoint, params={"use_rag": use_rag}, json=case["patient"], timeout=args.timeout)
-                    policy = response.json() if response.content else {}
-                    response.raise_for_status()
+                    policy = call_tool(args.url, "generate_policy", {"patient": case["patient"], "use_rag": use_rag}, timeout=args.timeout)
                     if "error" in policy:
                         raise ValueError(f"Rule Engine error: {policy['error']}")
                     valid, matches, min_error, max_error = score(policy, case["reference_policy"], args.tolerance)
-                    status_code, error = response.status_code, ""
+                    status_code, error = 200, ""
                 except (requests.RequestException, ValueError) as exc:
                     policy, valid, matches, min_error, max_error, status_code, error = {}, False, False, None, None, "", str(exc)
                 row = {"timestamp_utc": datetime.now(timezone.utc).isoformat(), "case_id": case["id"], "run": run,

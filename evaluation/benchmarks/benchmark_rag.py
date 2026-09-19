@@ -12,14 +12,15 @@ from pathlib import Path
 import requests
 
 ROOT = Path(__file__).resolve().parents[2]
+import sys
+sys.path.insert(0, str(ROOT))
+from cdss_rpc import call_tool
 
 
 def retrieve(base_url: str, query: str, timeout: float) -> dict:
     started = time.perf_counter()
     try:
-        response = requests.get(f"{base_url.rstrip('/')}/guidelines/{query}", timeout=timeout)
-        payload = response.json() if response.content else {}
-        response.raise_for_status()
+        payload = call_tool(base_url, "search_guidelines", {"condition": query}, timeout=timeout)
         documents = payload.get("guidelines", [])
         sources = payload.get("sources", [])
         if not isinstance(documents, list) or not isinstance(sources, list):

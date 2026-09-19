@@ -1,27 +1,25 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
+from fastapi import FastAPI, Request
 import subprocess
 import json
 
 from .sensor import read_systolic_bp
+from cdss_rpc import MCPJsonRpcServer
 
 app = FastAPI()
+rpc = MCPJsonRpcServer("device-agent")
 
 
-class Policy(BaseModel):
-    min: int
-    max: int
-
-
-@app.post("/prove")
-def prove(policy: Policy):
+@rpc.tool("prove", "Generate a device-local proof for the supplied bounds.", {
+    "type": "object", "properties": {"min": {"type": "integer"}, "max": {"type": "integer"}}, "required": ["min", "max"],
+})
+def prove(min: int, max: int):
 
     value = read_systolic_bp()
 
     payload = {
         "value": value,
-        "min": policy.min,
-        "max": policy.max
+        "min": min,
+        "max": max
     }
 
     print("Sensor value acquired locally.")
@@ -41,3 +39,8 @@ def prove(policy: Policy):
     print("STDERR:", result.stderr)
 
     return json.loads(result.stdout)
+
+
+@app.post("/rpc")
+async def handle_rpc(request: Request):
+    return await rpc.handle(request)

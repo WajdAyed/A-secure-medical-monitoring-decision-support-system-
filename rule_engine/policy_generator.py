@@ -1,8 +1,8 @@
 import os
-import requests
 import ollama
 import json
 import re
+from cdss_rpc import call_tool
 
 KNOWLEDGE_MCP_URL = os.getenv("KNOWLEDGE_MCP_URL", "http://127.0.0.1:8010")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://127.0.0.1:11434")
@@ -33,30 +33,13 @@ def generate_policy(patient, use_rag=True):
 
     print("\nCalling Knowledge MCP (RAG)...")
 
-    rag_url = (
-        f"{KNOWLEDGE_MCP_URL}/guidelines/{condition}"
-    )
-
-
-    print("RAG URL:")
-    print(rag_url)
+    print("Knowledge MCP JSON-RPC endpoint:")
+    print(f"{KNOWLEDGE_MCP_URL}/rpc")
 
 
     try:
 
-        rag_response = requests.get(
-            rag_url,
-            timeout=30
-        )
-
-
-        print(
-            "\nKnowledge MCP status:",
-            rag_response.status_code
-        )
-
-
-        data = rag_response.json()
+        data = call_tool(KNOWLEDGE_MCP_URL, "search_guidelines", {"condition": condition}, timeout=30)
 
         print("\nKnowledge MCP response:")
         print(data)

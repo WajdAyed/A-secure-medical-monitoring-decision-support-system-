@@ -209,14 +209,20 @@ def main():
         print("\n[DEBUG] Sending request to LangGraph...")
         print(
             f"[DEBUG] URL: "
-            f"{LANGGRAPH_URL}/run/{patient_id}"
+            f"{LANGGRAPH_URL}/rpc (tools/call: run_cdss)"
         )
 
         request_start_time = time.perf_counter()
         try:
-            response = requests.get(
-                f"{LANGGRAPH_URL}/run/{patient_id}",
-                timeout=120
+            response = requests.post(
+                f"{LANGGRAPH_URL}/rpc",
+                json={
+                    "jsonrpc": "2.0",
+                    "id": "doctor-console",
+                    "method": "tools/call",
+                    "params": {"name": "run_cdss", "arguments": {"patient_id": patient_id}},
+                },
+                timeout=120,
             )
         finally:
             record_action("LangGraph request", request_start_time)
@@ -267,7 +273,8 @@ def main():
         try:
 
             response_parse_start_time = time.perf_counter()
-            result = response.json()
+            rpc_response = response.json()
+            result = rpc_response["result"]["structuredContent"]
             record_action(
                 "Parsing LangGraph response",
                 response_parse_start_time

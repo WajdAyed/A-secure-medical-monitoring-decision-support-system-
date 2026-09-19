@@ -11,6 +11,9 @@ from pathlib import Path
 import requests
 
 ROOT = Path(__file__).resolve().parents[2]
+import sys
+sys.path.insert(0, str(ROOT))
+from cdss_rpc import call_tool
 DEFAULT_PATIENTS = ["10007795", "10007928", "10009628"]
 
 
@@ -38,11 +41,9 @@ def main() -> None:
         for run in range(1, args.runs + 1):
             started = time.perf_counter()
             try:
-                response = requests.get(f"{args.url.rstrip('/')}/run/{patient_id}", timeout=args.timeout)
-                payload = response.json() if response.content else {}
-                response.raise_for_status()
+                payload = call_tool(args.url, "run_cdss", {"patient_id": patient_id}, timeout=args.timeout)
                 validation_error = validate(payload)
-                row = {"ok": not validation_error, "status_code": response.status_code, "validation_error": validation_error,
+                row = {"ok": not validation_error, "status_code": 200, "validation_error": validation_error,
                        "proof_status": payload.get("proof", {}).get("status"), "decision_stable": payload.get("decision", {}).get("stable"), "error": ""}
             except (requests.RequestException, ValueError) as exc:
                 row = {"ok": False, "status_code": "", "validation_error": "", "proof_status": "", "decision_stable": "", "error": str(exc)}

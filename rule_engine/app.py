@@ -1,13 +1,17 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from cdss_rpc import MCPJsonRpcServer
 from .policy_generator import generate_policy
 
 
 app = FastAPI(
     title="Rule Engine"
 )
+rpc = MCPJsonRpcServer("rule-engine")
 
 
-@app.post("/policy")
+@rpc.tool("generate_policy", "Generate personalised clinical bounds from a patient profile.", {
+    "type": "object", "properties": {"patient": {"type": "object"}, "use_rag": {"type": "boolean"}}, "required": ["patient"],
+})
 def policy(patient: dict, use_rag: bool = True):
 
     print("\n" + "=" * 70)
@@ -53,3 +57,8 @@ def policy(patient: dict, use_rag: bool = True):
         return {
             "error": str(e)
         }
+
+
+@app.post("/rpc")
+async def handle_rpc(request: Request):
+    return await rpc.handle(request)
