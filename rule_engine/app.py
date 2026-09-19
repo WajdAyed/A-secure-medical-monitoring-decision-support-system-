@@ -4,18 +4,18 @@ from .policy_generator import generate_policy
 
 
 app = FastAPI(
-    title="Rule Engine"
+    title="Ruler Agent"
 )
-rpc = MCPJsonRpcServer("rule-engine")
+rpc = MCPJsonRpcServer("ruler-agent")
 
 
-@rpc.tool("generate_policy", "Generate personalised clinical bounds from a patient profile.", {
+@rpc.tool("generate_policy", "Check patient context, retrieve ChromaDB guideline knowledge, and use Ollama to generate a safe clinical range.", {
     "type": "object", "properties": {"patient": {"type": "object"}, "use_rag": {"type": "boolean"}}, "required": ["patient"],
 })
 def policy(patient: dict, use_rag: bool = True):
 
     print("\n" + "=" * 70)
-    print("RULE ENGINE")
+    print("RULER AGENT")
     print("=" * 70)
 
     print("Policy generation request received")

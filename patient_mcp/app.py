@@ -3,25 +3,25 @@ from cdss_rpc import MCPJsonRpcServer
 from .database import get_patient_by_id
 
 app = FastAPI(
-    title="Patient MCP"
+    title="EMR Layer"
 )
-rpc = MCPJsonRpcServer("patient-mcp")
+rpc = MCPJsonRpcServer("emr-layer")
 
 
-@rpc.tool("get_patient", "Retrieve the minimum patient profile for a patient ID.", {
+@rpc.tool("get_patient", "Retrieve and check the minimum EMR record required for clinical range generation.", {
     "type": "object", "properties": {"patient_id": {"type": "string"}}, "required": ["patient_id"],
 })
 def get_patient(patient_id: str):
 
     print("\n" + "=" * 70)
-    print("PATIENT MCP")
+    print("EMR LAYER")
     print("=" * 70)
 
-    print("Patient request received:")
-    print("Patient ID:", patient_id)
+    print("EMR record request received:")
+    print("EMR record ID:", patient_id)
 
 
-    print("\nSearching patient database...")
+    print("\nSearching EMR records...")
 
     patient = get_patient_by_id(patient_id)
 
@@ -39,7 +39,7 @@ def get_patient(patient_id: str):
 
     print("\n✅ Patient found")
 
-    print("Patient information:")
+    print("Minimum EMR context:")
     print(patient)
 
     print("=" * 70)

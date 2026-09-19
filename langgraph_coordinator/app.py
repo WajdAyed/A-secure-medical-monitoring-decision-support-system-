@@ -4,17 +4,17 @@ from cdss_rpc import MCPJsonRpcServer
 
 from .graph import (
     State,
-    get_patient,
-    get_policy,
-    get_proof,
-    get_decision
+    retrieve_emr_record,
+    generate_safe_range,
+    submit_range_for_zkp_validation,
+    complete_clinical_decision
 )
 
 
 app = FastAPI(
-    title="LangGraph Coordinator"
+    title="Clinical Workflow Coordinator"
 )
-rpc = MCPJsonRpcServer("langgraph-coordinator")
+rpc = MCPJsonRpcServer("clinical-workflow-coordinator")
 
 
 
@@ -27,49 +27,49 @@ builder = StateGraph(State)
 
 
 builder.add_node(
-    "patient",
-    get_patient
+    "emr_record_retrieval",
+    retrieve_emr_record
 )
 
 builder.add_node(
-    "policy",
-    get_policy
+    "ruler_range_generation",
+    generate_safe_range
 )
 
 builder.add_node(
-    "proof",
-    get_proof
+    "decision_zkp_validation",
+    submit_range_for_zkp_validation
 )
 
 builder.add_node(
-    "decision",
-    get_decision
+    "decision_final_status",
+    complete_clinical_decision
 )
 
 
 
 builder.set_entry_point(
-    "patient"
+    "emr_record_retrieval"
 )
 
 
 builder.add_edge(
-    "patient",
-    "policy"
+    "emr_record_retrieval",
+    "ruler_range_generation"
 )
 
 builder.add_edge(
-    "policy",
-    "proof"
+    "ruler_range_generation",
+    "decision_zkp_validation"
 )
 
 builder.add_edge(
-    "proof",
-    "decision"
+    "decision_zkp_validation",
+    "decision_final_status"
 )
 
 builder.add_edge(
-    "decision",
+    "decision_final_status",
     END
 )
 
@@ -82,13 +82,13 @@ print("✅ LangGraph workflow ready")
 
 print(
 """
-patient
+EMR record retrieval
    ↓
-policy
+Ruler Agent safe-range generation
    ↓
-proof
+Decision Agent -> ZKP validation
    ↓
-decision
+Decision Agent final patient status
 """
 )
 
@@ -97,7 +97,7 @@ print("=" * 70)
 
 
 
-@rpc.tool("run_cdss", "Run the privacy-preserving CDSS workflow for a patient.", {
+@rpc.tool("run_cdss", "Coordinate EMR retrieval, Ruler safe-range generation, ZKP validation, and final patient status.", {
     "type": "object", "properties": {"patient_id": {"type": "string"}}, "required": ["patient_id"],
 })
 def run(patient_id: str):

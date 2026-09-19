@@ -1,24 +1,40 @@
+import os
+
 from fastapi import FastAPI, Request
-from cdss_rpc import MCPJsonRpcServer
+from cdss_rpc import MCPJsonRpcServer, call_tool
 
 from .engine import evaluate
 
 
+PRIVACY_MCP_URL = os.getenv("ZKP_MCP_URL", os.getenv("PRIVACY_MCP_URL", "http://127.0.0.1:8003"))
+
 app = FastAPI(
-    title="Decision Engine"
+    title="Decision Agent"
 )
-rpc = MCPJsonRpcServer("decision-engine")
+rpc = MCPJsonRpcServer("decision-agent")
+
+
+@rpc.tool("validate_safe_range", "Send the Ruler-generated safe range to the ZKP layer and return its privacy-preserving validation result.", {
+    "type": "object", "properties": {"bounds": {"type": "object"}}, "required": ["bounds"],
+})
+def validate_safe_range(bounds: dict):
+    """Route bounds to ZKP; raw sensor values never enter the Decision Agent."""
+    print("\n" + "=" * 70)
+    print("DECISION AGENT - ZKP ROUTING")
+    print("=" * 70)
+    print("Forwarding only safe-range bounds to the ZKP layer.")
+    return call_tool(PRIVACY_MCP_URL, "request_proof", {"bounds": bounds}, timeout=30)
 
 
 
-@rpc.tool("evaluate_decision", "Generate a clinical decision from a proof status.", {
+@rpc.tool("evaluate_decision", "Evaluate the ZKP-attested range status and return the final patient status without receiving raw sensor data.", {
     "type": "object", "properties": {"status": {"type": "string"}}, "required": ["status"],
 })
 def decision(status: str):
 
 
     print("\n" + "=" * 70)
-    print("DECISION ENGINE")
+    print("DECISION AGENT - FINAL STATUS")
     print("=" * 70)
 
 

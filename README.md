@@ -80,7 +80,7 @@ This starts all required services from [docker-compose.yml](docker-compose.yml):
 
 - Ollama
 - PostgreSQL
-- Patient MCP
+- EMR Layer (implemented by the compatibility-named `patient_mcp` service)
 - Rule Engine
 - Privacy MCP
 - Decision Engine
@@ -470,7 +470,7 @@ class State(TypedDict):
     decision: dict
 
 def get_patient(state):
-    """Get patient data from Patient MCP"""
+    """Get minimum EMR context from the EMR layer"""
     url = f"http://127.0.0.1:8005/patient/{state['patient_id']}"
     response = requests.get(url, timeout=10)
     patient = response.json()
@@ -653,8 +653,8 @@ Privacy-Preserving-CDSS/
 │   ├── app.py                      # Decision Engine API
 │   └── engine.py                   # Decision logic
 ├── patient_mcp/
-│   ├── app.py                      # Patient MCP API
-│   └── database.py                 # PostgreSQL database access
+│   ├── app.py                      # EMR Layer API
+│   └── database.py                 # EMR record access (FHIR representation)
 ├── zkp_engine/
 │   ├── Cargo.toml                  # Rust dependencies
 │   └── src/                        # Rust source code
@@ -664,7 +664,7 @@ Privacy-Preserving-CDSS/
 │   └── processed/                  # Processed data and schemas
 ├── scripts/
 │   ├── build_rag.py                # Build vector database
-│   └── prepare_dataset.py          # Prepare patient dataset
+│   └── prepare_dataset.py          # Prepare EMR record dataset
 ├── requirements.txt                # Python dependencies
 ├── start.ps1                       # Windows startup script
 └── README.md                       # This file
@@ -691,7 +691,7 @@ Default ports (can be modified in each service's `app.py`):
 | Decision Engine | 8002 |
 | Privacy MCP | 8003 |
 | Rule Engine | 8004 |
-| Patient MCP | 8005 |
+| EMR Layer | 8005 |
 | Knowledge MCP | 8010 |
 | Ollama | 11434 |
 
@@ -702,8 +702,8 @@ Default ports (can be modified in each service's `app.py`):
 
 2. LangGraph Coordinator receives request with patient_id
 
-3. Patient Node:
-   - Fetches patient profile from PostgreSQL
+3. EMR Retrieval Node:
+   - Fetches minimum EMR context from the FHIR record representation
    - Returns: {condition: "Diabetes", age: 65}
 
 4. Policy Node:

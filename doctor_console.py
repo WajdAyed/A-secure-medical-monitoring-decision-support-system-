@@ -173,31 +173,31 @@ def main():
     # ====================================================
 
     process_stage(
-        "Checking patient information..."
+        "Checking EMR record..."
     )
 
     process_stage(
-        "Searching medical knowledge base (RAG)..."
+        "Ruler Agent: searching ChromaDB guideline knowledge..."
     )
 
     process_stage(
-        "Generating personalized clinical ranges..."
+        "Ruler Agent: generating personalized clinical ranges..."
     )
 
     process_stage(
-        "Sending policy to IoMT device..."
+        "Decision Agent: sending safe range to ZKP layer..."
     )
 
     process_stage(
-        "Generating Zero-Knowledge Proof..."
+        "ZKP layer: generating Zero-Knowledge Proof..."
     )
 
     process_stage(
-        "Verifying Bulletproof proof..."
+        "ZKP layer: validating Bulletproof proof..."
     )
 
     process_stage(
-        "Generating clinical decision..."
+        "Decision Agent: generating final patient status..."
     )
 
 # ====================================================
@@ -253,11 +253,11 @@ def main():
             )
 
             print(
-                "2) Patient MCP :8005"
+                "2) EMR Layer :8005"
             )
 
             print(
-                "3) Rule Engine :8004"
+                "3) Ruler Agent :8004"
             )
 
             print(
@@ -265,7 +265,7 @@ def main():
             )
 
             print(
-                "5) Privacy MCP :8003"
+                "5) ZKP Layer :8003"
             )
 
             return

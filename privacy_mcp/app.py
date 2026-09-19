@@ -4,13 +4,13 @@ from .zkp_client import generate_and_verify_proof
 
 
 app = FastAPI(
-    title="Privacy MCP"
+    title="ZKP Validation Layer"
 )
-rpc = MCPJsonRpcServer("privacy-mcp")
+rpc = MCPJsonRpcServer("zkp-layer")
 
 
 
-@rpc.tool("request_proof", "Generate and verify a proof using clinical bounds only.", {
+@rpc.tool("request_proof", "Generate and validate a ZKP range proof from sensor data without exposing raw sensor values.", {
     "type": "object", "properties": {"bounds": {"type": "object"}}, "required": ["bounds"],
 })
 def request_proof(bounds: dict):
@@ -19,7 +19,7 @@ def request_proof(bounds: dict):
 
 
     print("\n" + "=" * 70)
-    print("PRIVACY MCP")
+    print("ZKP VALIDATION LAYER")
     print("=" * 70)
 
 

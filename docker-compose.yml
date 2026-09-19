@@ -104,8 +104,13 @@ services:
       - "8002:8002"
     environment:
       DECISION_ENGINE_URL: http://decision-engine:8002
+      DECISION_AGENT_URL: http://decision-engine:8002
+      PRIVACY_MCP_URL: http://privacy-mcp:8003
+      ZKP_MCP_URL: http://privacy-mcp:8003
     volumes:
       - .:/app
+    depends_on:
+      - privacy-mcp
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "curl -fsS http://localhost:8002/docs >/dev/null || exit 1"]
@@ -146,9 +151,11 @@ services:
       - "8007:8007"
     environment:
       PATIENT_MCP_URL: http://patient-mcp:8005
+      EMR_MCP_URL: http://patient-mcp:8005
       RULE_ENGINE_URL: http://rule-engine:8004
-      PRIVACY_MCP_URL: http://privacy-mcp:8003
+      RULER_AGENT_URL: http://rule-engine:8004
       DECISION_ENGINE_URL: http://decision-engine:8002
+      DECISION_AGENT_URL: http://decision-engine:8002
       LANGGRAPH_URL: http://langgraph-coordinator:8007
     volumes:
       - .:/app
