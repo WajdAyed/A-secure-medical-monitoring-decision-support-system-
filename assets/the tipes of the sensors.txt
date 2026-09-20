@@ -1,0 +1,14 @@
+| Condition | Measurement / “sensor” | Default demo range |
+|---|---|---:|
+| Hypertension | Systolic blood pressure (mmHg) | 110–135 |
+| Diabetes | Blood glucose | 70–140 |
+| Asthma | Peak-flow percentage (%) | 80–100 |
+| Heart failure | Weight (kg) | 60–90 |
+| COPD | Oxygen saturation / SpO₂ (%) | 92–100 |
+| Renal failure | Creatinine | 1–2 |
+| Obesity | BMI | 18–30 |
+| Anemia | Hemoglobin | 12–16 |
+| Arrhythmia | Heart rate (bpm) | 60–100 |
+| Stroke risk | Systolic blood pressure (mmHg) | 110–135 |
+| Depression | Sleep duration (hours) | 7–9 |
+| Arthritis | Pain score | 0–4 |
