@@ -15,15 +15,18 @@ rpc = MCPJsonRpcServer("decision-agent")
 
 
 @rpc.tool("validate_safe_range", "Send the Ruler-generated safe range to the ZKP layer and return its privacy-preserving validation result.", {
-    "type": "object", "properties": {"bounds": {"type": "object"}}, "required": ["bounds"],
+    "type": "object", "properties": {"bounds": {"type": "object"}, "patient_id": {"type": "string"}}, "required": ["bounds"],
 })
-def validate_safe_range(bounds: dict):
+def validate_safe_range(bounds: dict, patient_id: str | None = None):
     """Route bounds to ZKP; raw sensor values never enter the Decision Agent."""
     print("\n" + "=" * 70)
     print("DECISION AGENT - ZKP ROUTING")
     print("=" * 70)
     print("Forwarding only safe-range bounds to the ZKP layer.")
-    return call_tool(PRIVACY_MCP_URL, "request_proof", {"bounds": bounds}, timeout=30)
+    arguments = {"bounds": bounds}
+    if patient_id is not None:
+        arguments["patient_id"] = patient_id
+    return call_tool(PRIVACY_MCP_URL, "request_proof", arguments, timeout=120)
 
 
 

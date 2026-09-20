@@ -6,13 +6,13 @@ from datetime import date
 DATA = (
     Path(__file__).parent.parent
     / "datasets"
-    / "samples_10"
-    / "patients_sample_10.json"
+    / "clean"
+    / "patients_200.json"
 )
 
 
 def calculate_age(birth_date):
-    """Calculate age from FHIR birthDate."""
+    """Calculate a valid age from a FHIR birthDate."""
 
     if not birth_date:
         return None
@@ -20,6 +20,9 @@ def calculate_age(birth_date):
     try:
         birth = date.fromisoformat(birth_date)
         today = date.today()
+
+        if birth > today:
+            return None
 
         age = today.year - birth.year
 
@@ -100,11 +103,11 @@ def get_patient_by_id(patient_id):
 
                 age = calculate_age(birth_date)
 
-                # Your original system needs a condition.
-                # For now we use hypertension for the
-                # thesis demo patients.
+                if age is None:
+                    print("\n⚠️ Skipping patient with invalid future birth date")
+                    continue
 
-                condition = "hypertension"
+                condition = p.get("condition", "hypertension")
 
                 patient = {
                     "id": identifier_value,

@@ -672,6 +672,10 @@ Privacy-Preserving-CDSS/
 
 ## Configuration
 
+The active EMR dataset files are stored directly in `datasets/`:
+`patients_100.json`, `conditions_100.json`, and `observations_100.json`.
+The dataset-preparation script writes its generated files to this same directory.
+
 ### Environment Variables
 
 Create a `.env` file in the backend directory:

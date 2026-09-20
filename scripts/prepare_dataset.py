@@ -7,7 +7,7 @@ PATIENT_FILE = ROOT / "datasets/original/MimicPatient.ndjson"
 CONDITION_FILE = ROOT / "datasets/original/MimicCondition.ndjson"
 OBS_FILE = ROOT / "datasets/original/MimicObservationChartevents.ndjson"
 
-OUTPUT = ROOT / "datasets/processed"
+OUTPUT = ROOT / "datasets"
 OUTPUT.mkdir(exist_ok=True)
 
 

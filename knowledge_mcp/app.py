@@ -50,9 +50,9 @@ print("=" * 70)
 
 
 @rpc.tool("search_guidelines", "Retrieve the most relevant clinical guideline passages.", {
-    "type": "object", "properties": {"condition": {"type": "string"}}, "required": ["condition"],
+    "type": "object", "properties": {"condition": {"type": "string"}, "query": {"type": "string"}, "k": {"type": "integer", "minimum": 1}}, "required": [],
 })
-def search_guidelines(condition: str):
+def search_guidelines(condition: str = "", query: str = "", k: int = 3):
 
     print("\n" + "=" * 70)
     print("KNOWLEDGE MCP - RAG SEARCH")
@@ -60,7 +60,12 @@ def search_guidelines(condition: str):
 
 
     print("Search query:")
-    print(condition)
+    search_text = query.strip() or condition.strip()
+    if not search_text:
+        return {"error": "condition or query is required"}
+    if not isinstance(k, int) or k < 1:
+        return {"error": "k must be a positive integer"}
+    print(search_text)
 
 
     print("\nSearching ChromaDB...")
@@ -69,8 +74,8 @@ def search_guidelines(condition: str):
     try:
 
         docs = db.similarity_search(
-            condition,
-            k=3
+            search_text,
+            k=k
         )
 
 

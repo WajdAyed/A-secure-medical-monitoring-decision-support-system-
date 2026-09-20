@@ -11,9 +11,9 @@ rpc = MCPJsonRpcServer("zkp-layer")
 
 
 @rpc.tool("request_proof", "Generate and validate a ZKP range proof from sensor data without exposing raw sensor values.", {
-    "type": "object", "properties": {"bounds": {"type": "object"}}, "required": ["bounds"],
+    "type": "object", "properties": {"bounds": {"type": "object"}, "patient_id": {"type": "string"}}, "required": ["bounds"],
 })
-def request_proof(bounds: dict):
+def request_proof(bounds: dict, patient_id: str | None = None):
 
     data = {"bounds": bounds}
 
@@ -74,9 +74,7 @@ def request_proof(bounds: dict):
     try:
 
 
-        result = generate_and_verify_proof(
-            bounds
-        )
+        result = generate_and_verify_proof(bounds, patient_id=patient_id)
 
 
     except Exception as e:

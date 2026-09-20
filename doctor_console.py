@@ -4,9 +4,12 @@ import threading
 import itertools
 import re
 import os
+import json
+from pathlib import Path
 
 
 LANGGRAPH_URL = os.getenv("LANGGRAPH_URL", "http://127.0.0.1:8007")
+DATASET_PATH = Path(__file__).resolve().parent / "datasets" / "clean" / "patients_200.json"
 
 
 # Timings include automated work only; time spent waiting for doctor input is not
@@ -91,21 +94,19 @@ def get_patients():
 
     start_time = time.perf_counter()
 
-    # Temporary list
-    # Later you can replace this with:
-    #
-    # requests.get(
-    #   "http://127.0.0.1:8005/patients"
-    # )
+    if not DATASET_PATH.exists():
+        raise FileNotFoundError(f"Patient dataset not found: {DATASET_PATH}")
 
+    patients_data = json.loads(DATASET_PATH.read_text(encoding="utf-8"))
     patients = [
-        "10007795",
-        "10007928",
-        "10009628",
-        "10011398",
-
-        
+        str(identifier.get("value", "")).strip()
+        for patient in patients_data
+        for identifier in patient.get("identifier", [])
+        if str(identifier.get("value", "")).strip()
     ]
+
+    if len(patients) != len(set(patients)):
+        raise ValueError(f"Duplicate patient identifiers found in {DATASET_PATH}")
 
     record_action("Loading available patients", start_time)
     return patients
@@ -405,14 +406,22 @@ def main():
     )
 
     print("\nSensor Value:")
-    print("🔒 PRIVATE")
+    sensor_value = proof.get("sensor_value_for_console")
+    if sensor_value is None:
+        print("Sensor value unavailable; restart the Privacy MCP to load the local-demo setting.")
+    else:
+        print(sensor_value)
+        print("[LOCAL DEMO ONLY — actual sampled sensor value]")
 
     
 
-    if proof.get("verified"):
-        print("TRUE ✅")
+    print("\nZKP Range-Proof Result:")
+    if proof.get("status") == "NORMAL" and proof.get("verified"):
+        print("VALID ✅  The ZKP attests range membership.")
+    elif proof.get("status") == "ALERT":
+        print("OUT OF RANGE ⚠️  The ZKP did not attest membership.")
     else:
-        print("FALSE ❌")
+        print("PROOF FAILED ❌  No clinical-safe result is issued.")
 
     print("\nFinal Decision:")
 

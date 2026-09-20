@@ -1,0 +1,102 @@
+{
+  "status": "TO BE VERIFIED BY CLINICIAN/SUPERVISOR",
+  "method": "Project documented fallback ranges; only three conditions have local guideline PDFs.",
+  "ranges": {
+    "hypertension": {
+      "parameter": "systolic_bp",
+      "min": 110,
+      "max": 135,
+      "source_pdf": "Hypertension guideline.pdf",
+      "page": null,
+      "section": "TO BE VERIFIED BY CLINICIAN/SUPERVISOR"
+    },
+    "diabetes": {
+      "parameter": "blood_glucose",
+      "min": 70,
+      "max": 140,
+      "source_pdf": "Diabetes guideline.pdf",
+      "page": null,
+      "section": "TO BE VERIFIED BY CLINICIAN/SUPERVISOR"
+    },
+    "asthma": {
+      "parameter": "peak_flow_percent",
+      "min": 80,
+      "max": 100,
+      "source_pdf": "No condition-specific PDF in RAG/guidelines",
+      "page": null,
+      "section": "TO BE VERIFIED BY CLINICIAN/SUPERVISOR"
+    },
+    "heart_failure": {
+      "parameter": "weight_kg",
+      "min": 60,
+      "max": 90,
+      "source_pdf": "Heart Failure guideline.pdf",
+      "page": null,
+      "section": "TO BE VERIFIED BY CLINICIAN/SUPERVISOR"
+    },
+    "copd": {
+      "parameter": "oxygen_saturation",
+      "min": 92,
+      "max": 100,
+      "source_pdf": "No condition-specific PDF in RAG/guidelines",
+      "page": null,
+      "section": "TO BE VERIFIED BY CLINICIAN/SUPERVISOR"
+    },
+    "renal_failure": {
+      "parameter": "creatinine",
+      "min": 1,
+      "max": 2,
+      "source_pdf": "No condition-specific PDF in RAG/guidelines",
+      "page": null,
+      "section": "TO BE VERIFIED BY CLINICIAN/SUPERVISOR"
+    },
+    "obesity": {
+      "parameter": "bmi",
+      "min": 18,
+      "max": 30,
+      "source_pdf": "No condition-specific PDF in RAG/guidelines",
+      "page": null,
+      "section": "TO BE VERIFIED BY CLINICIAN/SUPERVISOR"
+    },
+    "anemia": {
+      "parameter": "hemoglobin",
+      "min": 12,
+      "max": 16,
+      "source_pdf": "No condition-specific PDF in RAG/guidelines",
+      "page": null,
+      "section": "TO BE VERIFIED BY CLINICIAN/SUPERVISOR"
+    },
+    "arrhythmia": {
+      "parameter": "heart_rate",
+      "min": 60,
+      "max": 100,
+      "source_pdf": "No condition-specific PDF in RAG/guidelines",
+      "page": null,
+      "section": "TO BE VERIFIED BY CLINICIAN/SUPERVISOR"
+    },
+    "stroke_risk": {
+      "parameter": "systolic_bp",
+      "min": 110,
+      "max": 135,
+      "source_pdf": "No condition-specific PDF in RAG/guidelines",
+      "page": null,
+      "section": "TO BE VERIFIED BY CLINICIAN/SUPERVISOR"
+    },
+    "depression": {
+      "parameter": "sleep_hours",
+      "min": 7,
+      "max": 9,
+      "source_pdf": "No condition-specific PDF in RAG/guidelines",
+      "page": null,
+      "section": "TO BE VERIFIED BY CLINICIAN/SUPERVISOR"
+    },
+    "arthritis": {
+      "parameter": "pain_score",
+      "min": 0,
+      "max": 4,
+      "source_pdf": "No condition-specific PDF in RAG/guidelines",
+      "page": null,
+      "section": "TO BE VERIFIED BY CLINICIAN/SUPERVISOR"
+    }
+  }
+}

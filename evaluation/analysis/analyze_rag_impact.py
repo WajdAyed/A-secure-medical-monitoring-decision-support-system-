@@ -10,7 +10,8 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def boolean_rate(rows: list[dict], field: str) -> float:
-    return sum(row[field].lower() == "true" for row in rows) / len(rows)
+    available = [row for row in rows if row.get(field, "") != ""]
+    return sum(row[field].lower() == "true" for row in available) / len(available) if available else ""
 
 
 def main() -> None:
@@ -25,16 +26,21 @@ def main() -> None:
         group = [row for row in rows if row["mode"] == mode]
         if not group: raise ValueError(f"Missing {mode} measurements")
         errors = [float(row["min_absolute_error"]) + float(row["max_absolute_error"]) for row in group if row["min_absolute_error"]]
-        summary.append({"mode": mode, "requests": len(group), "valid_policy_rate": round(boolean_rate(group, "valid_policy"), 4),
-                        "reference_match_rate": round(boolean_rate(group, "matches_reference"), 4),
+        valid_rate = boolean_rate(group, "valid_policy")
+        reference_rate = boolean_rate(group, "matches_reference")
+        summary.append({"mode": mode, "requests": len(group), "valid_policy_rate": round(valid_rate, 4) if valid_rate != "" else "",
+                "reference_match_rate": round(reference_rate, 4) if reference_rate != "" else "",
                         "mean_total_bound_error": round(statistics.mean(errors), 4) if errors else "",
                         "mean_latency_ms": round(statistics.mean(float(row["latency_ms"]) for row in group), 4)})
     baseline, rag = summary
     error_difference = ""
     if baseline["mean_total_bound_error"] != "" and rag["mean_total_bound_error"] != "":
         error_difference = round(rag["mean_total_bound_error"] - baseline["mean_total_bound_error"], 4)
+    reference_difference = ""
+    if baseline["reference_match_rate"] != "" and rag["reference_match_rate"] != "":
+        reference_difference = round(rag["reference_match_rate"] - baseline["reference_match_rate"], 4)
     summary.append({"mode": "rag_minus_baseline", "requests": "", "valid_policy_rate": round(rag["valid_policy_rate"] - baseline["valid_policy_rate"], 4),
-                    "reference_match_rate": round(rag["reference_match_rate"] - baseline["reference_match_rate"], 4),
+                    "reference_match_rate": reference_difference,
                     "mean_total_bound_error": error_difference,
                     "mean_latency_ms": round(rag["mean_latency_ms"] - baseline["mean_latency_ms"], 4)})
     args.output.parent.mkdir(parents=True, exist_ok=True)

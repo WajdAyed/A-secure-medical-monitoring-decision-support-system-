@@ -1,6 +1,9 @@
 import json
+import math
 import os
+import secrets
 import subprocess
+from time import perf_counter
 from pathlib import Path
 
 
@@ -20,7 +23,18 @@ else:
 
 
 
-def generate_and_verify_proof(bounds):
+def generate_and_verify_proof(bounds, patient_id=None):
+
+    min_value = bounds["min"]
+    max_value = bounds["max"]
+
+    if isinstance(min_value, float) and not min_value.is_integer():
+        min_value = math.floor(min_value)
+    if isinstance(max_value, float) and not max_value.is_integer():
+        max_value = math.ceil(max_value)
+
+    min_value = int(min_value)
+    max_value = int(max_value)
 
 
     print("\n" + "=" * 70)
@@ -62,28 +76,20 @@ def generate_and_verify_proof(bounds):
     )
 
 
-    device_value = 190
+    # The actual value remains process-local.  Evaluation uses a repeatable
+    # patient-specific simulator solely for independently computed labels.
+    if os.getenv("CDSS_EVAL") == "1" and patient_id is not None:
+        from device_agent.sensor import evaluation_sensor_value
+        device_value = evaluation_sensor_value(str(patient_id))
+    else:
+        # Demo sensor: sample locally around the Ruler-generated bounds.
+        # The interval deliberately includes safe and unsafe readings.
+        device_value = secrets.SystemRandom().randint(
+            max(0, min_value - 30),
+            max_value + 30,
+        )
 
-    print("\n" + "=" * 60)
-    print("LOCAL SENSOR READING (DEBUG ONLY)")
-    print("=" * 60)
-    print(f"Sensor Value = {device_value}")
-    print(
-        f"Expected Range = "
-        f"{bounds['min']} - {bounds['max']}"
-    )
-    print("=" * 60)
-
-
-
-    print(
-        "Sensor value generated locally:"
-    )
-
-
-    print(
-        device_value
-    )
+    print("Sensor acquired inside the local ZKP boundary.")
 
 
 
@@ -110,9 +116,9 @@ def generate_and_verify_proof(bounds):
 
         "value": device_value,
 
-        "min": bounds["min"],
+        "min": min_value,
 
-        "max": bounds["max"]
+        "max": max_value
 
     }
 
@@ -122,9 +128,9 @@ def generate_and_verify_proof(bounds):
 
     print({
 
-        "min": bounds["min"],
+        "min": min_value,
 
-        "max": bounds["max"]
+        "max": max_value
 
     })
 
@@ -142,6 +148,7 @@ def generate_and_verify_proof(bounds):
     try:
 
 
+        started = perf_counter()
         result = subprocess.run(
 
             [str(ENGINE)],
@@ -176,9 +183,16 @@ def generate_and_verify_proof(bounds):
 
 
 
-    proof = json.loads(
-        result.stdout
-    )
+    proof = json.loads(result.stdout)
+    # Local Doctor Console demo: expose the exact sampled value alongside the
+    # independent ZKP outcome. Do not use this response shape in deployment.
+    proof["sensor_value_for_console"] = device_value
+    if os.getenv("CDSS_EVAL") == "1":
+        proof["zkp_process_ms"] = (perf_counter() - started) * 1000
+        # Rust reports these separately around RangeProof::prove_single and
+        # RangeProof::verify_single; retain unprefixed names for the evaluator.
+        proof["zkp_prove_ms"] = proof.get("prove_ms")
+        proof["zkp_verify_ms"] = proof.get("verify_ms")
 
 
 

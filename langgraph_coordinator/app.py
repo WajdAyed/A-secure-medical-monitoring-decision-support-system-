@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, Request
 from langgraph.graph import StateGraph, END
 from cdss_rpc import MCPJsonRpcServer
@@ -98,9 +99,9 @@ print("=" * 70)
 
 
 @rpc.tool("run_cdss", "Coordinate EMR retrieval, Ruler safe-range generation, ZKP validation, and final patient status.", {
-    "type": "object", "properties": {"patient_id": {"type": "string"}}, "required": ["patient_id"],
+    "type": "object", "properties": {"patient_id": {"type": "string"}, "use_rag": {"type": "boolean"}}, "required": ["patient_id"],
 })
-def run(patient_id: str):
+def run(patient_id: str, use_rag: bool = True):
 
 
     print("\n" + "=" * 70)
@@ -124,7 +125,8 @@ def run(patient_id: str):
         "proof": {},
 
         "decision": {}
-
+        ,"use_rag": use_rag
+        ,"timings": {}
     }
 
 
@@ -149,6 +151,10 @@ def run(patient_id: str):
 
 
 
+        # Timings are evaluation-only metadata; production responses preserve
+        # their original clinical wire fields.
+        if os.getenv("CDSS_EVAL") != "1":
+            result.pop("timings", None)
         return result
 
 
