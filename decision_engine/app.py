@@ -29,6 +29,19 @@ def validate_safe_range(bounds: dict, patient_id: str | None = None):
     return call_tool(PRIVACY_MCP_URL, "request_proof", arguments, timeout=120)
 
 
+@rpc.tool("validate_safe_ranges", "Validate multiple independent private sensor ranges; no raw values leave the ZKP layer.", {
+    "type": "object", "properties": {"ranges": {"type": "array"}, "patient_id": {"type": "string"}}, "required": ["ranges"],
+})
+def validate_safe_ranges(ranges: list[dict], patient_id: str | None = None):
+    """One Bulletproof range proof per measurement, aggregated only as statuses."""
+    results = []
+    for item in ranges:
+        arguments = {"bounds": {"min": item["min"], "max": item["max"]}, "patient_id": patient_id}
+        results.append({"parameter": item.get("parameter"), "result": call_tool(PRIVACY_MCP_URL, "request_proof", arguments, timeout=120)})
+    all_normal = all(item["result"].get("status") == "NORMAL" for item in results)
+    return {"status": "NORMAL" if all_normal else "ALERT", "verified": all_normal, "proof_type": "Bulletproofs (one proof per measurement)", "measurements": results}
+
+
 
 @rpc.tool("evaluate_decision", "Evaluate the ZKP-attested range status and return the final patient status without receiving raw sensor data.", {
     "type": "object", "properties": {"status": {"type": "string"}}, "required": ["status"],

@@ -396,18 +396,24 @@ def main():
         patient.get("condition")
     )
 
-    print("\nPersonalized Range:")
-
-    print(
-        f"{policy.get('min')} "
-        f"- "
-        f"{policy.get('max')} "
-        f"{policy.get('parameter', '')}"
-    )
+    print("\nPersonalized Range(s):")
+    policies = policy.get("policies") if isinstance(policy, dict) else None
+    if policies:
+        for item in policies:
+            print(f"- {item.get('min')} - {item.get('max')} {item.get('parameter', '')}")
+    else:
+        print(f"{policy.get('min')} - {policy.get('max')} {policy.get('parameter', '')}")
 
     print("\nSensor Value:")
     sensor_value = proof.get("sensor_value_for_console")
-    if sensor_value is None:
+    measurements = proof.get("measurements") if isinstance(proof, dict) else None
+    if measurements:
+        for measurement in measurements:
+            item = measurement.get("result", {})
+            parameter = measurement.get("parameter", "measurement")
+            print(f"- {parameter}: {item.get('sensor_value_for_console', 'unavailable')}")
+        print("[LOCAL DEMO ONLY — actual sampled sensor values]")
+    elif sensor_value is None:
         print("Sensor value unavailable; restart the Privacy MCP to load the local-demo setting.")
     else:
         print(sensor_value)
@@ -416,7 +422,15 @@ def main():
     
 
     print("\nZKP Range-Proof Result:")
-    if proof.get("status") == "NORMAL" and proof.get("verified"):
+    if measurements:
+        for measurement in measurements:
+            item = measurement.get("result", {})
+            print(
+                f"- {measurement.get('parameter', 'measurement')}: "
+                f"{item.get('status', 'UNKNOWN')} "
+                f"({'VALID' if item.get('verified') else 'NOT VALID'})"
+            )
+    elif proof.get("status") == "NORMAL" and proof.get("verified"):
         print("VALID ✅  The ZKP attests range membership.")
     elif proof.get("status") == "ALERT":
         print("OUT OF RANGE ⚠️  The ZKP did not attest membership.")

@@ -108,6 +108,10 @@ def get_patient_by_id(patient_id):
                     continue
 
                 condition = p.get("condition", "hypertension")
+                conditions = p.get("conditions")
+                if isinstance(conditions, list) and conditions:
+                    conditions = [str(item) for item in conditions]
+                    condition = conditions[0]
 
                 patient = {
                     "id": identifier_value,
@@ -115,6 +119,8 @@ def get_patient_by_id(patient_id):
                     "age": age,
                     "condition": condition
                 }
+                if conditions and len(conditions) > 1:
+                    patient["conditions"] = conditions
 
                 print("\nPatient information:")
 

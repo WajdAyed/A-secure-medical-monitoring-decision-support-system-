@@ -91,12 +91,25 @@ def generate_safe_range(state):
     requested_rag = state.get("use_rag", True)
     env_rag = os.getenv("CDSS_RAG")
     use_rag = requested_rag if env_rag not in {"0", "1"} else env_rag == "1"
-    policy = call_tool(RULER_AGENT_URL, "generate_policy", {"patient": state["patient"], "use_rag": use_rag}, timeout=120)
+    demo_conditions = os.getenv("CDSS_DEMO_CONDITIONS", "")
+    if demo_conditions.strip():
+        conditions = [item.strip() for item in demo_conditions.split(",") if item.strip()]
+    else:
+        conditions = state["patient"].get("conditions") or [state["patient"]["condition"]]
+    if len(conditions) > 1:
+        policies = []
+        for condition in conditions:
+            context = dict(state["patient"], condition=condition)
+            policies.append(normalize_policy(call_tool(RULER_AGENT_URL, "generate_policy", {"patient": context, "use_rag": use_rag}, timeout=120)))
+        policy = {"policies": policies}
+    else:
+        policy = call_tool(RULER_AGENT_URL, "generate_policy", {"patient": state["patient"], "use_rag": use_rag}, timeout=120)
 
-    try:
-        policy = normalize_policy(policy)
-    except Exception as exc:
-        raise ValueError(f"Invalid policy contract from Ruler Agent: {policy!r}") from exc
+    if "policies" not in policy:
+        try:
+            policy = normalize_policy(policy)
+        except Exception as exc:
+            raise ValueError(f"Invalid policy contract from Ruler Agent: {policy!r}") from exc
 
 
 
@@ -123,6 +136,11 @@ def submit_range_for_zkp_validation(state):
     print("=" * 70)
 
 
+
+    if "policies" in state["policy"]:
+        ranges = [{"parameter": normalize_policy(p).get("parameter"), "min": normalize_policy(p)["min"], "max": normalize_policy(p)["max"]} for p in state["policy"]["policies"]]
+        proof = call_tool(DECISION_AGENT_URL, "validate_safe_ranges", {"ranges": ranges, "patient_id": state["patient_id"]}, timeout=120)
+        return _finish_timing(state, "proof", started, {"proof": proof})
 
     bounds = {
 
