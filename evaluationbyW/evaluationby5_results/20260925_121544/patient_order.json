@@ -1,0 +1,1057 @@
+[
+  {
+    "patient_id": "100001",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100002",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100003",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100004",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100005",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100006",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100007",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100008",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100009",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100010",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100011",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100012",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100013",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100014",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100015",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100016",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100017",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100018",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100019",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100020",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100021",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100022",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100023",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100024",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100025",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100026",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100027",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100028",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100029",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100030",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100031",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100032",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100033",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100034",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100035",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100036",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100037",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100038",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100039",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100040",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100041",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100042",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100043",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100044",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100045",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100046",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100047",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100048",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100049",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100050",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100051",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100052",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100053",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100054",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100055",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100056",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100057",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100058",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100059",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100060",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100061",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100062",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100063",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100064",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100065",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100066",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100067",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100068",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100069",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100070",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100071",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100072",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100073",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100074",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100075",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100076",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100077",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100078",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100079",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100080",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100081",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100082",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100083",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100084",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100085",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100086",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100087",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100088",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100089",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100090",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100091",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100092",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100093",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100094",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100095",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100096",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100097",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100098",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100099",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100100",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100101",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100102",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100103",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100104",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100105",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100106",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100107",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100108",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100109",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100110",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100111",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100112",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100113",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100114",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100115",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100116",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100117",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100118",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100119",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100120",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100121",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100122",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100123",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100124",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100125",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100126",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100127",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100128",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100129",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100130",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100131",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100132",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100133",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100134",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100135",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100136",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100137",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100138",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100139",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100140",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100141",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100142",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100143",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100144",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100145",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100146",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100147",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100148",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100149",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100150",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100151",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100152",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100153",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100154",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100155",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100156",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100157",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100158",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100159",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100160",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100161",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100162",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100163",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100164",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100165",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100166",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100167",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100168",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100169",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100170",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100171",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100172",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100173",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100174",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100175",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100176",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100177",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100178",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100179",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100180",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100181",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100182",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100183",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100184",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100185",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100186",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100187",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100188",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100189",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100190",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100191",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100192",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100193",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100194",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100195",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100196",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100197",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100198",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100199",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "100200",
+    "source": "datasets\\clean\\patients_200.json",
+    "emr_default_condition": false
+  },
+  {
+    "patient_id": "10007795",
+    "source": "datasets\\patients_200.json",
+    "emr_default_condition": true
+  },
+  {
+    "patient_id": "10007928",
+    "source": "datasets\\patients_200.json",
+    "emr_default_condition": true
+  },
+  {
+    "patient_id": "10009628",
+    "source": "datasets\\patients_200.json",
+    "emr_default_condition": true
+  },
+  {
+    "patient_id": "10011398",
+    "source": "datasets\\patients_200.json",
+    "emr_default_condition": true
+  },
+  {
+    "patient_id": "10004457",
+    "source": "datasets\\patients_200.json",
+    "emr_default_condition": true
+  },
+  {
+    "patient_id": "10003046",
+    "source": "datasets\\patients_200.json",
+    "emr_default_condition": true
+  },
+  {
+    "patient_id": "10014078",
+    "source": "datasets\\patients_200.json",
+    "emr_default_condition": true
+  },
+  {
+    "patient_id": "10003400",
+    "source": "datasets\\patients_200.json",
+    "emr_default_condition": true
+  },
+  {
+    "patient_id": "10020187",
+    "source": "datasets\\patients_200.json",
+    "emr_default_condition": true
+  },
+  {
+    "patient_id": "10038999",
+    "source": "datasets\\patients_200.json",
+    "emr_default_condition": true
+  },
+  {
+    "patient_id": "10016742",
+    "source": "datasets\\patients_200.json",
+    "emr_default_condition": true
+  }
+]

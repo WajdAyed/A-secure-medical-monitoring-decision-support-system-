@@ -7,7 +7,8 @@ from rule_engine.policy_generator import normalize_policy
 # Legacy variable names remain accepted for deployed clients.
 EMR_MCP_URL = os.getenv("EMR_MCP_URL", os.getenv("PATIENT_MCP_URL", "http://127.0.0.1:8005"))
 RULER_AGENT_URL = os.getenv("RULER_AGENT_URL", os.getenv("RULE_ENGINE_URL", "http://127.0.0.1:8004"))
-DECISION_AGENT_URL = os.getenv("DECISION_AGENT_URL", os.getenv("DECISION_ENGINE_URL", "http://127.0.0.1:8002"))
+PRIVACY_MCP_URL = os.getenv("ZKP_MCP_URL", os.getenv("PRIVACY_MCP_URL", "http://127.0.0.1:8003"))
+EVALUATION_OBSERVER = None
 
 
 class State(TypedDict):
@@ -19,6 +20,7 @@ class State(TypedDict):
     decision: dict
     use_rag: bool
     timings: dict
+    debug_sensor_values: bool
 
 
 def _eval_enabled():
@@ -32,6 +34,8 @@ def _finish_timing(state, key, started, value):
     timings = dict(state.get("timings", {}))
     timings[f"{key}_ms"] = (perf_counter() - started) * 1000
     value["timings"] = timings
+    if EVALUATION_OBSERVER is not None:
+        EVALUATION_OBSERVER(key, value)
     return value
 
 
@@ -132,27 +136,29 @@ def submit_range_for_zkp_validation(state):
 
     print("\n")
     print("=" * 70)
-    print("DECISION AGENT -> ZKP VALIDATION NODE")
+    print("COORDINATOR -> ZKP VALIDATION NODE")
     print("=" * 70)
 
 
 
     if "policies" in state["policy"]:
         ranges = [{"parameter": normalize_policy(p).get("parameter"), "min": normalize_policy(p)["min"], "max": normalize_policy(p)["max"]} for p in state["policy"]["policies"]]
-        proof = call_tool(DECISION_AGENT_URL, "validate_safe_ranges", {"ranges": ranges, "patient_id": state["patient_id"]}, timeout=120)
+        proof = call_tool(PRIVACY_MCP_URL, "request_proofs", {"ranges": ranges, "patient_id": state["patient_id"], "debug_sensor_values": state.get("debug_sensor_values", False)}, timeout=120)
         return _finish_timing(state, "proof", started, {"proof": proof})
 
     bounds = {
 
         "min": normalize_policy(state["policy"])["min"],
 
-        "max": normalize_policy(state["policy"])["max"]
+        "max": normalize_policy(state["policy"])["max"],
+
+        "parameter": normalize_policy(state["policy"]).get("parameter", "systolic_bp")
 
     }
 
 
 
-    print("Sending ONLY bounds to the Decision Agent for ZKP validation:")
+    print("Sending public bounds to the hospital ZKP verifier:")
 
     print(bounds)
 
@@ -164,8 +170,7 @@ def submit_range_for_zkp_validation(state):
 
 
 
-    # The Decision Agent owns range-to-ZKP routing; the coordinator sends no sensor data.
-    proof = call_tool(DECISION_AGENT_URL, "validate_safe_range", {"bounds": bounds, "patient_id": state["patient_id"]}, timeout=120)
+    proof = call_tool(PRIVACY_MCP_URL, "request_proof", {"bounds": bounds, "patient_id": state["patient_id"], "debug_sensor_values": state.get("debug_sensor_values", False)}, timeout=120)
 
 
 
@@ -181,6 +186,26 @@ def submit_range_for_zkp_validation(state):
 
 
 
+def summarize_proof(proof: dict) -> dict:
+    """Map verifier results to a report without claiming overall clinical stability."""
+    if not isinstance(proof, dict):
+        proof = {}
+    measurements = proof.get("measurements")
+    if measurements is not None:
+        if not isinstance(measurements, list) or not measurements:
+            results = [{}]
+        else:
+            results = [item.get("result", {}) if isinstance(item, dict) else {} for item in measurements]
+    else:
+        results = [proof]
+
+    if all(isinstance(item, dict) and item.get("status") == "NORMAL" and item.get("verified") is True for item in results):
+        return {"status": "IN_RANGE", "message": "Verified reading(s) are within the selected range(s)."}
+    if any(not isinstance(item, dict) or item.get("status") not in ("NORMAL", "ALERT") or (item.get("status") == "NORMAL" and item.get("verified") is not True) for item in results):
+        return {"status": "UNABLE_TO_ASSESS", "message": "A proof failed or is missing. Check the device or connection before assessing the reading."}
+    return {"status": "OUT_OF_RANGE", "message": "Device reported a reading outside the selected range; clinical review is needed."}
+
+
 def complete_clinical_decision(state):
 
     started = perf_counter()
@@ -188,7 +213,7 @@ def complete_clinical_decision(state):
 
     print("\n")
     print("=" * 70)
-    print("DECISION AGENT FINAL STATUS NODE")
+    print("COORDINATOR FINAL STATUS NODE")
     print("=" * 70)
 
 
@@ -196,12 +221,12 @@ def complete_clinical_decision(state):
     print("Sending proof status:")
 
     print(
-        state["proof"]["status"]
+        state["proof"].get("status", "MISSING")
     )
 
 
 
-    decision = call_tool(DECISION_AGENT_URL, "evaluate_decision", {"status": state["proof"]["status"]}, timeout=10)
+    decision = summarize_proof(state["proof"])
 
 
 

@@ -1,0 +1,5 @@
+family,cases,passed,failed,pass_rate,median_latency_ms
+privacy_invalid,5,5,0,1.0,9.061
+privacy_normal,1,1,0,1.0,81.376
+unknown_patient,1,1,0,1.0,21189.304
+valid_workflow,1,0,1,0.0,30022.485

@@ -1,0 +1,378 @@
+{
+  "patient_count": 199,
+  "absolute_bound_tolerance": 1e-06,
+  "relative_bound_tolerance": 0,
+  "clinical_compatibility_assessed": false,
+  "identical_bounds": 132,
+  "different_bounds": 0,
+  "bounds_unavailable": 67,
+  "identical_decisions": 132,
+  "different_decisions": 0,
+  "decisions_unavailable": 67,
+  "paired_success_count": 132,
+  "methods": {
+    "chroma": {
+      "attempted": 199,
+      "failures": 67,
+      "all_attempts": {
+        "retrieval_s": {
+          "n": 199,
+          "total": 43.183962700004486,
+          "mean": 0.21700483768846476
+        },
+        "bound_generation_s": {
+          "n": 199,
+          "total": 2800.710365799976,
+          "mean": 14.073921436180784
+        },
+        "proof_s": {
+          "n": 132,
+          "total": 11.53378789999988,
+          "mean": 0.08737718106060514
+        },
+        "total_workflow_s": {
+          "n": 199,
+          "total": 2862.3403229000214,
+          "mean": 14.383619713065434
+        }
+      },
+      "successful": {
+        "retrieval_s": {
+          "n": 132,
+          "total": 28.171788000010565,
+          "mean": 0.2134226363637164
+        },
+        "bound_generation_s": {
+          "n": 132,
+          "total": 1912.50080969997,
+          "mean": 14.488642497727046
+        },
+        "proof_s": {
+          "n": 132,
+          "total": 11.53378789999988,
+          "mean": 0.08737718106060514
+        },
+        "total_workflow_s": {
+          "n": 132,
+          "total": 1957.1732754000004,
+          "mean": 14.82707026818182
+        }
+      },
+      "paired_successful": {
+        "retrieval_s": {
+          "n": 132,
+          "total": 28.171788000010565,
+          "mean": 0.2134226363637164
+        },
+        "bound_generation_s": {
+          "n": 132,
+          "total": 1912.50080969997,
+          "mean": 14.488642497727046
+        },
+        "proof_s": {
+          "n": 132,
+          "total": 11.53378789999988,
+          "mean": 0.08737718106060514
+        },
+        "total_workflow_s": {
+          "n": 132,
+          "total": 1957.1732754000004,
+          "mean": 14.82707026818182
+        }
+      },
+      "paired_execution_order": {
+        "1": {
+          "n": 0,
+          "mean_total_s": null
+        },
+        "2": {
+          "n": 0,
+          "mean_total_s": null
+        }
+      }
+    },
+    "direct": {
+      "attempted": 199,
+      "failures": 67,
+      "all_attempts": {
+        "retrieval_s": {
+          "n": 199,
+          "total": 38.48424630003501,
+          "mean": 0.19338817236198497
+        },
+        "bound_generation_s": {
+          "n": 199,
+          "total": 2872.0680733999834,
+          "mean": 14.432502881406952
+        },
+        "proof_s": {
+          "n": 132,
+          "total": 7.145559400010825,
+          "mean": 0.054133025757657764
+        },
+        "total_workflow_s": {
+          "n": 199,
+          "total": 2924.7903560000086,
+          "mean": 14.697438974874416
+        }
+      },
+      "successful": {
+        "retrieval_s": {
+          "n": 132,
+          "total": 25.051459899983456,
+          "mean": 0.1897837871210868
+        },
+        "bound_generation_s": {
+          "n": 132,
+          "total": 1946.8015533000216,
+          "mean": 14.748496615909255
+        },
+        "proof_s": {
+          "n": 132,
+          "total": 7.145559400010825,
+          "mean": 0.054133025757657764
+        },
+        "total_workflow_s": {
+          "n": 132,
+          "total": 1983.8284372000162,
+          "mean": 15.029003312121334
+        }
+      },
+      "paired_successful": {
+        "retrieval_s": {
+          "n": 132,
+          "total": 25.051459899983456,
+          "mean": 0.1897837871210868
+        },
+        "bound_generation_s": {
+          "n": 132,
+          "total": 1946.8015533000216,
+          "mean": 14.748496615909255
+        },
+        "proof_s": {
+          "n": 132,
+          "total": 7.145559400010825,
+          "mean": 0.054133025757657764
+        },
+        "total_workflow_s": {
+          "n": 132,
+          "total": 1983.8284372000162,
+          "mean": 15.029003312121334
+        }
+      },
+      "paired_execution_order": {
+        "1": {
+          "n": 0,
+          "mean_total_s": null
+        },
+        "2": {
+          "n": 0,
+          "mean_total_s": null
+        }
+      }
+    }
+  },
+  "setup": {
+    "setup_seconds": {
+      "patient_snapshot": 0.016915299998800037,
+      "shared_pdf_loading_chunking": 8.707922699999472,
+      "direct_embedding_precompute": 117.03072169999723,
+      "chroma_index_build_and_load": 9.766800900000817,
+      "shared_services_start": 2.004397400000016,
+      "pass_model_reset": {
+        "chroma": 0.5103603999996267,
+        "direct": 0.437954200002423
+      }
+    },
+    "limitations": [
+      "Uses the active application's datasets/clean/patients_200.json only: 200 patients, or 199 with requested exclusion #155. Raw-only records are not members of the active cohort.",
+      "Every patient is submitted through the real Coordinator run_cdss MCP endpoint and compiled LangGraph. Patient, Ruler, Knowledge, Privacy and Device calls all use real loopback HTTP MCP transport. Services share a Python process for instrumentation; they are not separate Docker containers.",
+      "A fresh isolated Chroma index uses the builder's PDF loader, chunk_size=1000, chunk_overlap=200, default collection and distance metric. The project's existing persistent index is untouched. Both methods receive identical chunks and current nomic-embed-text vectors; indexing is setup, not patient time.",
+      "Chroma uses default squared L2 distance, direct search uses exhaustive cosine similarity. Rankings can differ for non-unit vectors and ties; this metric distinction in the existing path is retained and disclosed.",
+      "Both methods use the existing llama3 prompt, temperature=0 and seed=42, normalization and supported parameters. Hard-coded fallback is disabled for both; invalid model output is an error. This explicit strict mode differs from production fallback behavior.",
+      "All original coordinator nodes, Ruler RPC, condition policies, proof requests, Rust proving/verifying and final decision logic are retained. The Ruler selects one of two Knowledge retrieval tools; generation and strict validation are shared.",
+      "Device CDSS_EVAL uses the existing deterministic patient/parameter sensor simulation. Fresh proof nonces remain random. ALERT means the device reported an out-of-range value and produced no proof; it is not a technical error or successful proof verification.",
+      "Two full sequential passes: all Chroma patients, then all direct-search patients, in identical original order. Before each pass llama3 is unloaded to reset cross-pass prompt reuse, then patient #1 warms the full workflow and is measured again. Natural within-pass model caching remains enabled for both methods. No artificial minimum duration or application response cache is used.",
+      "Figure means use paired successful workflows; failed and incomplete attempts have separate statistics. Missing stage times are null, never zero. One run per patient is insufficient for statistical speed claims.",
+      "The direct pass stopped after 133 measured patients and was resumed from the saved prefix. Restart setup rebuilt direct vectors from the saved chunks with the same model digest, verified retrieval agreement for every prior distinct query, and warmed patient #1 again. Prior timings are unchanged. This interruption and renewed model cache state limit whole-pass timing comparisons.",
+      "The direct pass stopped after 133 measured patients and was resumed from the saved prefix. Restart setup rebuilt direct vectors from the saved chunks with the same model digest, verified retrieval agreement for every prior distinct query, and warmed patient #1 again. Prior timings are unchanged. This interruption and renewed model cache state limit whole-pass timing comparisons."
+    ],
+    "patient_count": 199,
+    "original_patient_count": 200,
+    "excluded_patient_numbers": [
+      155
+    ],
+    "warmup_patient_id": "100001",
+    "ollama_models": {
+      "models": [
+        {
+          "name": "nomic-embed-text:latest",
+          "model": "nomic-embed-text:latest",
+          "modified_at": "2026-07-28T16:49:40.3002296+01:00",
+          "size": 274302450,
+          "digest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "nomic-bert",
+            "families": [
+              "nomic-bert"
+            ],
+            "parameter_size": "137M",
+            "quantization_level": "F16",
+            "context_length": 2048,
+            "embedding_length": 768
+          },
+          "capabilities": [
+            "embedding"
+          ]
+        },
+        {
+          "name": "llama3:latest",
+          "model": "llama3:latest",
+          "modified_at": "2026-07-28T16:49:28.0696931+01:00",
+          "size": 4661224676,
+          "digest": "365c0bd3c000a25d28ddbf732fe1c6add414de7275464c4e4d1c3b5fcb5d8ad1",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "8.0B",
+            "quantization_level": "Q4_0",
+            "context_length": 8192,
+            "embedding_length": 4096
+          },
+          "capabilities": [
+            "completion"
+          ]
+        },
+        {
+          "name": "mistral:latest",
+          "model": "mistral:latest",
+          "modified_at": "2026-06-17T17:32:13.8240966+01:00",
+          "size": 4372824384,
+          "digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "7.2B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 32768,
+            "embedding_length": 4096
+          },
+          "capabilities": [
+            "completion",
+            "tools"
+          ]
+        },
+        {
+          "name": "llama3.2:1b",
+          "model": "llama3.2:1b",
+          "modified_at": "2026-05-28T23:33:05.5968411+01:00",
+          "size": 1321098329,
+          "digest": "baf6a787fdffd633537aa2eb51cfd54cb93ff08e28040095462bb63daf552878",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "1.2B",
+            "quantization_level": "Q8_0",
+            "context_length": 131072,
+            "embedding_length": 2048
+          },
+          "capabilities": [
+            "completion",
+            "tools"
+          ]
+        }
+      ]
+    },
+    "packages": {
+      "chromadb": "1.5.9",
+      "langchain-chroma": "1.1.0",
+      "langchain-ollama": "1.1.0",
+      "langchain-community": "0.4.2",
+      "langchain-text-splitters": "1.1.2",
+      "ollama": "0.6.2",
+      "numpy": "2.4.6"
+    },
+    "documents": [
+      {
+        "file": "Diabetes guideline.pdf",
+        "sha256": "daf10f5fb0912a14a3c4c9aeef53e4439bccbf03927695b3c226e5a2563762af"
+      },
+      {
+        "file": "Heart Failure guideline.pdf",
+        "sha256": "2cf5f0a567ce74511df6792eef9958391befa3bf6309f3c0cab80e0bd6095177"
+      },
+      {
+        "file": "Hypertension guideline.pdf",
+        "sha256": "57f6376d5c9bc4ea6c44873625547c8a5443d5a6ad8c8c422733681563db05fb"
+      }
+    ],
+    "chunks": 693,
+    "embedding_model": "nomic-embed-text",
+    "llm": "llama3",
+    "k": 3,
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "vector_norm_range": [
+      0.9999991012586469,
+      1.0000007444409178
+    ],
+    "chroma_configuration": {
+      "hnsw": {
+        "space": "l2",
+        "ef_construction": 100,
+        "ef_search": 100,
+        "max_neighbors": 16,
+        "resize_factor": 1.2,
+        "sync_threshold": 1000
+      },
+      "spann": null,
+      "embedding_function": null
+    },
+    "execution_mode": "two full passes via Coordinator MCP",
+    "warmup_errors": {
+      "chroma": null,
+      "direct": null
+    },
+    "restarts": [
+      {
+        "started_at": "2026-09-25 21:38:10",
+        "completed_direct_patients": 133,
+        "remaining_patients": 66,
+        "setup_seconds": {},
+        "error": "ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=11434): Max retries exceeded with url: /api/tags (Caused by NewConnectionError(\"HTTPConnection(host='127.0.0.1', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it\"))"
+      },
+      {
+        "started_at": "2026-09-25 21:40:08",
+        "completed_direct_patients": 133,
+        "remaining_patients": 66,
+        "setup_seconds": {
+          "direct_embeddings": 111.011155900007,
+          "retrieval_consistency_check": 0.6269033999997191,
+          "model_reset": 0.3773413000017172
+        },
+        "validated_queries": 12,
+        "warmup_error": null
+      }
+    ]
+  },
+  "identical_retrieval_pairs": 199,
+  "different_retrieval_pairs": 0,
+  "asymmetric_failure_pairs": 0,
+  "different_patient_profile_pairs": 0,
+  "different_bounds_with_identical_retrieval": 0,
+  "different_decisions_with_identical_retrieval": 0
+}

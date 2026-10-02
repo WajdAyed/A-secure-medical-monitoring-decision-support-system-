@@ -1,0 +1,18 @@
+Edit the attached architecture image. Preserve its recognizable layout, pale blue server rectangle, pale green device rectangle, icons and component names. Produce a crisp high resolution landscape academic diagram with expanded spacing and a bottom numbered message legend so text is very legible. Add a small title "Numbered message flow — physical deployment". Label blue boundary "Server" and green boundary "ZKP layer — Raspberry Pi / sensors". Keep Micro-Controller icon but label "Raspberry Pi" and subtitle "ZKP prover". Privacy ZKP box subtitle "Verifier". Keep Doctor, LangGraph Coordinator, EMR, Ruler Agent, ChromaDB, Guidelines, Llama3 LLM. Do not add a Decision Agent because user wants to preserve their diagram.
+Add correctly directed arrows with numbered circular badges and short labels. Use the following exact chronological messages; numbers must correspond to legend and arrows:
+1 Doctor -> Coordinator: "Assessment request"
+2 Coordinator -> EMR: "Request patient context"
+3 EMR -> Coordinator: "Minimum EMR context"
+4 Coordinator -> Ruler Agent: "Context + measurement type"
+5 Ruler Agent -> knowledge/LLM grouped box: "Retrieve guidelines / generate bounds"
+6 knowledge/LLM grouped box -> Ruler Agent: "Evidence + proposed bounds"
+7 Ruler Agent -> Coordinator: "Allowed range + policy ID"
+8 Coordinator -> Privacy ZKP: "Request range verification"
+9 Privacy ZKP -> Raspberry Pi: "Bounds + units + nonce"
+10 Vital sign sensors -> Raspberry Pi INSIDE green boundary: "Private sensor reading"
+11 Raspberry Pi -> Privacy ZKP: "Proof + commitments + request ID"
+12 Privacy ZKP -> Coordinator: "Verification result"
+13 Coordinator -> Doctor: "Assessment / unverified status"
+Separate opposing arrows visibly. Fit short labels on arrows where practical; use numbered badges and the full messages in a neatly typeset bottom legend arranged in 3 columns if needed. Every number from 1 through 13 exactly once in legend, with matching badges on the relevant arrows. Raw reading arrow 10 must stay entirely inside device boundary. Add small footer: "Exact measurement stays on the Raspberry Pi. The server independently verifies the proof. Failed proof = unverified." This is a proposed physical deployment architecture, not a claim current code already implements it. Preserve original visual identity; no decorative new imagery; avoid overlapping labels/arrows.
+
+Generated using the built-in image_gen tool, editing the user-provided architecture image.

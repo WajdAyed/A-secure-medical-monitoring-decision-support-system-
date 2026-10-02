@@ -1,0 +1,255 @@
+patient_id,vital_sign,rag_lower,rag_upper,no_rag_lower,no_rag_upper,reason,lower_compatible_exact,lower_compatible_tolerance,upper_compatible_exact,upper_compatible_tolerance
+100002,peak_flow_percent,,,80.0,100.0,missing range in RAG,,,,
+100002,systolic_bp,120.0,140.0,,,missing range in no-RAG,,,,
+100003,systolic_bp,110.0,130.0,120.0,140.0,lower differs; upper differs,False,False,False,False
+100004,heart_rate,60.0,100.0,60.0,90.0,upper differs,True,True,False,False
+100005,pain_score,0.0,4.0,0.0,4.0,,True,True,True,True
+100006,systolic_bp,120.0,140.0,120.0,130.0,upper differs,True,True,False,False
+100007,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100007,systolic_bp,130.0,140.0,,,missing range in no-RAG,,,,
+100008,systolic_bp,130.0,139.0,120.0,130.0,lower differs; upper differs,False,False,False,False
+100009,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100010,heart_rate,,,80.0,100.0,missing range in RAG,,,,
+100010,systolic_bp,130.0,150.0,,,missing range in no-RAG,,,,
+100011,heart_rate,,,60.0,90.0,missing range in RAG,,,,
+100011,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100012,oxygen_saturation,92.0,100.0,85.0,95.0,lower differs; upper differs,False,False,False,False
+100013,sleep_hours,7.0,9.0,7.0,9.0,,True,True,True,True
+100014,pain_score,0.0,4.0,0.0,4.0,,True,True,True,True
+100015,pain_score,0.0,4.0,0.0,4.0,,True,True,True,True
+100016,systolic_bp,130.0,149.0,120.0,130.0,lower differs; upper differs,False,False,False,False
+100017,pain_score,,,0.0,4.0,missing range in RAG,,,,
+100017,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100018,hemoglobin,,,12.0,16.0,missing range in RAG,,,,
+100018,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100019,heart_rate,60.0,100.0,60.0,90.0,upper differs,True,True,False,False
+100020,peak_flow_percent,80.0,100.0,80.0,100.0,,True,True,True,True
+100021,peak_flow_percent,80.0,100.0,80.0,100.0,,True,True,True,True
+100022,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100023,sleep_hours,7.0,9.0,7.0,9.0,,True,True,True,True
+100024,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100024,systolic_bp,130.0,145.0,,,missing range in no-RAG,,,,
+100025,pain_score,0.0,4.0,0.0,4.0,,True,True,True,True
+100026,blood_glucose,70.0,140.0,70.0,140.0,,True,True,True,True
+100027,oxygen_saturation,,,88.0,92.0,missing range in RAG,,,,
+100027,systolic_bp,90.0,120.0,,,missing range in no-RAG,,,,
+100028,systolic_bp,130.0,139.0,120.0,130.0,lower differs; upper differs,False,False,False,False
+100029,systolic_bp,90.0,120.0,100.0,125.0,lower differs; upper differs,False,False,False,False
+100030,hemoglobin,10.0,12.0,12.0,16.0,lower differs; upper differs,False,False,False,False
+100031,heart_rate,60.0,100.0,60.0,90.0,upper differs,True,True,False,False
+100032,systolic_bp,110.0,130.0,120.0,130.0,lower differs,False,False,True,True
+100033,sleep_hours,,,7.0,9.0,missing range in RAG,,,,
+100033,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100034,heart_rate,,,80.0,100.0,missing range in RAG,,,,
+100034,systolic_bp,90.0,100.0,,,missing range in no-RAG,,,,
+100035,systolic_bp,110.0,130.0,120.0,140.0,lower differs; upper differs,False,False,False,False
+100036,systolic_bp,90.0,120.0,,,missing range in no-RAG,,,,
+100036,weight_kg,,,60.0,90.0,missing range in RAG,,,,
+100037,oxygen_saturation,92.0,100.0,88.0,92.0,lower differs; upper differs,False,False,False,False
+100038,systolic_bp,130.0,139.0,110.0,135.0,lower differs; upper differs,False,False,False,False
+100039,systolic_bp,110.0,130.0,100.0,120.0,lower differs; upper differs,False,False,False,False
+100040,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100041,systolic_bp,120.0,140.0,120.0,140.0,,True,True,True,True
+100042,heart_rate,60.0,100.0,60.0,90.0,upper differs,True,True,False,False
+100043,systolic_bp,110.0,135.0,100.0,120.0,lower differs; upper differs,False,False,False,False
+100044,heart_rate,60.0,100.0,60.0,100.0,,True,True,True,True
+100045,hemoglobin,,,12.0,16.0,missing range in RAG,,,,
+100045,systolic_bp,130.0,150.0,,,missing range in no-RAG,,,,
+100046,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100047,heart_rate,60.0,100.0,60.0,90.0,upper differs,True,True,False,False
+100048,systolic_bp,140.0,150.0,100.0,120.0,lower differs; upper differs,False,False,False,False
+100049,systolic_bp,130.0,145.0,120.0,130.0,lower differs; upper differs,False,False,False,False
+100050,systolic_bp,130.0,145.0,120.0,130.0,lower differs; upper differs,False,False,False,False
+100051,sleep_hours,,,7.0,9.0,missing range in RAG,,,,
+100051,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100052,systolic_bp,110.0,130.0,120.0,130.0,lower differs,False,False,True,True
+100053,heart_rate,60.0,100.0,60.0,90.0,upper differs,True,True,False,False
+100054,systolic_bp,110.0,130.0,120.0,130.0,lower differs,False,False,True,True
+100055,hemoglobin,,,9.0,13.0,missing range in RAG,,,,
+100055,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100056,blood_glucose,70.0,140.0,70.0,140.0,,True,True,True,True
+100057,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100057,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100058,heart_rate,50.0,100.0,60.0,90.0,lower differs; upper differs,False,False,False,False
+100059,systolic_bp,120.0,140.0,120.0,130.0,upper differs,True,True,False,False
+100060,oxygen_saturation,92.0,100.0,85.0,95.0,lower differs; upper differs,False,False,False,False
+100061,oxygen_saturation,92.0,100.0,92.0,100.0,,True,True,True,True
+100062,sleep_hours,7.0,9.0,7.0,9.0,,True,True,True,True
+100063,sleep_hours,,,7.0,9.0,missing range in RAG,,,,
+100063,systolic_bp,120.0,140.0,,,missing range in no-RAG,,,,
+100064,sleep_hours,,,7.0,9.0,missing range in RAG,,,,
+100064,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100065,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100066,heart_rate,60.0,90.0,50.0,90.0,lower differs,False,False,True,True
+100067,peak_flow_percent,80.0,100.0,80.0,100.0,,True,True,True,True
+100068,systolic_bp,100.0,130.0,120.0,130.0,lower differs,False,False,True,True
+100069,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100070,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100071,pain_score,0.0,4.0,0.0,4.0,,True,True,True,True
+100072,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100073,oxygen_saturation,92.0,100.0,88.0,92.0,lower differs; upper differs,False,False,False,False
+100074,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100074,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100075,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100076,peak_flow_percent,80.0,100.0,80.0,100.0,,True,True,True,True
+100077,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100077,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100078,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100079,systolic_bp,120.0,140.0,90.0,120.0,lower differs; upper differs,False,False,False,False
+100080,sleep_hours,,,7.0,9.0,missing range in RAG,,,,
+100080,systolic_bp,130.0,150.0,,,missing range in no-RAG,,,,
+100081,systolic_bp,130.0,139.0,110.0,135.0,lower differs; upper differs,False,False,False,False
+100082,sleep_hours,,,6.0,8.0,missing range in RAG,,,,
+100082,systolic_bp,120.0,140.0,,,missing range in no-RAG,,,,
+100083,peak_flow_percent,80.0,100.0,80.0,100.0,,True,True,True,True
+100084,peak_flow_percent,80.0,100.0,80.0,100.0,,True,True,True,True
+100085,oxygen_saturation,92.0,100.0,92.0,100.0,,True,True,True,True
+100086,sleep_hours,,,6.0,9.0,missing range in RAG,,,,
+100086,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100087,heart_rate,60.0,100.0,60.0,80.0,upper differs,True,True,False,False
+100088,sleep_hours,,,7.0,9.0,missing range in RAG,,,,
+100088,systolic_bp,130.0,140.0,,,missing range in no-RAG,,,,
+100089,oxygen_saturation,,,88.0,92.0,missing range in RAG,,,,
+100089,systolic_bp,120.0,140.0,,,missing range in no-RAG,,,,
+100090,heart_rate,,,60.0,90.0,missing range in RAG,,,,
+100090,hemoglobin,12.0,16.0,,,missing range in no-RAG,,,,
+100091,systolic_bp,90.0,120.0,,,missing range in no-RAG,,,,
+100091,weight_kg,,,60.0,90.0,missing range in RAG,,,,
+100092,sleep_hours,,,7.0,9.0,missing range in RAG,,,,
+100092,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100093,peak_flow_percent,,,80.0,100.0,missing range in RAG,,,,
+100093,systolic_bp,90.0,120.0,,,missing range in no-RAG,,,,
+100094,blood_glucose,70.0,140.0,70.0,140.0,,True,True,True,True
+100095,systolic_bp,130.0,139.0,110.0,135.0,lower differs; upper differs,False,False,False,False
+100096,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100097,oxygen_saturation,92.0,100.0,88.0,92.0,lower differs; upper differs,False,False,False,False
+100098,oxygen_saturation,92.0,100.0,88.0,95.0,lower differs; upper differs,False,False,False,False
+100099,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100099,systolic_bp,100.0,125.0,,,missing range in no-RAG,,,,
+100100,bmi,18.0,30.0,,,missing range in no-RAG,,,,
+100100,heart_rate,,,60.0,90.0,missing range in RAG,,,,
+100101,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100102,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100103,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100103,systolic_bp,120.0,140.0,,,missing range in no-RAG,,,,
+100104,heart_rate,60.0,90.0,60.0,90.0,,True,True,True,True
+100105,hemoglobin,,,12.0,16.0,missing range in RAG,,,,
+100105,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100106,pain_score,0.0,4.0,0.0,4.0,,True,True,True,True
+100107,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100108,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100109,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100109,systolic_bp,120.0,140.0,,,missing range in no-RAG,,,,
+100110,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100111,systolic_bp,120.0,139.0,120.0,130.0,upper differs,True,True,False,False
+100112,systolic_bp,120.0,130.0,120.0,140.0,upper differs,True,True,False,False
+100113,peak_flow_percent,,,80.0,100.0,missing range in RAG,,,,
+100113,systolic_bp,130.0,140.0,,,missing range in no-RAG,,,,
+100114,oxygen_saturation,92.0,100.0,85.0,95.0,lower differs; upper differs,False,False,False,False
+100115,blood_glucose,70.0,140.0,70.0,120.0,upper differs,True,True,False,False
+100116,systolic_bp,,,110.0,135.0,missing range in RAG,,,,
+100117,systolic_bp,,,120.0,130.0,missing range in RAG,,,,
+100118,systolic_bp,,,110.0,135.0,missing range in RAG,,,,
+100119,sleep_hours,,,7.0,9.0,missing range in RAG,,,,
+100120,bmi,,,18.0,30.0,missing range in RAG,,,,
+100121,pain_score,,,0.0,4.0,missing range in RAG,,,,
+100122,oxygen_saturation,,,88.0,95.0,missing range in RAG,,,,
+100123,systolic_bp,130.0,139.0,110.0,135.0,lower differs; upper differs,False,False,False,False
+100124,hemoglobin,12.0,16.0,12.0,16.0,,True,True,True,True
+100125,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100125,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100126,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100126,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100127,heart_rate,80.0,120.0,60.0,100.0,lower differs; upper differs,False,False,False,False
+100128,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100129,pain_score,0.0,4.0,0.0,4.0,,True,True,True,True
+100130,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100131,hemoglobin,12.0,15.0,12.0,16.0,upper differs,True,True,False,False
+100132,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100132,systolic_bp,130.0,150.0,,,missing range in no-RAG,,,,
+100133,blood_glucose,100.0,140.0,70.0,140.0,lower differs,False,False,True,True
+100134,pain_score,0.0,4.0,0.0,4.0,,True,True,True,True
+100135,pain_score,0.0,4.0,0.0,4.0,,True,True,True,True
+100136,oxygen_saturation,92.0,100.0,85.0,95.0,lower differs; upper differs,False,False,False,False
+100137,heart_rate,60.0,100.0,60.0,90.0,upper differs,True,True,False,False
+100138,pain_score,0.0,4.0,0.0,4.0,,True,True,True,True
+100139,oxygen_saturation,92.0,100.0,92.0,100.0,,True,True,True,True
+100140,oxygen_saturation,92.0,100.0,88.0,92.0,lower differs; upper differs,False,False,False,False
+100141,systolic_bp,130.0,139.0,120.0,130.0,lower differs; upper differs,False,False,False,False
+100142,blood_glucose,70.0,140.0,70.0,140.0,,True,True,True,True
+100143,systolic_bp,130.0,139.0,110.0,135.0,lower differs; upper differs,False,False,False,False
+100144,oxygen_saturation,92.0,100.0,88.0,92.0,lower differs; upper differs,False,False,False,False
+100145,systolic_bp,130.0,139.0,110.0,135.0,lower differs; upper differs,False,False,False,False
+100146,sleep_hours,,,7.0,9.0,missing range in RAG,,,,
+100146,systolic_bp,130.0,150.0,,,missing range in no-RAG,,,,
+100147,peak_flow_percent,80.0,100.0,80.0,100.0,,True,True,True,True
+100148,oxygen_saturation,92.0,100.0,88.0,92.0,lower differs; upper differs,False,False,False,False
+100149,hemoglobin,12.0,16.0,12.0,16.0,,True,True,True,True
+100150,sleep_hours,,,7.0,9.0,missing range in RAG,,,,
+100150,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100151,peak_flow_percent,80.0,100.0,80.0,100.0,,True,True,True,True
+100152,systolic_bp,130.0,139.0,120.0,130.0,lower differs; upper differs,False,False,False,False
+100153,pain_score,0.0,4.0,0.0,4.0,,True,True,True,True
+100154,hemoglobin,,,12.0,16.0,missing range in RAG,,,,
+100154,systolic_bp,110.0,130.0,,,missing range in no-RAG,,,,
+100156,systolic_bp,120.0,130.0,120.0,140.0,upper differs,True,True,False,False
+100157,heart_rate,60.0,100.0,70.0,90.0,lower differs; upper differs,False,False,False,False
+100158,sleep_hours,,,7.0,9.0,missing range in RAG,,,,
+100158,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100159,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100159,systolic_bp,120.0,140.0,,,missing range in no-RAG,,,,
+100160,hemoglobin,12.0,15.0,12.0,16.0,upper differs,True,True,False,False
+100161,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100161,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100162,systolic_bp,120.0,140.0,100.0,120.0,lower differs; upper differs,False,False,False,False
+100163,heart_rate,60.0,100.0,60.0,90.0,upper differs,True,True,False,False
+100164,oxygen_saturation,92.0,100.0,85.0,95.0,lower differs; upper differs,False,False,False,False
+100165,blood_glucose,70.0,140.0,70.0,140.0,,True,True,True,True
+100166,systolic_bp,90.0,120.0,120.0,130.0,lower differs; upper differs,False,False,False,False
+100167,blood_glucose,70.0,140.0,70.0,140.0,,True,True,True,True
+100168,pain_score,0.0,4.0,0.0,4.0,,True,True,True,True
+100169,heart_rate,50.0,120.0,60.0,90.0,lower differs; upper differs,False,False,False,False
+100170,peak_flow_percent,,,80.0,100.0,missing range in RAG,,,,
+100170,systolic_bp,120.0,140.0,,,missing range in no-RAG,,,,
+100171,systolic_bp,120.0,140.0,120.0,130.0,upper differs,True,True,False,False
+100172,peak_flow_percent,,,80.0,100.0,missing range in RAG,,,,
+100172,systolic_bp,90.0,100.0,,,missing range in no-RAG,,,,
+100173,heart_rate,80.0,120.0,60.0,100.0,lower differs; upper differs,False,False,False,False
+100174,heart_rate,,,60.0,90.0,missing range in RAG,,,,
+100174,systolic_bp,100.0,130.0,,,missing range in no-RAG,,,,
+100175,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100175,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100176,sleep_hours,7.0,9.0,7.0,9.0,,True,True,True,True
+100177,systolic_bp,130.0,139.0,120.0,130.0,lower differs; upper differs,False,False,False,False
+100178,systolic_bp,120.0,140.0,120.0,130.0,upper differs,True,True,False,False
+100179,blood_glucose,70.0,140.0,70.0,140.0,,True,True,True,True
+100180,sleep_hours,,,7.0,9.0,missing range in RAG,,,,
+100180,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100181,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100181,systolic_bp,130.0,145.0,,,missing range in no-RAG,,,,
+100182,systolic_bp,,,120.0,130.0,missing range in RAG,,,,
+100182,weight_kg,60.0,90.0,,,missing range in no-RAG,,,,
+100183,blood_glucose,70.0,140.0,70.0,140.0,,True,True,True,True
+100184,systolic_bp,120.0,140.0,120.0,140.0,,True,True,True,True
+100185,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100186,peak_flow_percent,80.0,100.0,80.0,100.0,,True,True,True,True
+100187,sleep_hours,,,7.0,9.0,missing range in RAG,,,,
+100187,systolic_bp,110.0,125.0,,,missing range in no-RAG,,,,
+100188,sleep_hours,7.0,9.0,7.0,9.0,,True,True,True,True
+100189,oxygen_saturation,88.0,92.0,92.0,100.0,lower differs; upper differs,False,False,False,False
+100190,systolic_bp,130.0,139.0,90.0,120.0,lower differs; upper differs,False,False,False,False
+100191,heart_rate,,,60.0,100.0,missing range in RAG,,,,
+100191,systolic_bp,90.0,120.0,,,missing range in no-RAG,,,,
+100192,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100192,systolic_bp,90.0,130.0,,,missing range in no-RAG,,,,
+100193,bmi,18.0,30.0,18.0,30.0,,True,True,True,True
+100194,systolic_bp,130.0,145.0,100.0,125.0,lower differs; upper differs,False,False,False,False
+100195,creatinine,,,1.0,2.0,missing range in RAG,,,,
+100195,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100196,sleep_hours,,,6.0,9.0,missing range in RAG,,,,
+100196,systolic_bp,120.0,130.0,,,missing range in no-RAG,,,,
+100197,systolic_bp,120.0,130.0,90.0,120.0,lower differs; upper differs,False,False,False,False
+100198,peak_flow_percent,80.0,100.0,80.0,100.0,,True,True,True,True
+100199,heart_rate,,,80.0,100.0,missing range in RAG,,,,
+100199,systolic_bp,110.0,130.0,,,missing range in no-RAG,,,,
+100200,peak_flow_percent,80.0,100.0,80.0,100.0,,True,True,True,True

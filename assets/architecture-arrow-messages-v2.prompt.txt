@@ -1,0 +1,17 @@
+Edit the latest attached architecture diagram (hospital server side, green ZKP layer crossing dashed boundary into orange patient room). Preserve this specific image's component layout, colors, icons, labels and architectural boundaries. User explicitly wants messages ON/along the arrows with chronological numbers, not a separate legend. Expand canvas and spacing substantially as needed for clear readable labels, keeping same overall arrangement. Render a high resolution landscape technical diagram. Keep "Hospital server side", "LangGraph Coordinator", "Doctor", "EMR", "Ruler Agent", "ChromaDB", "Guidelines", "Llama3 LLM", "ZKP layer", "Privacy ZKP", "patient room", "Micro-Controller", "Vital sign". Keep dashed vertical hospital/patient-room boundary. All arrow text must be horizontal and directly beside its own arrow on a pale background for legibility. Separate forward and reverse arrow routes enough to fit their messages unambiguously, using orthogonal routes. Exactly 13 directed arrows, numbered 1 through 13 in execution order. Each arrow carries its number AND the message together as below, not numbers alone. Do not include an external legend. Do not duplicate any arrow.
+1. Doctor -> LangGraph Coordinator: "1. Assessment request"
+2. LangGraph Coordinator -> EMR: "2. Request patient context"
+3. EMR -> LangGraph Coordinator: "3. Minimum EMR context"
+4. LangGraph Coordinator -> Ruler Agent: "4. Context + vital-sign type"
+5. Ruler Agent -> grouped ChromaDB / Guidelines / Llama3 LLM box: "5. Retrieve guidelines + infer range"
+6. grouped knowledge / LLM box -> Ruler Agent: "6. Evidence + proposed range"
+7. Ruler Agent -> LangGraph Coordinator: "7. Allowed range + policy ID"
+8. LangGraph Coordinator -> Privacy ZKP: "8. Request range verification"
+9. Privacy ZKP -> Micro-Controller: "9. Bounds + units + fresh nonce"
+10. Vital sign -> Micro-Controller: "10. Private sensor reading"
+11. Micro-Controller -> Privacy ZKP: "11. Proof + commitments + request ID"
+12. Privacy ZKP -> LangGraph Coordinator: "12. Verification result"
+13. LangGraph Coordinator -> Doctor: "13. Assessment result"
+Allow two or three lines per arrow label. These are message descriptions, not additional component boxes. Privacy ZKP can have small subtitle "Verifier" and Micro-Controller small subtitle "Prover". Exact measurement flows only on arrow 10 inside patient room. Preserve recognizable original visual design and all original named components, no extra components. Prioritize legible labels and precise arrow endpoints, no overlaps with icons or other labels.
+
+Created using the built-in image_gen tool.

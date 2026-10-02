@@ -1,0 +1,4 @@
+condition,n,mean_total_ms,median_total_ms,p95_total_ms,mean_retrieval_ms,mean_llm_ms,valid_policy_rate,parameter_match_rate,exact_reference_match_rate,mean_total_bound_absolute_error
+diabetes,10,5932.10561,5892.5411,7271.5228,,,1.0,1.0,1.0,0.0
+heart_failure,10,7443.71116,6604.4523,15867.4002,,,1.0,0.1,0.1,80.5
+hypertension,10,7534.61949,6084.65985,22098.5151,,,1.0,1.0,0.0,19.0

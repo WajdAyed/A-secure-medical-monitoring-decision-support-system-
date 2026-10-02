@@ -1,0 +1,3430 @@
+{
+  "summary": {
+    "rag": {
+      "measured_patient_count": 198,
+      "successful_patient_count": 198,
+      "failed_patient_count": 0,
+      "T_seconds": 3168.1963240000696,
+      "M_seconds_successful": 16.000991535353887,
+      "startup_included": false,
+      "timed_scope": "One client-side coordinator HTTP request per patient, including EMR, policy, proof, decision, and transport; process/service startup excluded."
+    },
+    "no_rag": {
+      "measured_patient_count": 198,
+      "successful_patient_count": 41,
+      "failed_patient_count": 157,
+      "T_seconds": 1488.2202246000234,
+      "M_seconds_successful": 35.90194388780468,
+      "startup_included": false,
+      "timed_scope": "One client-side coordinator HTTP request per patient, including EMR, policy, proof, decision, and transport; process/service startup excluded."
+    },
+    "comparison": {
+      "compatible": 13,
+      "incompatible": 16,
+      "not_comparable": 169
+    },
+    "definitions": {
+      "primary_compatibility": "Exact lower-bound and upper-bound agreement after canonical vital-sign naming and numeric normalization.",
+      "tolerance_compatibility": "Absolute bound difference <= 0.0; reported per bound in comparison details, never substituted for exact counts.",
+      "no_rag_source": "The project's generate_policy_without_rag branch; it does not query ChromaDB or create embeddings, and loads the complete matching PDF from RAG/guidelines for every supported condition. Missing project PDFs remain errors.",
+      "excluded_patient": "155",
+      "warmup_patient_id": "100001",
+      "shared_concurrency_resources": "Concurrent requests share the coordinator, EMR, rule engine, ChromaDB, Ollama model instances, and caches."
+    }
+  },
+  "scalability": [],
+  "comparison_details": [
+    {
+      "patient_id": "100002",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100002",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100003",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100003",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100004",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100004",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100005",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100005",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100006",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100006",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100007",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100007",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100008",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100008",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100009",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100009",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100010",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100010",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100011",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100011",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 90.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100011",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100012",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100012",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100013",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100013",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100014",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100014",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100015",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100015",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100016",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100016",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100017",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100017",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100018",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100018",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100019",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100019",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100020",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100020",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100021",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100021",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100022",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100022",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100023",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100023",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100024",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100024",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100025",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100025",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100026",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100026",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100027",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100027",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100028",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100028",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100029",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100029",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 65.0,
+          "no_rag_upper": 80.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100029",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 100.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100030",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100030",
+          "vital_sign": "hemoglobin",
+          "rag_lower": 12.0,
+          "rag_upper": 16.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100031",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100031",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100032",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100032",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100032",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 110.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100033",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100033",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100034",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100034",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100034",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 100.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100035",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100035",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100036",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100036",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100036",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 110.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100037",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100037",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100038",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100038",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100039",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100039",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 80.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100039",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100040",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100040",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100041",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100041",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100042",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100042",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100043",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100043",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100043",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 110.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100044",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100044",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100045",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100045",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 110.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100046",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100046",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100047",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100047",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100048",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100048",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100049",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100049",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100050",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100050",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100051",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100051",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 160.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100052",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100052",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100053",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100053",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100054",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100054",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 90.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100054",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100055",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100055",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100056",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100056",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 100.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100057",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100057",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100058",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100058",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100059",
+      "classification": "incompatible",
+      "reason": "lower differs",
+      "details": [
+        {
+          "patient_id": "100059",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "lower differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100060",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100060",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100061",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100061",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100062",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100062",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100063",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100063",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 100.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100064",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100064",
+          "vital_sign": "sleep_hours",
+          "rag_lower": 7.0,
+          "rag_upper": 9.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100065",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100065",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100066",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100066",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 90.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100067",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100067",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100068",
+      "classification": "not_comparable",
+      "reason": "missing range in no-RAG; missing range in RAG",
+      "details": [
+        {
+          "patient_id": "100068",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 105.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        },
+        {
+          "patient_id": "100068",
+          "vital_sign": "weight_kg",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 90.0,
+          "reason": "missing range in RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100069",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100069",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100070",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100070",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100071",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100071",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100072",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100072",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100073",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100073",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100074",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100074",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 150.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100075",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100075",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100076",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100076",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100077",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100077",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100078",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100078",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100079",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100079",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 160.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100080",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100080",
+          "vital_sign": "sleep_hours",
+          "rag_lower": 7.0,
+          "rag_upper": 9.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100081",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100081",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100082",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100082",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100083",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100083",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100084",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100084",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100085",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100085",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100086",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100086",
+          "vital_sign": "sleep_hours",
+          "rag_lower": 7.0,
+          "rag_upper": 9.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100087",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100087",
+          "vital_sign": "heart_rate",
+          "rag_lower": 50.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100088",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100088",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100089",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100089",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100090",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100090",
+          "vital_sign": "hemoglobin",
+          "rag_lower": 12.0,
+          "rag_upper": 16.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100091",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100091",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": 90.0,
+          "no_rag_upper": 120.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100092",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100092",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100093",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100093",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100094",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100094",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 140.0,
+          "no_rag_upper": 180.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100095",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100095",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100096",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100096",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100097",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100097",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100098",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100098",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 88.0,
+          "rag_upper": 93.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100099",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100099",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 150.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100100",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100100",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100101",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100101",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100102",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100102",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100103",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100103",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100104",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100104",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100105",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100105",
+          "vital_sign": "hemoglobin",
+          "rag_lower": 12.0,
+          "rag_upper": 14.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100106",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100106",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100107",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100107",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100108",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100108",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100109",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100109",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100110",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100110",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100111",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100111",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100112",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100112",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100113",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100113",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 150.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100114",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100114",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100115",
+      "classification": "incompatible",
+      "reason": "lower differs",
+      "details": [
+        {
+          "patient_id": "100115",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 100.0,
+          "no_rag_upper": 140.0,
+          "reason": "lower differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100116",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100116",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100117",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100117",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100118",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100118",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100119",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100119",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100120",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100120",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100121",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100121",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100122",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100122",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100123",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100123",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 110.0,
+          "rag_upper": 135.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100124",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100124",
+          "vital_sign": "hemoglobin",
+          "rag_lower": 10.0,
+          "rag_upper": 12.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100125",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100125",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100126",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100126",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100127",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100127",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100128",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100128",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100129",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100129",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100130",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100130",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100131",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100131",
+          "vital_sign": "hemoglobin",
+          "rag_lower": 12.0,
+          "rag_upper": 16.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100132",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100132",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100133",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100133",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 100.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100134",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100134",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100135",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100135",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100136",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100136",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100137",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100137",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100138",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100138",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100139",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100139",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100140",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100140",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 150.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100141",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100141",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100142",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100142",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 140.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100143",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100143",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 110.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100144",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100144",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100145",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100145",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100146",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100146",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100147",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100147",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 110.0,
+          "rag_upper": 135.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100148",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100148",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100149",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100149",
+          "vital_sign": "hemoglobin",
+          "rag_lower": 10.0,
+          "rag_upper": 13.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100150",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100150",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 105.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100151",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100151",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 110.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100152",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100152",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100153",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100153",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100154",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100154",
+          "vital_sign": "hemoglobin",
+          "rag_lower": 10.0,
+          "rag_upper": 12.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100156",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100156",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100157",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100157",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100158",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100158",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100159",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100159",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 150.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100160",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100160",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 160.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100161",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100161",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100162",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100162",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100163",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100163",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100164",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100164",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100165",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100165",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 90.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100166",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100166",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100167",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100167",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 120.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100168",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100168",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100169",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100169",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100170",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100170",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100171",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100171",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100172",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100172",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100173",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100173",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100174",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"Policy missing a valid min/max bound: {'parameter': 'heart_rate', 'min': 60, 'max': None}\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100174",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100175",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100175",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100176",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100176",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 160.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100177",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100177",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100178",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100178",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100179",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100179",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 100.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100180",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100180",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 145.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100181",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100181",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100182",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100182",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100182",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 105.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100183",
+      "classification": "incompatible",
+      "reason": "lower differs",
+      "details": [
+        {
+          "patient_id": "100183",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 140.0,
+          "reason": "lower differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100184",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100184",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100185",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100185",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100186",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100186",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100187",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100187",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100188",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100188",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100189",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100189",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 88.0,
+          "rag_upper": 92.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100190",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100190",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100191",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100191",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100191",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 100.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100192",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100192",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 150.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100193",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100193",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100194",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100194",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 140.0,
+          "rag_upper": 160.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100195",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100195",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100196",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100196",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100197",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100197",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100198",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100198",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100199",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100199",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100199",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100200",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100200",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "privacy_invalid_cases": [
+    {"name": "missing_parameter", "bounds": {"min": 110, "max": 135}},
+    {"name": "reversed_bounds", "bounds": {"parameter": "systolic_bp", "min": 135, "max": 110}},
+    {"name": "negative_bound", "bounds": {"parameter": "systolic_bp", "min": -1, "max": 135}},
+    {"name": "fractional_bound", "bounds": {"parameter": "systolic_bp", "min": 110.5, "max": 135}},
+    {"name": "missing_bounds", "bounds": null}
+  ]
+}

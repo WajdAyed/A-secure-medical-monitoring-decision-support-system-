@@ -1,0 +1,9 @@
+family,case,expected,passed,latency_ms,detail
+valid_workflow,depression:100001:r1,contract_pass,False,30022.485,"HTTPConnectionPool(host='127.0.0.1', port=8007): Read timed out. (read timeout=30.0)"
+unknown_patient,missing_patient,clean_error,True,21189.304,Tool get_patient failed: {'error': 'patient not found'}
+privacy_invalid,missing_parameter,clean_error,True,8.124,"{""error"": ""bounds must include a sensor parameter""}"
+privacy_invalid,reversed_bounds,clean_error,True,7.234,"{""error"": ""bounds must be ordered unsigned 64-bit integers""}"
+privacy_invalid,negative_bound,clean_error,True,9.498,"{""error"": ""bounds must be ordered unsigned 64-bit integers""}"
+privacy_invalid,fractional_bound,clean_error,True,37.2,"{""error"": ""bounds must be ordered unsigned 64-bit integers""}"
+privacy_invalid,missing_bounds,clean_error,True,9.061,"{""code"": -32603, ""message"": ""Internal error"", ""data"": ""request_proof() missing 1 required positional argument: 'bounds'""}"
+privacy_normal,debug_disabled_no_leak,status_without_raw_value,True,81.376,ok

@@ -4,45 +4,24 @@ A privacy-preserving Clinical Decision Support System that uses Zero-Knowledge P
 
 ## Architecture
 
-```
-┌──────────┐
-│ Doctor   │
-└────┬─────┘
-     │
-     ▼
-┌─────────────────────────────────────────────────────────────┐
-│              LangGraph Coordinator                          │
-│  ┌────────┐  ┌────────┐  ┌───────┐  ┌─────────────────┐  │
-│  │Patient │→ │Policy  │→ │Proof  │→ │   Decision      │  │
-│  │  Node  │  │  Node  │  │  Node │  │     Node        │  │
-│  └────────┘  └────────┘  └───────┘  └─────────────────┘  │
-└─────────────────────────────────────────────────────────────┘
-     │              │            │              │
-     ▼              ▼            ▼              ▼
-┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────────┐
-│Patient   │  │   Rule   │  │ Privacy  │  │   Decision   │
-│   MCP    │  │  Engine  │  │   MCP    │  │   Engine     │
-│ (Port    │  │ (Port    │  │ (Port    │  │  (Port       │
-│  8005)   │  │  8004)   │  │  8003)   │  │   8002)      │
-└──────────┘  └──────────┘  └──────────┘  └──────────────┘
-     │              │            │              │
-     ▼              ▼            ▼              ▼
-┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────────┐
-│PostgreSQL│  │Knowledge │  │   ZKP    │  │   Simple     │
-│          │  │   MCP    │  │ Engine   │  │   Logic      │
-│          │  │(Port     │  │(Rust +   │  │              │
-│          │  │ 8010)    │  │ Bullet-  │  │              │
-│          │  │          │  │ proofs)  │  │              │
-│          │  │ChromaDB  │  │          │  │              │
-│          │  │+ Ollama  │  │          │  │              │
-└──────────┘  └──────────┘  └──────────┘  └──────────────┘
+```mermaid
+flowchart LR
+    Doctor --> Coordinator[LangGraph Coordinator]
+    Coordinator --> EMR[EMR / patient MCP]
+    Coordinator --> Ruler[Ruler Agent / guideline knowledge]
+    Coordinator --> Verifier[Hospital ZKP verifier]
+    Sensor[Patient-room sensor] --> Prover[Edge commitment and Bulletproof prover]
+    Verifier -->|public bounds and nonce| Prover
+    Prover -->|commitment and proof| Verifier
+    Verifier -->|verification result| Coordinator
+    Coordinator -->|range assessment| Doctor
 ```
 
 ## Key Features
 
 - **Privacy-Preserving**: Sensor values never leave the device; only ZKP proofs are shared
 - **RAG-Based Guidelines**: Medical guidelines retrieved from PDFs using semantic search
-- **LLM-Powered Decisions**: Uses Ollama LLaMA3 for policy generation and explanations
+- **LLM-Assisted Ranges**: Uses Ollama LLaMA3 to generate policy ranges from guideline context
 - **Zero-Knowledge Proofs**: Rust-based Bulletproofs for range verification
 - **LangGraph Workflow**: Orchestrates the entire decision pipeline
 
@@ -83,8 +62,7 @@ This starts all required services from [docker-compose.yml](docker-compose.yml):
 - EMR Layer (implemented by the compatibility-named `patient_mcp` service)
 - Rule Engine
 - Privacy MCP
-- Decision Engine
-- Knowledge MCP
+- Ruler Agent with direct ChromaDB guideline retrieval
 - LangGraph Coordinator
 - Doctor Console
 
@@ -99,7 +77,7 @@ You can verify the main API entrypoints:
 ```bash
 curl http://localhost:8007/docs
 curl http://localhost:8005/docs
-curl http://localhost:8010/docs
+curl http://localhost:8004/docs
 ```
 
 ### 4. Pull Ollama models (if not already available in the container)
@@ -203,12 +181,11 @@ http://192.168.1.50:8007
 
 You must also make sure the following ports are reachable from the network:
 
-- 8002
 - 8003
 - 8004
 - 8005
+- 8006
 - 8007
-- 8010
 - 11434
 - 5432
 
@@ -285,37 +262,9 @@ db = Chroma.from_documents(
 
 ### 2. Guideline Retrieval
 
-When a patient arrives, the system retrieves relevant guidelines based on their condition.
+The Ruler Agent opens the local ChromaDB database and searches it directly using the patient's condition. It uses Ollama's `nomic-embed-text` model for the search query. The guidelines are indexed beforehand by `knowledge_mcp/build_vector_db.py`; the Knowledge MCP server is not part of the running workflow.
 
-**File**: `knowledge_mcp/app.py`
-
-```python
-from fastapi import FastAPI
-from langchain_chroma import Chroma
-from langchain_ollama import OllamaEmbeddings
-
-app = FastAPI(title="Knowledge MCP - RAG")
-
-DB_DIR = Path(__file__).parent / "chroma_db"
-embeddings = OllamaEmbeddings(
-    model="nomic-embed-text",
-    base_url="http://127.0.0.1:11434"
-)
-
-db = Chroma(
-    persist_directory=str(DB_DIR),
-    embedding_function=embeddings
-)
-
-@app.get("/guidelines/{condition}")
-def search_guidelines(condition: str):
-    # Semantic search for top 3 relevant chunks
-    docs = db.similarity_search(condition, k=3)
-    
-    return {
-        "guidelines": [d.page_content for d in docs]
-    }
-```
+**File**: `rule_engine/policy_generator.py` (`search_guidelines`)
 
 ### 3. Policy Generation with LLM
 
@@ -324,7 +273,6 @@ The Rule Engine uses retrieved guidelines to generate personalized safe limits.
 **File**: `rule_engine/policy_generator.py`
 
 ```python
-import requests
 import ollama
 import json
 import re
@@ -333,11 +281,8 @@ def generate_policy(patient):
     condition = patient["condition"]
     age = patient["age"]
     
-    # Step 1: Retrieve guidelines from Knowledge MCP
-    rag_url = f"http://127.0.0.1:8010/guidelines/{condition}"
-    rag_response = requests.get(rag_url, timeout=30)
-    data = rag_response.json()
-    docs = data["guidelines"]
+    # Step 1: Retrieve guidelines directly from ChromaDB
+    docs = search_guidelines(condition)
     
     # Step 2: Join guidelines into context
     context = "\n\n".join(docs)
@@ -382,75 +327,21 @@ Example:
 
 The device generates a proof that its sensor value is within the allowed range without revealing the actual value.
 
-**File**: `privacy_mcp/zkp_client.py`
+The LangGraph coordinator sends public integer bounds to `privacy_mcp`. That service calls
+the device agent's `prove` RPC with the bounds. `device_agent/app.py` reads a
+simulated sensor locally and runs `zkp_engine` with `action: "prove"`. It returns
+the Bulletproof, two commitments, a binding proof, and the public bounds. It
+never returns the sensor value. The separate server-side process in
+`privacy_mcp/zkp_client.py` runs `zkp_engine` with `action: "verify"`, checks that
+the returned bounds match the request, and accepts `NORMAL` only after both
+cryptographic checks succeed.
 
-```python
-import json
-import subprocess
-from pathlib import Path
-
-ENGINE = Path(__file__).parent.parent / "zkp_engine" / "target" / "release" / "zkp_engine.exe"
-
-def generate_and_verify_proof(bounds):
-    # Device reads sensor value LOCALLY (never exposed)
-    device_value = 190  # Simulated sensor reading
-    
-    # Prepare proof request
-    request = {
-        "value": device_value,
-        "min": bounds["min"],
-        "max": bounds["max"]
-    }
-    
-    # Call Rust ZKP engine
-    result = subprocess.run(
-        [str(ENGINE)],
-        input=json.dumps(request),
-        capture_output=True,
-        text=True,
-        check=True
-    )
-    
-    proof = json.loads(result.stdout)
-    return proof
-```
-
-**File**: `device_agent/app.py`
-
-```python
-from fastapi import FastAPI
-from pydantic import BaseModel
-import subprocess
-import json
-from .sensor import read_systolic_bp
-
-app = FastAPI()
-
-class Policy(BaseModel):
-    min: int
-    max: int
-
-@app.post("/prove")
-def prove(policy: Policy):
-    # Read sensor value locally
-    value = read_systolic_bp()
-    
-    payload = {
-        "value": value,
-        "min": policy.min,
-        "max": policy.max
-    }
-    
-    # Generate ZKP proof locally
-    result = subprocess.run(
-        [r"zkp_engine\target\release\zkp_engine.exe"],
-        input=json.dumps(payload),
-        capture_output=True,
-        text=True
-    )
-    
-    return json.loads(result.stdout)
-```
+The binding proof establishes that the committed nonnegative offsets add up to
+`max - min`. An out-of-range reading produces `ALERT` with no proof. The sensor
+functions are simulations; a clinical deployment still needs authenticated
+sensor input and replay protection. Docker Compose runs the device agent as a
+separate service on port 8006; deploy it on the patient-room device to obtain
+physical separation.
 
 ### 5. LangGraph Workflow
 
@@ -502,14 +393,9 @@ def get_proof(state):
     return {"proof": proof}
 
 def get_decision(state):
-    """Get clinical decision from Decision Engine"""
-    response = requests.post(
-        "http://127.0.0.1:8002/decision",
-        json={"status": state["proof"]["status"]},
-        timeout=10
-    )
-    decision = response.json()
-    return {"decision": decision}
+    """Summarize the ZKP result inside the coordinator."""
+    from langgraph_coordinator.graph import summarize_proof
+    return {"decision": summarize_proof(state["proof"])}
 ```
 
 **File**: `langgraph_coordinator/app.py`
@@ -566,18 +452,6 @@ Executes the full workflow for a patient.
 curl http://localhost:8001/run/10009628
 ```
 
-### Knowledge MCP (Port 8010)
-
-```
-GET /guidelines/{condition}
-```
-Retrieves relevant medical guidelines for a condition.
-
-**Example**:
-```bash
-curl http://localhost:8010/guidelines/Diabetes
-```
-
 ### Rule Engine (Port 8004)
 
 ```
@@ -606,19 +480,9 @@ curl -X POST http://localhost:8003/request-proof \
   -d '{"bounds": {"min": 110, "max": 135}}'
 ```
 
-### Decision Engine (Port 8002)
+### Coordinator range assessment
 
-```
-POST /decision
-```
-Returns clinical decision based on proof status.
-
-**Example**:
-```bash
-curl -X POST http://localhost:8002/decision \
-  -H "Content-Type: application/json" \
-  -d '{"status": "NORMAL"}'
-```
+LangGraph maps verified range membership to `IN_RANGE`, a device-reported out-of-range reading to `OUT_OF_RANGE`, and missing or failed verification to `UNABLE_TO_ASSESS`. These labels describe the range check, not the patient's overall clinical stability.
 
 ## Project Structure
 
@@ -632,7 +496,7 @@ Privacy-Preserving-CDSS/
 │       ├── Hypertension guideline.pdf
 │       └── Heart Failure guideline.pdf
 ├── knowledge_mcp/
-│   ├── app.py                      # Knowledge MCP API (Ollama embeddings)
+│   ├── app.py                      # Legacy optional Knowledge MCP API
 │   ├── build_vector_db.py          # Vector database builder
 │   └── chroma_db/                  # Vector database (active)
 ├── rule_engine/
@@ -650,8 +514,8 @@ Privacy-Preserving-CDSS/
 │   ├── graph.py                    # Workflow nodes and edges
 │   └── run_case.py                 # Test script
 ├── decision_engine/
-│   ├── app.py                      # Decision Engine API
-│   └── engine.py                   # Decision logic
+│   ├── app.py                      # Legacy Decision Engine API (not started)
+│   └── engine.py                   # Legacy decision logic
 ├── patient_mcp/
 │   ├── app.py                      # EMR Layer API
 │   └── database.py                 # EMR record access (FHIR representation)
@@ -692,17 +556,15 @@ Default ports (can be modified in each service's `app.py`):
 | Service | Port |
 |---------|------|
 | LangGraph Coordinator | 8001 |
-| Decision Engine | 8002 |
 | Privacy MCP | 8003 |
 | Rule Engine | 8004 |
 | EMR Layer | 8005 |
-| Knowledge MCP | 8010 |
 | Ollama | 11434 |
 
 ## Workflow Example
 
 ```
-1. Doctor asks: "Is Ahmed clinically stable?"
+1. Doctor asks for Ahmed's range assessment.
 
 2. LangGraph Coordinator receives request with patient_id
 
@@ -718,15 +580,15 @@ Default ports (can be modified in each service's `app.py`):
    - Sends bounds (110-135) to Privacy MCP
    - Device reads BP locally: 190
    - Device generates ZKP proof (value stays hidden)
-   - Proof shows: value is OUTSIDE range
+   - Device reports that the value is outside the range; no range proof is produced
 
-6. Decision Node:
-   - Receives proof status: "OUT_OF_RANGE"
-   - Returns: {stable: false, message: "Patient requires attention"}
+6. Coordinator status node:
+   - Receives proof status: `ALERT`
+   - Returns: `{status: "OUT_OF_RANGE", message: "Device reported a reading outside the selected range; clinical review is needed."}`
 
 7. Final Response to Doctor:
-   - Status: Not stable
-   - Reason: Blood pressure outside safe range
+   - Status: Out of range; clinical review needed
+   - Reason: Device reported that the reading is outside the selected range
    - Privacy: Sensor value never exposed
 ```
 

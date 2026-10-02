@@ -1,0 +1,142 @@
+{
+  "setup_seconds": {
+    "patient_snapshot": 24.131523500000185,
+    "shared_pdf_loading_chunking": 9.426269399999
+  },
+  "limitations": [
+    "All distinct FHIR Patients under datasets are included, cleaned records first then raw-only records. The EMR's existing default condition is hypertension for records without condition; provenance identifies them.",
+    "Uses the existing Knowledge MCP search_guidelines handler in process. Both retrieval methods and policy generation run in the same process; patient, privacy and device calls retain real loopback MCP HTTP transport. This does not benchmark a deployed Knowledge MCP network hop.",
+    "A fresh isolated Chroma index uses the builder's PDF loader, chunk_size=1000, chunk_overlap=200, default collection and distance metric. The project's existing persistent index is untouched. Both methods receive identical chunks and current nomic-embed-text vectors; indexing is setup, not patient time.",
+    "Chroma uses default squared L2 distance, direct search uses exhaustive cosine similarity. Rankings can differ for non-unit vectors and ties; this metric distinction in the existing path is retained and disclosed.",
+    "Both methods use the existing llama3 prompt, temperature=0 and seed=42, normalization and supported parameters. Hard-coded fallback is disabled for both; invalid model output is an error. This explicit strict mode differs from production fallback behavior.",
+    "The original coordinator nodes execute in order, with only the ruler RPC replaced by the shared local generator. All condition policies, proof requests, Rust proving/verifying and final decision logic are retained.",
+    "Device CDSS_EVAL uses the existing deterministic patient/parameter sensor simulation. Fresh proof nonces remain random. ALERT means the device reported an out-of-range value and produced no proof; it is not a technical error or successful proof verification.",
+    "Warm-up repeats the first valid dataset patient once for each method; that patient is still measured in the full evaluation. Methods alternate first/second within each pair, preserving identical patient order. No response cache or per-condition shortcut is introduced.",
+    "Figure means use paired successful workflows; failed and incomplete attempts have separate statistics. Missing stage times are null, never zero. One run per patient is insufficient for statistical speed claims."
+  ],
+  "patient_count": 211,
+  "ollama_models": {
+    "models": [
+      {
+        "name": "nomic-embed-text:latest",
+        "model": "nomic-embed-text:latest",
+        "modified_at": "2026-07-28T16:49:40.3002296+01:00",
+        "size": 274302450,
+        "digest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "nomic-bert",
+          "families": [
+            "nomic-bert"
+          ],
+          "parameter_size": "137M",
+          "quantization_level": "F16",
+          "context_length": 2048,
+          "embedding_length": 768
+        },
+        "capabilities": [
+          "embedding"
+        ]
+      },
+      {
+        "name": "llama3:latest",
+        "model": "llama3:latest",
+        "modified_at": "2026-07-28T16:49:28.0696931+01:00",
+        "size": 4661224676,
+        "digest": "365c0bd3c000a25d28ddbf732fe1c6add414de7275464c4e4d1c3b5fcb5d8ad1",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_0",
+          "context_length": 8192,
+          "embedding_length": 4096
+        },
+        "capabilities": [
+          "completion"
+        ]
+      },
+      {
+        "name": "mistral:latest",
+        "model": "mistral:latest",
+        "modified_at": "2026-06-17T17:32:13.8240966+01:00",
+        "size": 4372824384,
+        "digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "7.2B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 4096
+        },
+        "capabilities": [
+          "completion",
+          "tools"
+        ]
+      },
+      {
+        "name": "llama3.2:1b",
+        "model": "llama3.2:1b",
+        "modified_at": "2026-05-28T23:33:05.5968411+01:00",
+        "size": 1321098329,
+        "digest": "baf6a787fdffd633537aa2eb51cfd54cb93ff08e28040095462bb63daf552878",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "1.2B",
+          "quantization_level": "Q8_0",
+          "context_length": 131072,
+          "embedding_length": 2048
+        },
+        "capabilities": [
+          "completion",
+          "tools"
+        ]
+      }
+    ]
+  },
+  "packages": {
+    "chromadb": "1.5.9",
+    "langchain-chroma": "1.1.0",
+    "langchain-ollama": "1.1.0",
+    "langchain-community": "0.4.2",
+    "langchain-text-splitters": "1.1.2",
+    "ollama": "0.6.2",
+    "numpy": "2.4.6"
+  },
+  "documents": [
+    {
+      "file": "Diabetes guideline.pdf",
+      "sha256": "daf10f5fb0912a14a3c4c9aeef53e4439bccbf03927695b3c226e5a2563762af"
+    },
+    {
+      "file": "Heart Failure guideline.pdf",
+      "sha256": "2cf5f0a567ce74511df6792eef9958391befa3bf6309f3c0cab80e0bd6095177"
+    },
+    {
+      "file": "Hypertension guideline.pdf",
+      "sha256": "57f6376d5c9bc4ea6c44873625547c8a5443d5a6ad8c8c422733681563db05fb"
+    }
+  ],
+  "chunks": 693,
+  "embedding_model": "nomic-embed-text",
+  "llm": "llama3",
+  "k": 3,
+  "chunk_size": 1000,
+  "chunk_overlap": 200,
+  "fatal_error": "ResponseError: Post \"http://127.0.0.1:52465/tokenize\": dial tcp 127.0.0.1:52465: connectex: No connection could be made because the target machine actively refused it. (status code: 400)"
+}

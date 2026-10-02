@@ -1,0 +1,2 @@
+clients,use_rag,patient_id,ok,status_code,latency_s,decision,error
+1,True,100002,True,200,13.223504499999763,OUT_OF_RANGE,

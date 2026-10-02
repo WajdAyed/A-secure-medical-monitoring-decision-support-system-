@@ -14,7 +14,7 @@ app = FastAPI(
 rpc = MCPJsonRpcServer("knowledge-mcp")
 
 
-DB_DIR = Path(__file__).resolve().parent / "chroma_db"
+DB_DIR = Path(os.getenv("KNOWLEDGE_CHROMA_DIR", Path(__file__).resolve().parent / "chroma_db"))
 
 
 print("\n" + "=" * 70)

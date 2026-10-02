@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "pass_number": 2,
+  "method": "Direct search over all chunks",
+  "completed_patients": 199,
+  "total_patients": 199,
+  "completed_method_runs": 398,
+  "updated_at": "2026-09-25 21:57:40",
+  "stage": "outputs saved",
+  "original_patient_number": 200,
+  "patient_id": "100200",
+  "evaluation_position": 199,
+  "errors": 134
+}

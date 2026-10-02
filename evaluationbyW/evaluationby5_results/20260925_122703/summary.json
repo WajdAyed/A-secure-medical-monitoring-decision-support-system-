@@ -1,0 +1,319 @@
+{
+  "patient_count": 211,
+  "absolute_bound_tolerance": 1e-06,
+  "relative_bound_tolerance": 0,
+  "clinical_compatibility_assessed": false,
+  "identical_bounds": 124,
+  "different_bounds": 7,
+  "bounds_unavailable": 80,
+  "identical_decisions": 131,
+  "different_decisions": 0,
+  "decisions_unavailable": 80,
+  "paired_success_count": 131,
+  "methods": {
+    "chroma": {
+      "attempted": 211,
+      "failures": 79,
+      "all_attempts": {
+        "retrieval_s": {
+          "n": 200,
+          "total": 20.3147775000034,
+          "mean": 0.101573887500017
+        },
+        "bound_generation_s": {
+          "n": 200,
+          "total": 2126.05093259999,
+          "mean": 10.63025466299995
+        },
+        "proof_s": {
+          "n": 132,
+          "total": 9.26933589998771,
+          "mean": 0.07022224166657355
+        },
+        "total_workflow_s": {
+          "n": 211,
+          "total": 2158.5757503000095,
+          "mean": 10.230216826066396
+        }
+      },
+      "successful": {
+        "retrieval_s": {
+          "n": 132,
+          "total": 12.73392020000938,
+          "mean": 0.09646909242431348
+        },
+        "bound_generation_s": {
+          "n": 132,
+          "total": 1439.1283114999878,
+          "mean": 10.902487208333241
+        },
+        "proof_s": {
+          "n": 132,
+          "total": 9.26933589998771,
+          "mean": 0.07022224166657355
+        },
+        "total_workflow_s": {
+          "n": 132,
+          "total": 1462.8241092000135,
+          "mean": 11.082000827272829
+        }
+      },
+      "paired_successful": {
+        "retrieval_s": {
+          "n": 131,
+          "total": 12.650085000010222,
+          "mean": 0.09656553435122307
+        },
+        "bound_generation_s": {
+          "n": 131,
+          "total": 1433.759427799987,
+          "mean": 10.94472845648845
+        },
+        "proof_s": {
+          "n": 131,
+          "total": 9.052628399987952,
+          "mean": 0.06910403358769429
+        },
+        "total_workflow_s": {
+          "n": 131,
+          "total": 1457.1433325000125,
+          "mean": 11.123231545801623
+        }
+      }
+    },
+    "direct": {
+      "attempted": 211,
+      "failures": 78,
+      "all_attempts": {
+        "retrieval_s": {
+          "n": 200,
+          "total": 16.93297740000162,
+          "mean": 0.0846648870000081
+        },
+        "bound_generation_s": {
+          "n": 200,
+          "total": 2082.425191199989,
+          "mean": 10.412125955999946
+        },
+        "proof_s": {
+          "n": 133,
+          "total": 8.584492700005285,
+          "mean": 0.06454505789477658
+        },
+        "total_workflow_s": {
+          "n": 211,
+          "total": 2110.7547746999826,
+          "mean": 10.003577131279538
+        }
+      },
+      "successful": {
+        "retrieval_s": {
+          "n": 133,
+          "total": 10.973187699997652,
+          "mean": 0.08250517067667408
+        },
+        "bound_generation_s": {
+          "n": 133,
+          "total": 1418.9862956999932,
+          "mean": 10.669069892481152
+        },
+        "proof_s": {
+          "n": 133,
+          "total": 8.584492700005285,
+          "mean": 0.06454505789477658
+        },
+        "total_workflow_s": {
+          "n": 133,
+          "total": 1440.1980335999979,
+          "mean": 10.828556643609007
+        }
+      },
+      "paired_successful": {
+        "retrieval_s": {
+          "n": 131,
+          "total": 10.770270999997592,
+          "mean": 0.08221580916028697
+        },
+        "bound_generation_s": {
+          "n": 131,
+          "total": 1395.8508943999932,
+          "mean": 10.655350338931246
+        },
+        "proof_s": {
+          "n": 131,
+          "total": 8.408602000004976,
+          "mean": 0.06418780152675554
+        },
+        "total_workflow_s": {
+          "n": 131,
+          "total": 1416.6613495999973,
+          "mean": 10.814208775572498
+        }
+      }
+    }
+  },
+  "setup": {
+    "setup_seconds": {
+      "patient_snapshot": 19.81572740000047,
+      "shared_pdf_loading_chunking": 9.818153100000927,
+      "direct_embedding_precompute": 132.69503110000005,
+      "chroma_index_build_and_load": 8.43838119999964,
+      "shared_services_start": 1.2031288999987737
+    },
+    "limitations": [
+      "All distinct FHIR Patients under datasets are included, cleaned records first then raw-only records. The EMR's existing default condition is hypertension for records without condition; provenance identifies them.",
+      "Uses the existing Knowledge MCP search_guidelines handler in process. Both retrieval methods and policy generation run in the same process; patient, privacy and device calls retain real loopback MCP HTTP transport. This does not benchmark a deployed Knowledge MCP network hop.",
+      "A fresh isolated Chroma index uses the builder's PDF loader, chunk_size=1000, chunk_overlap=200, default collection and distance metric. The project's existing persistent index is untouched. Both methods receive identical chunks and current nomic-embed-text vectors; indexing is setup, not patient time.",
+      "Chroma uses default squared L2 distance, direct search uses exhaustive cosine similarity. Rankings can differ for non-unit vectors and ties; this metric distinction in the existing path is retained and disclosed.",
+      "Both methods use the existing llama3 prompt, temperature=0 and seed=42, normalization and supported parameters. Hard-coded fallback is disabled for both; invalid model output is an error. This explicit strict mode differs from production fallback behavior.",
+      "The original coordinator nodes execute in order, with only the ruler RPC replaced by the shared local generator. All condition policies, proof requests, Rust proving/verifying and final decision logic are retained.",
+      "Device CDSS_EVAL uses the existing deterministic patient/parameter sensor simulation. Fresh proof nonces remain random. ALERT means the device reported an out-of-range value and produced no proof; it is not a technical error or successful proof verification.",
+      "Warm-up repeats the first valid dataset patient once for each method; that patient is still measured in the full evaluation. Methods alternate first/second within each pair, preserving identical patient order. No response cache or per-condition shortcut is introduced.",
+      "Figure means use paired successful workflows; failed and incomplete attempts have separate statistics. Missing stage times are null, never zero. One run per patient is insufficient for statistical speed claims."
+    ],
+    "patient_count": 211,
+    "ollama_models": {
+      "models": [
+        {
+          "name": "nomic-embed-text:latest",
+          "model": "nomic-embed-text:latest",
+          "modified_at": "2026-07-28T16:49:40.3002296+01:00",
+          "size": 274302450,
+          "digest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "nomic-bert",
+            "families": [
+              "nomic-bert"
+            ],
+            "parameter_size": "137M",
+            "quantization_level": "F16",
+            "context_length": 2048,
+            "embedding_length": 768
+          },
+          "capabilities": [
+            "embedding"
+          ]
+        },
+        {
+          "name": "llama3:latest",
+          "model": "llama3:latest",
+          "modified_at": "2026-07-28T16:49:28.0696931+01:00",
+          "size": 4661224676,
+          "digest": "365c0bd3c000a25d28ddbf732fe1c6add414de7275464c4e4d1c3b5fcb5d8ad1",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "8.0B",
+            "quantization_level": "Q4_0",
+            "context_length": 8192,
+            "embedding_length": 4096
+          },
+          "capabilities": [
+            "completion"
+          ]
+        },
+        {
+          "name": "mistral:latest",
+          "model": "mistral:latest",
+          "modified_at": "2026-06-17T17:32:13.8240966+01:00",
+          "size": 4372824384,
+          "digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "7.2B",
+            "quantization_level": "Q4_K_M",
+            "context_length": 32768,
+            "embedding_length": 4096
+          },
+          "capabilities": [
+            "completion",
+            "tools"
+          ]
+        },
+        {
+          "name": "llama3.2:1b",
+          "model": "llama3.2:1b",
+          "modified_at": "2026-05-28T23:33:05.5968411+01:00",
+          "size": 1321098329,
+          "digest": "baf6a787fdffd633537aa2eb51cfd54cb93ff08e28040095462bb63daf552878",
+          "details": {
+            "parent_model": "",
+            "format": "gguf",
+            "family": "llama",
+            "families": [
+              "llama"
+            ],
+            "parameter_size": "1.2B",
+            "quantization_level": "Q8_0",
+            "context_length": 131072,
+            "embedding_length": 2048
+          },
+          "capabilities": [
+            "completion",
+            "tools"
+          ]
+        }
+      ]
+    },
+    "packages": {
+      "chromadb": "1.5.9",
+      "langchain-chroma": "1.1.0",
+      "langchain-ollama": "1.1.0",
+      "langchain-community": "0.4.2",
+      "langchain-text-splitters": "1.1.2",
+      "ollama": "0.6.2",
+      "numpy": "2.4.6"
+    },
+    "documents": [
+      {
+        "file": "Diabetes guideline.pdf",
+        "sha256": "daf10f5fb0912a14a3c4c9aeef53e4439bccbf03927695b3c226e5a2563762af"
+      },
+      {
+        "file": "Heart Failure guideline.pdf",
+        "sha256": "2cf5f0a567ce74511df6792eef9958391befa3bf6309f3c0cab80e0bd6095177"
+      },
+      {
+        "file": "Hypertension guideline.pdf",
+        "sha256": "57f6376d5c9bc4ea6c44873625547c8a5443d5a6ad8c8c422733681563db05fb"
+      }
+    ],
+    "chunks": 693,
+    "embedding_model": "nomic-embed-text",
+    "llm": "llama3",
+    "k": 3,
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "vector_norm_range": [
+      0.9999991012586469,
+      1.0000007444409178
+    ],
+    "chroma_configuration": {
+      "hnsw": {
+        "space": "l2",
+        "ef_construction": 100,
+        "ef_search": 100,
+        "max_neighbors": 16,
+        "resize_factor": 1.2,
+        "sync_threshold": 1000
+      },
+      "spann": null,
+      "embedding_function": null
+    },
+    "warmup_errors": {
+      "chroma": null,
+      "direct": null
+    }
+  }
+}

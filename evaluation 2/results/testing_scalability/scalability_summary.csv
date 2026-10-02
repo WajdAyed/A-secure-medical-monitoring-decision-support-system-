@@ -1,0 +1,6 @@
+concurrency,repetitions,requested,successes,failures,mean_patient_ms,mean_policy_ms,mean_proof_ms,mean_decision_ms
+1,3,3,3,0,,,,
+2,3,6,6,0,,,,
+4,3,12,12,0,,,,
+8,3,24,12,12,,,,
+16,3,48,1,47,,,,

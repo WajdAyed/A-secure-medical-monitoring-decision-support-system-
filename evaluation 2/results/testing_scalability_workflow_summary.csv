@@ -1,0 +1,2 @@
+clients,requested_patients,decisions_returned,failed,batch_wall_time_s,throughput_patients_per_s
+1,1,1,0,13.225497000001269,0.07561152522282558

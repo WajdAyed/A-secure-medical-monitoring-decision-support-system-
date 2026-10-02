@@ -57,12 +57,12 @@ services:
       - "8004:8004"
     environment:
       RULE_ENGINE_URL: http://rule-engine:8004
-      KNOWLEDGE_MCP_URL: http://knowledge-mcp:8010
       OLLAMA_HOST: http://ollama:11434
+      OLLAMA_BASE_URL: http://ollama:11434
     volumes:
       - .:/app
+      - knowledge_chroma_data:/app/knowledge_mcp/chroma_db
     depends_on:
-      - knowledge-mcp
       - ollama
     restart: unless-stopped
     healthcheck:
@@ -70,6 +70,19 @@ services:
       interval: 20s
       timeout: 5s
       retries: 10
+
+  device-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cdss-device-agent
+    command: uvicorn device_agent.app:app --host 0.0.0.0 --port 8006
+    ports:
+      - "8006:8006"
+    environment:
+      ZKP_ENGINE_PATH: /usr/local/bin/zkp_engine
+      DEBUG_SENSOR_VALUES: ${DEBUG_SENSOR_VALUES:-0}
+    restart: unless-stopped
 
   privacy-mcp:
     build:
@@ -81,62 +94,16 @@ services:
       - "8003:8003"
     environment:
       PRIVACY_MCP_URL: http://privacy-mcp:8003
-      ZKP_ENGINE_PATH: /app/zkp_engine/target/release/zkp_engine
+      ZKP_ENGINE_PATH: /usr/local/bin/zkp_engine
+      DEVICE_AGENT_URL: http://device-agent:8006
     volumes:
       - .:/app
       - zkp_target:/app/zkp_engine/target
     depends_on:
-      - ollama
+      - device-agent
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "curl -fsS http://localhost:8003/docs >/dev/null || exit 1"]
-      interval: 20s
-      timeout: 5s
-      retries: 10
-
-  decision-engine:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: cdss-decision-engine
-    command: uvicorn decision_engine.app:app --host 0.0.0.0 --port 8002
-    ports:
-      - "8002:8002"
-    environment:
-      DECISION_ENGINE_URL: http://decision-engine:8002
-      DECISION_AGENT_URL: http://decision-engine:8002
-      PRIVACY_MCP_URL: http://privacy-mcp:8003
-      ZKP_MCP_URL: http://privacy-mcp:8003
-    volumes:
-      - .:/app
-    depends_on:
-      - privacy-mcp
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL", "curl -fsS http://localhost:8002/docs >/dev/null || exit 1"]
-      interval: 20s
-      timeout: 5s
-      retries: 10
-
-  knowledge-mcp:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: cdss-knowledge-mcp
-    command: uvicorn knowledge_mcp.app:app --host 0.0.0.0 --port 8010
-    ports:
-      - "8010:8010"
-    environment:
-      KNOWLEDGE_MCP_URL: http://knowledge-mcp:8010
-      OLLAMA_BASE_URL: http://ollama:11434
-    volumes:
-      - .:/app
-      - knowledge_chroma_data:/app/knowledge_mcp/chroma_db
-    depends_on:
-      - ollama
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL", "curl -fsS http://localhost:8010/docs >/dev/null || exit 1"]
       interval: 20s
       timeout: 5s
       retries: 10
@@ -154,17 +121,16 @@ services:
       EMR_MCP_URL: http://patient-mcp:8005
       RULE_ENGINE_URL: http://rule-engine:8004
       RULER_AGENT_URL: http://rule-engine:8004
-      DECISION_ENGINE_URL: http://decision-engine:8002
-      DECISION_AGENT_URL: http://decision-engine:8002
       LANGGRAPH_URL: http://langgraph-coordinator:8007
+      PRIVACY_MCP_URL: http://privacy-mcp:8003
+      ZKP_MCP_URL: http://privacy-mcp:8003
+      CDSS_EVAL: ${CDSS_EVAL:-0}
     volumes:
       - .:/app
     depends_on:
       - patient-mcp
       - rule-engine
       - privacy-mcp
-      - decision-engine
-      - knowledge-mcp
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "curl -fsS http://localhost:8007/docs >/dev/null || exit 1"]

@@ -38,12 +38,12 @@ builder.add_node(
 )
 
 builder.add_node(
-    "decision_zkp_validation",
+    "zkp_validation",
     submit_range_for_zkp_validation
 )
 
 builder.add_node(
-    "decision_final_status",
+    "coordinator_final_status",
     complete_clinical_decision
 )
 
@@ -61,16 +61,16 @@ builder.add_edge(
 
 builder.add_edge(
     "ruler_range_generation",
-    "decision_zkp_validation"
+    "zkp_validation"
 )
 
 builder.add_edge(
-    "decision_zkp_validation",
-    "decision_final_status"
+    "zkp_validation",
+    "coordinator_final_status"
 )
 
 builder.add_edge(
-    "decision_final_status",
+    "coordinator_final_status",
     END
 )
 
@@ -87,9 +87,9 @@ EMR record retrieval
    ↓
 Ruler Agent safe-range generation
    ↓
-Decision Agent -> ZKP validation
+ZKP validation
    ↓
-Decision Agent final patient status
+Coordinator final range status
 """
 )
 
@@ -99,9 +99,9 @@ print("=" * 70)
 
 
 @rpc.tool("run_cdss", "Coordinate EMR retrieval, Ruler safe-range generation, ZKP validation, and final patient status.", {
-    "type": "object", "properties": {"patient_id": {"type": "string"}, "use_rag": {"type": "boolean"}}, "required": ["patient_id"],
+    "type": "object", "properties": {"patient_id": {"type": "string"}, "use_rag": {"type": "boolean"}, "debug_sensor_values": {"type": "boolean"}}, "required": ["patient_id"],
 })
-def run(patient_id: str, use_rag: bool = True):
+def run(patient_id: str, use_rag: bool = True, debug_sensor_values: bool = False):
 
 
     print("\n" + "=" * 70)
@@ -127,6 +127,7 @@ def run(patient_id: str, use_rag: bool = True):
         "decision": {}
         ,"use_rag": use_rag
         ,"timings": {}
+        ,"debug_sensor_values": debug_sensor_values
     }
 
 

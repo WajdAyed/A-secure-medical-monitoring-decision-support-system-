@@ -1,0 +1,158 @@
+[
+  {
+    "patient_id": "100001",
+    "method": "chroma",
+    "label": "ChromaDB retrieval",
+    "retrieval_s": 0.1787493000010727,
+    "bound_generation_s": 25.043066799998996,
+    "proof_s": 0.27476109999952314,
+    "sources": [
+      [
+        "Hypertension guideline.pdf",
+        "Hypertension guideline.pdf",
+        "Hypertension guideline.pdf"
+      ]
+    ],
+    "retrieved_chunks": [
+      [
+        "ead2c00e13aa8fa77554b63d6dadf01d0d7955a9cfe417cd19aaf27933594f3c",
+        "f3b4c7f6b78a16531ef1674415c7e48ac83e06155c0434af5a1f2d9da6a8a231",
+        "485277d0bc6bc258eae913a5d95283b4f4a7cf219a38995526b2178b9529e78f"
+      ]
+    ],
+    "queries": [
+      "depression"
+    ],
+    "bounds": [
+      {
+        "parameter": "systolic_bp",
+        "min": 120,
+        "max": 130
+      }
+    ],
+    "generated_policies": [
+      {
+        "parameter": "systolic_bp",
+        "min": 120,
+        "max": 130,
+        "evaluation": {
+          "rag_retrieval_ms": 178.75330000060785,
+          "llm_ms": 24618.046700001287,
+          "prompt_chars": 2161,
+          "retrieved_chunks": 3,
+          "llm_raw_output": "{ \n\"parameter\": \"systolic_bp\", \n\"min\": 120, \n\"max\": 130 \n}",
+          "json_parse_ok": true,
+          "prompt_eval_count": 535,
+          "eval_count": 27,
+          "total_duration": 24613741200,
+          "load_duration": 12381209800,
+          "prompt_eval_duration": 8027086000,
+          "eval_duration": 4189903000
+        }
+      }
+    ],
+    "proof": {
+      "status": "ALERT",
+      "verified": false,
+      "proof_type": "Bulletproofs",
+      "public_bounds": {
+        "min": 120,
+        "max": 130,
+        "parameter": "systolic_bp"
+      },
+      "reason": "device reports reading outside range; no range proof was produced"
+    },
+    "proof_verified": false,
+    "final_decision": {
+      "status": "OUT_OF_RANGE",
+      "message": "Device reported a reading outside the selected range; clinical review is needed."
+    },
+    "error": null,
+    "error_stage": null,
+    "patient_profile": {
+      "id": "100001",
+      "gender": "male",
+      "age": 86,
+      "condition": "depression"
+    },
+    "total_workflow_s": 25.515507800000705
+  },
+  {
+    "patient_id": "100001",
+    "method": "direct",
+    "label": "Direct search over all chunks",
+    "retrieval_s": 1.3827648000005865,
+    "bound_generation_s": 4.997546200000215,
+    "proof_s": 0.02822799999921699,
+    "sources": [
+      [
+        "Hypertension guideline.pdf",
+        "Hypertension guideline.pdf",
+        "Hypertension guideline.pdf"
+      ]
+    ],
+    "retrieved_chunks": [
+      [
+        "ead2c00e13aa8fa77554b63d6dadf01d0d7955a9cfe417cd19aaf27933594f3c",
+        "f3b4c7f6b78a16531ef1674415c7e48ac83e06155c0434af5a1f2d9da6a8a231",
+        "485277d0bc6bc258eae913a5d95283b4f4a7cf219a38995526b2178b9529e78f"
+      ]
+    ],
+    "queries": [
+      "depression"
+    ],
+    "bounds": [
+      {
+        "parameter": "systolic_bp",
+        "min": 120,
+        "max": 130
+      }
+    ],
+    "generated_policies": [
+      {
+        "parameter": "systolic_bp",
+        "min": 120,
+        "max": 130,
+        "evaluation": {
+          "rag_retrieval_ms": 1382.7695999989373,
+          "llm_ms": 4622.666599998411,
+          "prompt_chars": 2161,
+          "retrieved_chunks": 3,
+          "llm_raw_output": "{ \n\"parameter\": \"systolic_bp\", \n\"min\": 120, \n\"max\": 130 \n}",
+          "json_parse_ok": true,
+          "prompt_eval_count": 535,
+          "eval_count": 27,
+          "total_duration": 4620474700,
+          "load_duration": 336309900,
+          "prompt_eval_duration": 343487000,
+          "eval_duration": 3934778000
+        }
+      }
+    ],
+    "proof": {
+      "status": "ALERT",
+      "verified": false,
+      "proof_type": "Bulletproofs",
+      "public_bounds": {
+        "min": 120,
+        "max": 130,
+        "parameter": "systolic_bp"
+      },
+      "reason": "device reports reading outside range; no range proof was produced"
+    },
+    "proof_verified": false,
+    "final_decision": {
+      "status": "OUT_OF_RANGE",
+      "message": "Device reported a reading outside the selected range; clinical review is needed."
+    },
+    "error": null,
+    "error_stage": null,
+    "patient_profile": {
+      "id": "100001",
+      "gender": "male",
+      "age": 86,
+      "condition": "depression"
+    },
+    "total_workflow_s": 6.446472100000392
+  }
+]

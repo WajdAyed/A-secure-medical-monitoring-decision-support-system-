@@ -1,14 +1,15 @@
 import json
+import os
 from pathlib import Path
 from datetime import date
 
 
-DATA = (
+DATA = Path(os.getenv("PATIENT_DATA_FILE", str(
     Path(__file__).parent.parent
     / "datasets"
     / "clean"
     / "patients_200.json"
-)
+)))
 
 
 def calculate_age(birth_date):

@@ -265,7 +265,7 @@ Write-Host ""
 # Patient MCP :8005
 # ------------------------------------------------------------
 
-Write-Host "[1/6] Starting Patient MCP :8005" -ForegroundColor Cyan
+Write-Host "[1/4] Starting Patient MCP :8005" -ForegroundColor Cyan
 
 Start-Process powershell -ArgumentList `
     "-NoExit",
@@ -276,7 +276,7 @@ Start-Process powershell -ArgumentList `
 # Rule Engine :8004
 # ------------------------------------------------------------
 
-Write-Host "[2/6] Starting Rule Engine :8004" -ForegroundColor Cyan
+Write-Host "[2/4] Starting Rule Engine :8004" -ForegroundColor Cyan
 
 Start-Process powershell -ArgumentList `
     "-NoExit",
@@ -287,7 +287,12 @@ Start-Process powershell -ArgumentList `
 # Privacy MCP :8003
 # ------------------------------------------------------------
 
-Write-Host "[3/6] Starting Privacy MCP :8003" -ForegroundColor Cyan
+Write-Host "[3/4] Starting Privacy MCP :8003" -ForegroundColor Cyan
+
+Start-Process powershell -WindowStyle Hidden -ArgumentList `
+    "-NoExit",
+    "-Command",
+    "cd '$root'; .\backend\.venv\Scripts\Activate.ps1; uvicorn device_agent.app:app --reload --port 8006"
 
 Start-Process powershell -ArgumentList `
     "-NoExit",
@@ -295,32 +300,10 @@ Start-Process powershell -ArgumentList `
     "cd '$root'; .\backend\.venv\Scripts\Activate.ps1; uvicorn privacy_mcp.app:app --reload --port 8003"
 
 # ------------------------------------------------------------
-# Decision Engine :8002
-# ------------------------------------------------------------
-
-Write-Host "[4/6] Starting Decision Engine :8002" -ForegroundColor Cyan
-
-Start-Process powershell -ArgumentList `
-    "-NoExit",
-    "-Command",
-    "cd '$root'; .\backend\.venv\Scripts\Activate.ps1; uvicorn decision_engine.app:app --reload --port 8002"
-
-# ------------------------------------------------------------
-# Knowledge MCP :8010
-# ------------------------------------------------------------
-
-Write-Host "[5/6] Starting Knowledge MCP :8010" -ForegroundColor Cyan
-
-Start-Process powershell -ArgumentList `
-    "-NoExit",
-    "-Command",
-    "cd '$root'; .\backend\.venv\Scripts\Activate.ps1; `$env:OLLAMA_HOST='http://127.0.0.1:11434'; uvicorn knowledge_mcp.app:app --reload --port 8010"
-
-# ------------------------------------------------------------
 # LangGraph Coordinator :8007
 # ------------------------------------------------------------
 
-Write-Host "[6/6] Starting LangGraph Coordinator :8007" -ForegroundColor Cyan
+Write-Host "[4/4] Starting LangGraph Coordinator :8007" -ForegroundColor Cyan
 
 Start-Process powershell -ArgumentList `
     "-NoExit",
@@ -339,8 +322,6 @@ $services = @(
     @{Port = 8005; Name = "Patient MCP"},
     @{Port = 8004; Name = "Rule Engine"},
     @{Port = 8003; Name = "Privacy MCP"},
-    @{Port = 8002; Name = "Decision Engine"},
-    @{Port = 8010; Name = "Knowledge MCP"},
     @{Port = 8007; Name = "LangGraph Coordinator"}
 )
 
@@ -388,8 +369,7 @@ Write-Host "  Ollama                 :11434   -/" -ForegroundColor Green
 Write-Host "  Patient MCP            :8005    -/" -ForegroundColor Green
 Write-Host "  Rule Engine            :8004    -/" -ForegroundColor Green
 Write-Host "  Privacy MCP            :8003    -/" -ForegroundColor Green
-Write-Host "  Decision Engine        :8002    -/" -ForegroundColor Green
-Write-Host "  Knowledge MCP / RAG    :8010    -/" -ForegroundColor Green
+Write-Host "  Ruler Agent / ChromaDB :8004    -/" -ForegroundColor Green
 Write-Host "  LangGraph Coordinator  :8007    -/" -ForegroundColor Green
 Write-Host ""
 

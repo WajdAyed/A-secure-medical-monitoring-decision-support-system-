@@ -10,10 +10,10 @@ rpc = MCPJsonRpcServer("zkp-layer")
 
 
 
-@rpc.tool("request_proof", "Generate and validate a ZKP range proof from sensor data without exposing raw sensor values.", {
+@rpc.tool("request_proof", "Request a device-side Bulletproof package and verify it without receiving the sensor value.", {
     "type": "object", "properties": {"bounds": {"type": "object"}, "patient_id": {"type": "string"}}, "required": ["bounds"],
 })
-def request_proof(bounds: dict, patient_id: str | None = None):
+def request_proof(bounds: dict, patient_id: str | None = None, debug_sensor_values: bool = False):
 
     data = {"bounds": bounds}
 
@@ -74,7 +74,7 @@ def request_proof(bounds: dict, patient_id: str | None = None):
     try:
 
 
-        result = generate_and_verify_proof(bounds, patient_id=patient_id)
+        result = generate_and_verify_proof(bounds, patient_id=patient_id, debug_sensor_values=debug_sensor_values)
 
 
     except Exception as e:
@@ -110,6 +110,23 @@ def request_proof(bounds: dict, patient_id: str | None = None):
 
 
     return result
+
+
+@rpc.tool("request_proofs", "Verify one device-side proof per public range and return only the results.", {
+    "type": "object", "properties": {"ranges": {"type": "array"}, "patient_id": {"type": "string"}}, "required": ["ranges"],
+})
+def request_proofs(ranges: list[dict], patient_id: str | None = None, debug_sensor_values: bool = False):
+    if not isinstance(ranges, list) or not ranges:
+        raise ValueError("ranges must be a nonempty list")
+    results = []
+    for item in ranges:
+        if not isinstance(item, dict):
+            raise ValueError("each range must be an object")
+        bounds = {"min": item["min"], "max": item["max"], "parameter": item.get("parameter")}
+        results.append({"parameter": item.get("parameter"), "result": generate_and_verify_proof(bounds, patient_id=patient_id, debug_sensor_values=debug_sensor_values)})
+    all_normal = all(item["result"].get("verified") is True and item["result"].get("status") == "NORMAL" for item in results)
+    any_alert = any(item["result"].get("status") == "ALERT" for item in results)
+    return {"status": "NORMAL" if all_normal else "ALERT" if any_alert else "PROOF_FAILED", "verified": all_normal, "proof_type": "Bulletproofs (one proof per measurement)", "measurements": results}
 
 
 @app.post("/rpc")

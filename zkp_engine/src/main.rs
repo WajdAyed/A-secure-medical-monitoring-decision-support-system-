@@ -1,52 +1,38 @@
-mod range;
-
 use serde::{Deserialize, Serialize};
 use std::io::{self, Read};
+use zkp_engine::range::{prove_range, verify_range, ProofPackage};
 
 #[derive(Deserialize)]
-struct Input {
-    value: u64,
-    min: u64,
-    max: u64,
+#[serde(tag = "action", rename_all = "snake_case")]
+enum Input {
+    Prove { value: u64, min: u64, max: u64, nonce: String },
+    Verify { package: ProofPackage, expected_nonce: String },
 }
 
 #[derive(Serialize)]
 struct Output {
     verified: bool,
-    status: String,
-    proof_type: String,
-    prove_ms: f64,
-    verify_ms: f64,
-    proof_size_bytes: usize,
+    status: &'static str,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    package: Option<ProofPackage>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    error: Option<String>,
+    elapsed_ms: f64,
 }
 
 fn main() {
-
     let mut input = String::new();
-    io::stdin().read_to_string(&mut input).unwrap();
-
-    let req: Input = serde_json::from_str(&input).unwrap();
-
-    let in_range = req.min <= req.max && req.value >= req.min && req.value <= req.max;
-    let (verified, prove_us, verify_us, proof_size_bytes) = range::prove_range(req.value, req.min, req.max);
-
-    let status = if !in_range {
-        "ALERT"
-    } else if !verified {
-        "PROOF_FAILED"
-    } else {
-        "NORMAL"
+    io::stdin().read_to_string(&mut input).expect("stdin");
+    let output = match serde_json::from_str::<Input>(&input) {
+        Ok(Input::Prove { value, min, max, nonce }) => match prove_range(value, min, max, &nonce) {
+            Ok((package, us)) => Output { verified: false, status: "PENDING_VERIFICATION", package: Some(package), error: None, elapsed_ms: us as f64 / 1000.0 },
+            Err(error) => Output { verified: false, status: "ALERT", package: None, error: Some(error), elapsed_ms: 0.0 },
+        },
+        Ok(Input::Verify { package, expected_nonce }) => match verify_range(&package, &expected_nonce) {
+            Ok(us) => Output { verified: true, status: "NORMAL", package: None, error: None, elapsed_ms: us as f64 / 1000.0 },
+            Err(error) => Output { verified: false, status: "PROOF_FAILED", package: None, error: Some(error), elapsed_ms: 0.0 },
+        },
+        Err(error) => Output { verified: false, status: "PROOF_FAILED", package: None, error: Some(error.to_string()), elapsed_ms: 0.0 },
     };
-
-    let response = Output {
-        verified,
-        status: status.to_string(),
-        proof_type: "Bulletproofs".to_string(),
-        prove_ms: prove_us as f64 / 1000.0,
-        verify_ms: verify_us as f64 / 1000.0,
-        proof_size_bytes,
-    };
-
-    println!("{}", serde_json::to_string(&response).unwrap());
-
+    println!("{}", serde_json::to_string(&output).expect("json"));
 }

@@ -9,6 +9,7 @@ from pathlib import Path
 
 
 LANGGRAPH_URL = os.getenv("LANGGRAPH_URL", "http://127.0.0.1:8007")
+LANGGRAPH_TIMEOUT = float(os.getenv("LANGGRAPH_TIMEOUT", "90"))
 DATASET_PATH = Path(__file__).resolve().parent / "datasets" / "clean" / "patients_200.json"
 
 
@@ -83,7 +84,7 @@ def process_stage(message, duration=1.2):
 
     record_action(message, start_time)
 
-    print(f"[✓] {message}")
+    print(f"[OK] {message}")
 
 
 # ====================================================
@@ -145,9 +146,13 @@ def main():
 
     print("-----------------------------")
 
-    query = input(
-        "\nDoctor query:\n> "
-    )
+    try:
+        query = input(
+            "\nDoctor query:\n> "
+        )
+    except EOFError:
+        print("\nNo query entered.")
+        return
 
     # extract patient id
     patient_id_start_time = time.perf_counter()
@@ -166,6 +171,10 @@ def main():
         return
 
     patient_id = match.group()
+
+    if patient_id not in patients:
+        print(f"\nPatient ID {patient_id} is not in the available patient list.")
+        return
 
     print()
 
@@ -186,7 +195,7 @@ def main():
     )
 
     process_stage(
-        "Decision Agent: sending safe range to ZKP layer..."
+        "Coordinator: sending safe range to ZKP layer..."
     )
 
     process_stage(
@@ -198,7 +207,7 @@ def main():
     )
 
     process_stage(
-        "Decision Agent: generating final patient status..."
+        "Coordinator: summarizing proof result..."
     )
 
 # ====================================================
@@ -221,9 +230,9 @@ def main():
                     "jsonrpc": "2.0",
                     "id": "doctor-console",
                     "method": "tools/call",
-                    "params": {"name": "run_cdss", "arguments": {"patient_id": patient_id}},
+                    "params": {"name": "run_cdss", "arguments": {"patient_id": patient_id, "debug_sensor_values": True}},
                 },
-                timeout=120,
+                timeout=LANGGRAPH_TIMEOUT,
             )
         finally:
             record_action("LangGraph request", request_start_time)
@@ -243,7 +252,7 @@ def main():
 
         if response.status_code != 200:
 
-            print("\n❌ LANGGRAPH FAILED")
+            print("\n[ERROR] LANGGRAPH FAILED")
 
             print(
                 "\nGo check these terminals:"
@@ -281,6 +290,11 @@ def main():
                 response_parse_start_time
             )
 
+            if rpc_response.get("result", {}).get("isError") or "error" in result:
+                print("\n[ERROR] LANGGRAPH TOOL FAILED")
+                print(result.get("error", "The coordinator returned an error."))
+                return
+
         except Exception as json_error:
 
             record_action(
@@ -289,7 +303,7 @@ def main():
             )
 
             print(
-                "\n❌ JSON PARSE ERROR"
+                "\n[ERROR] JSON PARSE ERROR"
             )
 
             print(
@@ -309,7 +323,7 @@ def main():
     except requests.exceptions.ConnectionError as e:
 
         print(
-            "\n❌ CONNECTION ERROR"
+            "\n[ERROR] CONNECTION ERROR"
         )
 
         print(e)
@@ -324,7 +338,7 @@ def main():
     except requests.exceptions.Timeout as e:
 
         print(
-            "\n❌ REQUEST TIMEOUT"
+            "\n[ERROR] REQUEST TIMEOUT"
         )
 
         print(e)
@@ -335,7 +349,7 @@ def main():
     except Exception as e:
 
         print(
-            "\n❌ UNKNOWN ERROR"
+            "\n[ERROR] UNKNOWN ERROR"
         )
 
         print(type(e))
@@ -404,22 +418,21 @@ def main():
     else:
         print(f"{policy.get('min')} - {policy.get('max')} {policy.get('parameter', '')}")
 
-    print("\nSensor Value:")
-    sensor_value = proof.get("sensor_value_for_console")
     measurements = proof.get("measurements") if isinstance(proof, dict) else None
-    if measurements:
-        for measurement in measurements:
-            item = measurement.get("result", {})
-            parameter = measurement.get("parameter", "measurement")
-            print(f"- {parameter}: {item.get('sensor_value_for_console', 'unavailable')}")
-        print("[LOCAL DEMO ONLY — actual sampled sensor values]")
-    elif sensor_value is None:
-        print("Sensor value unavailable; restart the Privacy MCP to load the local-demo setting.")
+    debug_value = proof.get("sensor_value_for_debug") if isinstance(proof, dict) else None
+    if debug_value is None and measurements:
+        debug_values = [
+            item.get("result", {}).get("sensor_value_for_debug")
+            for item in measurements
+            if isinstance(item, dict) and isinstance(item.get("result"), dict)
+        ]
+        debug_values = [value for value in debug_values if value is not None]
+        if debug_values:
+            debug_value = ", ".join(str(value) for value in debug_values)
+    if debug_value is None:
+        print("\nSensor Value: hidden on device")
     else:
-        print(sensor_value)
-        print("[LOCAL DEMO ONLY — actual sampled sensor value]")
-
-    
+        print(f"\nSensor Value [DEBUG ONLY]: {debug_value}")
 
     print("\nZKP Range-Proof Result:")
     if measurements:
@@ -431,33 +444,15 @@ def main():
                 f"({'VALID' if item.get('verified') else 'NOT VALID'})"
             )
     elif proof.get("status") == "NORMAL" and proof.get("verified"):
-        print("VALID ✅  The ZKP attests range membership.")
+        print("VALID  The ZKP attests range membership.")
     elif proof.get("status") == "ALERT":
-        print("OUT OF RANGE ⚠️  The ZKP did not attest membership.")
+        print("OUT OF RANGE  The ZKP did not attest membership.")
     else:
-        print("PROOF FAILED ❌  No clinical-safe result is issued.")
+        print("PROOF FAILED  No clinical-safe result is issued.")
 
-    print("\nFinal Decision:")
-
-    if decision.get("stable"):
-
-        print(
-            decision.get(
-                "message",
-                "Patient is clinically stable."
-            ),
-            "✅"
-        )
-
-    else:
-
-        print(
-            decision.get(
-                "message",
-                "Patient requires attention."
-            ),
-            "⚠️"
-        )
+    print("\nFinal Range Assessment:")
+    status = decision.get("status", "UNABLE_TO_ASSESS")
+    print(f"{status}: {decision.get('message', 'No assessment available.')}")
 
     print("""
 ====================================================

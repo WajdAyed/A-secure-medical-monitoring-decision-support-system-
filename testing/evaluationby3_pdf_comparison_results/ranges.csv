@@ -1,0 +1,397 @@
+patient_id,mode,vital_sign,parameter_raw,lower,upper,processing_seconds,error
+100002,rag,peak_flow_percent,peak_flow_percent,80.0,100.0,12.958547700000054,
+100003,rag,systolic_bp,systolic_bp,130.0,139.0,13.61393460000545,
+100004,rag,heart_rate,heart_rate,60.0,100.0,16.98036009999487,
+100005,rag,pain_score,pain_score,0.0,4.0,12.827488200004154,
+100006,rag,systolic_bp,systolic_bp,120.0,140.0,15.77282379999815,
+100007,rag,systolic_bp,systolic_bp,120.0,140.0,14.94152149999718,
+100008,rag,systolic_bp,systolic_bp,130.0,139.0,14.039665599993896,
+100009,rag,bmi,bmi,18.0,30.0,12.320446499994432,
+100010,rag,systolic_bp,systolic_bp,120.0,130.0,14.978203999999096,
+100011,rag,systolic_bp,systolic_bp,90.0,120.0,16.931397300002573,
+100012,rag,oxygen_saturation,oxygen_saturation,92.0,100.0,15.194559800002025,
+100013,rag,systolic_bp,systolic_bp,130.0,140.0,14.617466700001387,
+100014,rag,systolic_bp,systolic_bp,120.0,140.0,16.013616100004583,
+100015,rag,pain_score,pain_score,0.0,4.0,13.99727520000306,
+100016,rag,systolic_bp,systolic_bp,120.0,140.0,15.95386359999975,
+100017,rag,pain_score,pain_score,0.0,4.0,14.74103599999944,
+100018,rag,systolic_bp,systolic_bp,120.0,140.0,17.293476899998495,
+100019,rag,heart_rate,heart_rate,60.0,100.0,18.396292599994922,
+100020,rag,peak_flow_percent,peak_flow_percent,80.0,100.0,15.539659299996856,
+100021,rag,peak_flow_percent,peak_flow_percent,80.0,100.0,14.370632600002864,
+100022,rag,bmi,bmi,18.0,30.0,14.158692200006044,
+100023,rag,systolic_bp,systolic_bp,120.0,130.0,13.94584730000497,
+100024,rag,systolic_bp,systolic_bp,120.0,130.0,17.31685809999908,
+100025,rag,pain_score,pain_score,0.0,4.0,14.029113799995685,
+100026,rag,blood_glucose,blood_glucose,70.0,140.0,15.309618999999657,
+100027,rag,systolic_bp,systolic_bp,130.0,140.0,7.251751800002239,
+100028,rag,systolic_bp,systolic_bp,130.0,139.0,16.04067380000197,
+100029,rag,systolic_bp,systolic_bp,100.0,130.0,18.602645300001313,
+100030,rag,hemoglobin,hemoglobin,12.0,16.0,18.846647599995777,
+100031,rag,heart_rate,heart_rate,60.0,100.0,21.007036199996946,
+100032,rag,systolic_bp,systolic_bp,110.0,140.0,17.887437199999113,
+100033,rag,systolic_bp,systolic_bp,120.0,130.0,14.914857899995695,
+100034,rag,systolic_bp,systolic_bp,100.0,130.0,18.171114199998556,
+100035,rag,systolic_bp,systolic_bp,130.0,139.0,15.773608100003912,
+100036,rag,systolic_bp,systolic_bp,90.0,110.0,18.22024640000018,
+100037,rag,oxygen_saturation,oxygen_saturation,92.0,100.0,19.542256499997166,
+100038,rag,systolic_bp,systolic_bp,130.0,139.0,17.213275399997656,
+100039,rag,systolic_bp,systolic_bp,90.0,120.0,18.892261200002395,
+100040,rag,bmi,bmi,18.0,30.0,14.861905800004024,
+100041,rag,systolic_bp,systolic_bp,120.0,140.0,17.61923630000092,
+100042,rag,heart_rate,heart_rate,60.0,100.0,20.343452400004026,
+100043,rag,systolic_bp,systolic_bp,110.0,130.0,18.287843400001293,
+100044,rag,heart_rate,heart_rate,60.0,100.0,20.091844599999604,
+100045,rag,systolic_bp,systolic_bp,110.0,130.0,18.85371529999975,
+100046,rag,bmi,bmi,18.0,30.0,15.4595124999978,
+100047,rag,heart_rate,heart_rate,60.0,100.0,20.322846199997002,
+100048,rag,systolic_bp,systolic_bp,120.0,130.0,16.029407100002572,
+100049,rag,systolic_bp,systolic_bp,120.0,140.0,18.370605399999477,
+100050,rag,systolic_bp,systolic_bp,120.0,140.0,17.361125200004608,
+100051,rag,systolic_bp,systolic_bp,130.0,160.0,16.178652599999623,
+100052,rag,systolic_bp,systolic_bp,130.0,139.0,14.888661700002558,
+100053,rag,heart_rate,heart_rate,60.0,100.0,21.69066230000317,
+100054,rag,systolic_bp,systolic_bp,90.0,120.0,19.797786500006623,
+100055,rag,heart_rate,heart_rate,60.0,100.0,19.312944199999038,
+100056,rag,blood_glucose,blood_glucose,70.0,140.0,16.11815860000206,
+100057,rag,systolic_bp,systolic_bp,120.0,130.0,18.81724559999566,
+100058,rag,heart_rate,heart_rate,60.0,100.0,22.60902590000478,
+100059,rag,systolic_bp,systolic_bp,130.0,140.0,17.429741799998737,
+100060,rag,oxygen_saturation,oxygen_saturation,92.0,100.0,17.40167840000504,
+100061,rag,systolic_bp,systolic_bp,120.0,130.0,17.68938909999997,
+100062,rag,systolic_bp,systolic_bp,90.0,100.0,15.180938400000741,
+100063,rag,systolic_bp,systolic_bp,100.0,120.0,14.158292000000074,
+100064,rag,sleep_hours,sleep_hours,7.0,9.0,14.208860699996876,
+100065,rag,bmi,bmi,18.0,30.0,23.373046200002136,
+100066,rag,heart_rate,heart_rate,60.0,90.0,19.780201699999452,
+100067,rag,peak_flow_percent,peak_flow_percent,80.0,100.0,15.380156300001545,
+100068,rag,systolic_bp,systolic_bp,105.0,130.0,18.118943199995556,
+100069,rag,bmi,bmi,18.0,30.0,15.403640399999858,
+100070,rag,bmi,bmi,18.0,30.0,12.79853010000079,
+100071,rag,pain_score,pain_score,0.0,4.0,6.432975800002168,
+100072,rag,bmi,bmi,18.0,30.0,13.954911600005289,
+100073,rag,systolic_bp,systolic_bp,120.0,130.0,16.073279300006106,
+100074,rag,systolic_bp,systolic_bp,130.0,150.0,15.779064200003631,
+100075,rag,bmi,bmi,18.0,30.0,13.969756400001643,
+100076,rag,peak_flow_percent,peak_flow_percent,80.0,100.0,14.934641799998644,
+100077,rag,systolic_bp,systolic_bp,120.0,130.0,16.140036900003906,
+100078,rag,bmi,bmi,18.0,30.0,15.359510100002808,
+100079,rag,systolic_bp,systolic_bp,130.0,160.0,6.890313099997002,
+100080,rag,sleep_hours,sleep_hours,7.0,9.0,13.287978399996064,
+100081,rag,systolic_bp,systolic_bp,130.0,139.0,14.251548199994431,
+100082,rag,systolic_bp,systolic_bp,120.0,140.0,14.430251199999475,
+100083,rag,peak_flow_percent,peak_flow_percent,80.0,100.0,14.60006529999373,
+100084,rag,peak_flow_percent,peak_flow_percent,80.0,100.0,15.095085900000413,
+100085,rag,oxygen_saturation,oxygen_saturation,92.0,100.0,14.886435500004154,
+100086,rag,sleep_hours,sleep_hours,7.0,9.0,13.889037200002349,
+100087,rag,heart_rate,heart_rate,50.0,120.0,18.572903600004793,
+100088,rag,systolic_bp,systolic_bp,120.0,130.0,17.719816299999366,
+100089,rag,oxygen_saturation,oxygen_saturation,92.0,100.0,17.728205600004003,
+100090,rag,hemoglobin,hemoglobin,12.0,16.0,7.163988499996776,
+100091,rag,systolic_bp,systolic_bp,90.0,120.0,18.16160210000089,
+100092,rag,systolic_bp,systolic_bp,120.0,130.0,16.368182099999103,
+100093,rag,systolic_bp,systolic_bp,90.0,120.0,18.29444180000428,
+100094,rag,blood_glucose,blood_glucose,70.0,140.0,15.17894140000135,
+100095,rag,systolic_bp,systolic_bp,130.0,139.0,15.847458100004587,
+100096,rag,bmi,bmi,18.0,30.0,16.982323100004578,
+100097,rag,systolic_bp,systolic_bp,120.0,130.0,17.36920540000574,
+100098,rag,oxygen_saturation,oxygen_saturation,88.0,93.0,18.80658680000488,
+100099,rag,systolic_bp,systolic_bp,130.0,150.0,18.59147930000472,
+100100,rag,bmi,bmi,18.0,30.0,16.536285399997723,
+100101,rag,bmi,bmi,18.0,30.0,79.17309460000251,
+100102,rag,bmi,bmi,18.0,30.0,15.341828299999179,
+100103,rag,systolic_bp,systolic_bp,120.0,140.0,18.759619500000554,
+100104,rag,heart_rate,heart_rate,60.0,100.0,19.49109309999767,
+100105,rag,hemoglobin,hemoglobin,12.0,14.0,17.296767699997872,
+100106,rag,pain_score,pain_score,0.0,4.0,15.468262399997911,
+100107,rag,bmi,bmi,18.0,30.0,15.105735800003458,
+100108,rag,bmi,bmi,18.0,30.0,6.8436570999983815,
+100109,rag,systolic_bp,systolic_bp,120.0,130.0,16.65008400000079,
+100110,rag,bmi,bmi,18.0,30.0,16.015132200001972,
+100111,rag,systolic_bp,systolic_bp,120.0,130.0,17.216041399995447,
+100112,rag,systolic_bp,systolic_bp,120.0,140.0,15.434214800006885,
+100113,rag,systolic_bp,systolic_bp,130.0,150.0,16.88251979999768,
+100114,rag,oxygen_saturation,oxygen_saturation,92.0,100.0,15.095077099998889,
+100115,rag,blood_glucose,blood_glucose,70.0,140.0,6.323286400001962,
+100116,rag,systolic_bp,systolic_bp,130.0,139.0,14.28748810000252,
+100117,rag,systolic_bp,systolic_bp,130.0,139.0,13.834863299998688,
+100118,rag,systolic_bp,systolic_bp,130.0,139.0,14.155668799998239,
+100119,rag,systolic_bp,systolic_bp,120.0,130.0,13.43846179999673,
+100120,rag,bmi,bmi,18.0,30.0,13.609195900004124,
+100121,rag,pain_score,pain_score,0.0,4.0,13.484992099998635,
+100122,rag,oxygen_saturation,oxygen_saturation,92.0,100.0,16.052879499999108,
+100123,rag,systolic_bp,systolic_bp,110.0,135.0,13.812509400006093,
+100124,rag,hemoglobin,hemoglobin,10.0,12.0,19.453531499995734,
+100125,rag,systolic_bp,systolic_bp,120.0,130.0,16.164597900002263,
+100126,rag,systolic_bp,systolic_bp,120.0,130.0,17.057895999998436,
+100127,rag,heart_rate,heart_rate,60.0,100.0,23.06157869999879,
+100128,rag,bmi,bmi,18.0,30.0,16.30099510000582,
+100129,rag,pain_score,pain_score,0.0,4.0,13.721495300000242,
+100130,rag,bmi,bmi,18.0,30.0,20.792398800003866,
+100131,rag,hemoglobin,hemoglobin,12.0,16.0,16.758112799994706,
+100132,rag,systolic_bp,systolic_bp,120.0,130.0,6.131579099994269,
+100133,rag,blood_glucose,blood_glucose,70.0,140.0,15.851308799996332,
+100134,rag,pain_score,pain_score,0.0,4.0,14.174111700005597,
+100135,rag,pain_score,pain_score,0.0,4.0,13.81299990000116,
+100136,rag,oxygen_saturation,oxygen_saturation,92.0,100.0,14.885699700003897,
+100137,rag,heart_rate,heart_rate,60.0,100.0,19.63606269999582,
+100138,rag,pain_score,pain_score,0.0,4.0,16.019198900001356,
+100139,rag,oxygen_saturation,oxygen_saturation,92.0,100.0,16.170941199998197,
+100140,rag,systolic_bp,systolic_bp,130.0,150.0,7.895872699999018,
+100141,rag,systolic_bp,systolic_bp,130.0,139.0,15.107764200001839,
+100142,rag,blood_glucose,blood_glucose,70.0,120.0,14.681908500002464,
+100143,rag,systolic_bp,systolic_bp,110.0,139.0,14.33577890000015,
+100144,rag,oxygen_saturation,oxygen_saturation,92.0,100.0,15.566772199999832,
+100145,rag,systolic_bp,systolic_bp,130.0,139.0,14.997974999998405,
+100146,rag,systolic_bp,systolic_bp,130.0,140.0,13.769757900001423,
+100147,rag,systolic_bp,systolic_bp,110.0,135.0,16.844255500000145,
+100148,rag,systolic_bp,systolic_bp,120.0,130.0,15.163313700002618,
+100149,rag,hemoglobin,hemoglobin,10.0,13.0,19.997095300001092,
+100150,rag,systolic_bp,systolic_bp,90.0,105.0,14.622821199998725,
+100151,rag,systolic_bp,systolic_bp,110.0,140.0,16.25783809999848,
+100152,rag,systolic_bp,systolic_bp,130.0,139.0,6.2186796000023605,
+100153,rag,pain_score,pain_score,0.0,4.0,14.489802500000224,
+100154,rag,hemoglobin,hemoglobin,10.0,12.0,17.176586800000223,
+100156,rag,systolic_bp,systolic_bp,120.0,140.0,16.62407919999532,
+100157,rag,heart_rate,heart_rate,60.0,100.0,20.60050520000368,
+100158,rag,systolic_bp,systolic_bp,130.0,140.0,15.22767130000284,
+100159,rag,systolic_bp,systolic_bp,130.0,150.0,15.85969710000063,
+100160,rag,systolic_bp,systolic_bp,130.0,160.0,18.34034299999621,
+100161,rag,systolic_bp,systolic_bp,130.0,140.0,16.16041309999855,
+100162,rag,systolic_bp,systolic_bp,120.0,130.0,7.6065898000015295,
+100163,rag,heart_rate,heart_rate,60.0,100.0,20.15445880000334,
+100164,rag,oxygen_saturation,oxygen_saturation,92.0,100.0,16.417846800002735,
+100165,rag,blood_glucose,blood_glucose,70.0,140.0,15.036488899997494,
+100166,rag,systolic_bp,systolic_bp,120.0,140.0,16.984062800001993,
+100167,rag,blood_glucose,blood_glucose,70.0,140.0,14.393203600004199,
+100168,rag,pain_score,pain_score,0.0,4.0,15.3050699000014,
+100169,rag,heart_rate,heart_rate,60.0,100.0,19.6724527999977,
+100170,rag,peak_flow_percent,peak_flow_percent,80.0,100.0,15.431296499999007,
+100171,rag,systolic_bp,systolic_bp,120.0,130.0,16.5779998999933,
+100172,rag,peak_flow_percent,peak_flow_percent,80.0,100.0,14.91200740000204,
+100173,rag,heart_rate,heart_rate,60.0,120.0,19.405553499993403,
+100174,rag,heart_rate,heart_rate,60.0,100.0,6.793146900003194,
+100175,rag,systolic_bp,systolic_bp,120.0,130.0,16.614609700001893,
+100176,rag,systolic_bp,systolic_bp,130.0,160.0,14.105283700002474,
+100177,rag,systolic_bp,systolic_bp,130.0,139.0,7.841516300002695,
+100178,rag,systolic_bp,systolic_bp,120.0,140.0,17.6538584000009,
+100179,rag,blood_glucose,blood_glucose,70.0,140.0,16.69124219999503,
+100180,rag,systolic_bp,systolic_bp,130.0,145.0,15.404989199996635,
+100181,rag,systolic_bp,systolic_bp,120.0,130.0,16.53580730000249,
+100182,rag,systolic_bp,systolic_bp,105.0,130.0,16.1434522999989,
+100183,rag,blood_glucose,blood_glucose,70.0,140.0,14.72189090000029,
+100184,rag,systolic_bp,systolic_bp,120.0,140.0,15.325788499998453,
+100185,rag,bmi,bmi,18.0,30.0,7.070173799998884,
+100186,rag,systolic_bp,systolic_bp,90.0,120.0,15.036639999998442,
+100187,rag,systolic_bp,systolic_bp,120.0,140.0,13.83808670000144,
+100188,rag,systolic_bp,systolic_bp,120.0,130.0,13.442520099997637,
+100189,rag,oxygen_saturation,oxygen_saturation,88.0,92.0,16.08495469999616,
+100190,rag,systolic_bp,systolic_bp,130.0,139.0,14.442428200003633,
+100191,rag,systolic_bp,systolic_bp,100.0,120.0,15.56757369999832,
+100192,rag,systolic_bp,systolic_bp,130.0,150.0,14.972302200003469,
+100193,rag,bmi,bmi,18.0,30.0,13.648353500000667,
+100194,rag,systolic_bp,systolic_bp,140.0,160.0,15.39433960000315,
+100195,rag,systolic_bp,systolic_bp,120.0,130.0,16.121693599998252,
+100196,rag,systolic_bp,systolic_bp,120.0,140.0,13.580523399999947,
+100197,rag,systolic_bp,systolic_bp,120.0,140.0,16.30636940000113,
+100198,rag,systolic_bp,systolic_bp,120.0,130.0,16.43948769999406,
+100199,rag,systolic_bp,systolic_bp,90.0,120.0,17.24881080000341,
+100200,rag,systolic_bp,systolic_bp,90.0,120.0,15.728967900002317,
+100002,no_rag,,,,,0.048981200001435354,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100003,no_rag,,,,,0.059007600000768434,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100004,no_rag,,,,,0.04139500000019325,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100005,no_rag,,,,,0.042046599999594036,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100006,no_rag,systolic_bp,systolic_bp,120.0,140.0,39.68856410000444,
+100007,no_rag,,,,,0.12030700000468642,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100008,no_rag,,,,,0.04639799999858951,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100009,no_rag,,,,,0.026672899999539368,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100010,no_rag,,,,,0.019177300004230347,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100011,no_rag,heart_rate,heart_rate,60.0,90.0,36.403480399996624,
+100012,no_rag,,,,,0.036469500002567656,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100013,no_rag,,,,,0.05596569999761414,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100014,no_rag,,,,,0.0654140999977244,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100015,no_rag,,,,,0.03553660000034142,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100016,no_rag,systolic_bp,systolic_bp,120.0,140.0,37.50033890000486,
+100017,no_rag,,,,,0.0357986000017263,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100018,no_rag,,,,,0.037996999999450054,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100019,no_rag,,,,,0.02614750000066124,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100020,no_rag,,,,,0.022670700003800448,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100021,no_rag,,,,,0.044759299998986535,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100022,no_rag,,,,,0.04714459999377141,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100023,no_rag,,,,,0.025478499999735504,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100024,no_rag,,,,,0.03847929999756161,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100025,no_rag,,,,,0.024089599995932076,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100026,no_rag,blood_glucose,blood_glucose,70.0,140.0,41.794238899994525,
+100027,no_rag,,,,,0.026124300005903933,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100028,no_rag,,,,,0.04413370000111172,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100029,no_rag,heart_rate,heart_rate,65.0,80.0,37.04821529999754,
+100030,no_rag,,,,,0.0249275000023772,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100031,no_rag,,,,,0.026702499999373686,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100032,no_rag,heart_rate,heart_rate,60.0,100.0,36.42047989999992,
+100033,no_rag,,,,,0.029783199999656063,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100034,no_rag,heart_rate,heart_rate,60.0,100.0,37.732395199993334,
+100035,no_rag,,,,,0.04876669999794103,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100036,no_rag,heart_rate,heart_rate,60.0,100.0,37.74390609999682,
+100037,no_rag,,,,,0.04335259999788832,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100038,no_rag,,,,,0.04276910000044154,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100039,no_rag,heart_rate,heart_rate,60.0,80.0,37.00580469999841,
+100040,no_rag,,,,,0.025613999998313375,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100041,no_rag,systolic_bp,systolic_bp,120.0,140.0,37.17910259999917,
+100042,no_rag,,,,,0.18993630000477424,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100043,no_rag,heart_rate,heart_rate,60.0,100.0,36.847338599996874,
+100044,no_rag,,,,,0.03447530000266852,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100045,no_rag,,,,,0.018702000001212582,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100046,no_rag,,,,,0.06750479999755044,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100047,no_rag,,,,,0.020194400000036694,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100048,no_rag,systolic_bp,systolic_bp,120.0,140.0,37.23851309999736,
+100049,no_rag,systolic_bp,systolic_bp,120.0,140.0,36.87586210000154,
+100050,no_rag,systolic_bp,systolic_bp,120.0,140.0,38.78979279999476,
+100051,no_rag,,,,,0.02435659999900963,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100052,no_rag,,,,,0.037841899997147266,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100053,no_rag,,,,,0.036627300003601704,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100054,no_rag,heart_rate,heart_rate,60.0,90.0,39.37943749999977,
+100055,no_rag,,,,,0.019957100004830863,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100056,no_rag,blood_glucose,blood_glucose,70.0,100.0,41.87299239999993,
+100057,no_rag,,,,,0.030698199996550102,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100058,no_rag,,,,,0.0349493000030634,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100059,no_rag,systolic_bp,systolic_bp,120.0,140.0,38.53076819999842,
+100060,no_rag,,,,,0.027634199999738485,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100061,no_rag,,,,,0.04406059999746503,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100062,no_rag,,,,,0.02553980000084266,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100063,no_rag,,,,,0.03331929999694694,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100064,no_rag,,,,,0.024488700000802055,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100065,no_rag,,,,,0.021993800000927877,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100066,no_rag,,,,,0.06482369999866933,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100067,no_rag,,,,,0.06433469999319641,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100068,no_rag,weight_kg,weight_kg,60.0,90.0,39.30861240000377,
+100069,no_rag,,,,,0.0664147999996203,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100070,no_rag,,,,,0.06034840000211261,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100071,no_rag,,,,,0.03908229999797186,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100072,no_rag,,,,,0.028584700005012564,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100073,no_rag,,,,,0.025932700002158526,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100074,no_rag,,,,,0.036138400006166194,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100075,no_rag,,,,,0.03613179999956628,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100076,no_rag,,,,,0.03718300000036834,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100077,no_rag,,,,,0.041865300001518335,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100078,no_rag,,,,,0.03179500000260305,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100079,no_rag,systolic_bp,systolic_bp,120.0,140.0,9.69450940000388,
+100080,no_rag,,,,,0.04155430000537308,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100081,no_rag,,,,,0.024888499996450264,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100082,no_rag,,,,,0.026003099999797996,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100083,no_rag,,,,,0.026752899997518398,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100084,no_rag,,,,,0.028819799998018425,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100085,no_rag,,,,,0.04035629999998491,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100086,no_rag,,,,,0.029167599997890648,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100087,no_rag,,,,,0.034260799999174196,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100088,no_rag,,,,,0.07804100000066683,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100089,no_rag,,,,,0.054011399995943066,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100090,no_rag,,,,,0.06626410000171745,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100091,no_rag,systolic_bp,systolic_bp,90.0,120.0,38.161652499999036,
+100092,no_rag,,,,,0.058405399999173824,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100093,no_rag,,,,,0.0432306000002427,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100094,no_rag,blood_glucose,blood_glucose,140.0,180.0,39.62238570000045,
+100095,no_rag,,,,,0.04276709999976447,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100096,no_rag,,,,,0.018913799998699687,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100097,no_rag,,,,,0.05595280000125058,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100098,no_rag,,,,,0.1082412000032491,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100099,no_rag,,,,,0.0458855000033509,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100100,no_rag,,,,,0.0364421999984188,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100101,no_rag,,,,,0.05749680000008084,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100102,no_rag,,,,,0.05182259999855887,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100103,no_rag,,,,,0.0641200000027311,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100104,no_rag,,,,,0.02864870000485098,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100105,no_rag,,,,,0.07336129999748664,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100106,no_rag,,,,,0.046977700003481004,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100107,no_rag,,,,,0.04552750000584638,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100108,no_rag,,,,,0.024923899996792898,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100109,no_rag,,,,,0.02862499999901047,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100110,no_rag,,,,,0.04570239999884507,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100111,no_rag,systolic_bp,systolic_bp,120.0,140.0,39.58962829999655,
+100112,no_rag,systolic_bp,systolic_bp,120.0,140.0,36.089200299997174,
+100113,no_rag,,,,,0.03393510000023525,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100114,no_rag,,,,,0.07466389999899548,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100115,no_rag,blood_glucose,blood_glucose,100.0,140.0,14.266757400000643,
+100116,no_rag,,,,,0.03401339999982156,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100117,no_rag,,,,,0.08094780000101309,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100118,no_rag,,,,,0.034258500003488734,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100119,no_rag,,,,,0.06543450000026496,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100120,no_rag,,,,,0.04670720000285655,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100121,no_rag,,,,,0.02822339999693213,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100122,no_rag,,,,,0.031189700006507337,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100123,no_rag,,,,,0.05054810000001453,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100124,no_rag,,,,,0.03280870000162395,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100125,no_rag,,,,,0.04161200000089593,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100126,no_rag,,,,,0.040851400000974536,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100127,no_rag,,,,,0.03654229999665404,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100128,no_rag,,,,,0.03852700000425102,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100129,no_rag,,,,,0.04032559999905061,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100130,no_rag,,,,,0.058518700003332924,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100131,no_rag,,,,,0.021820699999807402,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100132,no_rag,,,,,0.022042300006432924,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100133,no_rag,blood_glucose,blood_glucose,70.0,100.0,37.651911299995845,
+100134,no_rag,,,,,0.0492002999963006,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100135,no_rag,,,,,0.022576800001843367,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100136,no_rag,,,,,0.032396199996583164,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100137,no_rag,,,,,0.020704400005342904,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100138,no_rag,,,,,0.05771180000010645,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100139,no_rag,,,,,0.03796719999809284,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100140,no_rag,,,,,0.035042399998928886,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100141,no_rag,,,,,0.028905399994982872,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100142,no_rag,blood_glucose,blood_glucose,70.0,140.0,38.436968800000614,
+100143,no_rag,,,,,0.061305999995965976,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100144,no_rag,,,,,0.07637899999826914,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100145,no_rag,,,,,0.07834689999435795,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100146,no_rag,,,,,0.04918970000289846,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100147,no_rag,,,,,0.041183399996953085,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100148,no_rag,,,,,0.06965229999332223,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100149,no_rag,,,,,0.054366800002753735,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100150,no_rag,,,,,0.06892209999932675,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100151,no_rag,,,,,0.03393260000302689,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100152,no_rag,,,,,0.04552339999645483,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100153,no_rag,,,,,0.06694129999959841,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100154,no_rag,,,,,0.06230090000462951,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100156,no_rag,systolic_bp,systolic_bp,120.0,140.0,35.66114889999881,
+100157,no_rag,,,,,0.04090919999725884,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100158,no_rag,,,,,0.05053390000102809,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100159,no_rag,,,,,0.02051480000227457,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100160,no_rag,,,,,0.06743870000354946,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'anemia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100161,no_rag,,,,,0.05977829999756068,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100162,no_rag,systolic_bp,systolic_bp,120.0,140.0,7.92114450000372,
+100163,no_rag,,,,,0.042859500004851725,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100164,no_rag,,,,,0.05963760000304319,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100165,no_rag,blood_glucose,blood_glucose,90.0,130.0,44.03205739999976,
+100166,no_rag,systolic_bp,systolic_bp,120.0,140.0,36.76085760000569,
+100167,no_rag,blood_glucose,blood_glucose,70.0,120.0,41.44086029999744,
+100168,no_rag,,,,,0.047120600000198465,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arthritis'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100169,no_rag,,,,,0.04853700000239769,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100170,no_rag,,,,,0.06177220000245143,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100171,no_rag,systolic_bp,systolic_bp,120.0,140.0,37.39629360000254,
+100172,no_rag,,,,,0.042886000002908986,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100173,no_rag,,,,,0.05097910000040429,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'arrhythmia'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100174,no_rag,,,,,9.212602999999945,"Tool generate_policy failed: {'error': ""Policy missing a valid min/max bound: {'parameter': 'heart_rate', 'min': 60, 'max': None}""}"
+100175,no_rag,,,,,0.10090710000076797,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100176,no_rag,,,,,0.05523669999820413,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100177,no_rag,,,,,0.0334450999944238,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100178,no_rag,systolic_bp,systolic_bp,120.0,140.0,37.048017300003266,
+100179,no_rag,blood_glucose,blood_glucose,70.0,100.0,39.73453259999951,
+100180,no_rag,,,,,0.07788609999988694,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100181,no_rag,,,,,0.04800019999674987,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100182,no_rag,heart_rate,heart_rate,60.0,100.0,36.071929800004,
+100183,no_rag,blood_glucose,blood_glucose,80.0,140.0,39.40208680000069,
+100184,no_rag,systolic_bp,systolic_bp,120.0,140.0,34.959473900002195,
+100185,no_rag,,,,,0.050338599998212885,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100186,no_rag,,,,,0.06384889999753796,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100187,no_rag,,,,,0.03772480000043288,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100188,no_rag,,,,,0.0323800999976811,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100189,no_rag,,,,,0.0661340000006021,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'copd'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100190,no_rag,,,,,0.03677880000032019,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'stroke_risk'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100191,no_rag,heart_rate,heart_rate,60.0,100.0,35.81688959999883,
+100192,no_rag,,,,,0.03226600000198232,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100193,no_rag,,,,,0.0585988000020734,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'obesity'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100194,no_rag,systolic_bp,systolic_bp,120.0,140.0,34.99574260000372,
+100195,no_rag,,,,,0.02761319999990519,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'renal_failure'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100196,no_rag,,,,,0.03413659999932861,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'depression'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100197,no_rag,systolic_bp,systolic_bp,120.0,140.0,35.11740930000087,
+100198,no_rag,,,,,0.03377860000182409,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"
+100199,no_rag,heart_rate,heart_rate,60.0,100.0,34.74839829999837,
+100200,no_rag,,,,,0.07617359999858309,"Tool generate_policy failed: {'error': ""No project guideline PDF is available for condition 'asthma'; the no-RAG full-PDF baseline cannot invent a clinical range.""}"

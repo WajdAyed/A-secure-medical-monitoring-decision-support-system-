@@ -1,0 +1,4 @@
+condition,n,mean_latency_ms,median_latency_ms,p95_latency_ms,source_hit_rate,bounds_present_rate,nonempty_result_rate
+diabetes,10,60.45673,56.42475,73.6591,1.0,0.0,1.0
+heart_failure,10,66.02186,68.38105,79.8006,1.0,0.0,1.0
+hypertension,10,60.91239,58.7013,83.1252,1.0,0.0,1.0

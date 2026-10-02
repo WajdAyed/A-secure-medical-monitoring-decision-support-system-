@@ -1,0 +1,3 @@
+mode,n,mean_total_ms,median_total_ms,p95_total_ms,mean_retrieval_or_scan_ms,mean_llm_ms,valid_policy_rate,parameter_match_rate,exact_reference_match_rate,mean_total_bound_absolute_error
+rag_chroma,30,6839.29234,6507.2706,7991.574,,,1.0,0.6666666666666666,0.3333333333333333,30.9
+no_rag_full_pdf,30,7891.28394,7299.5373,10745.3477,2242.8667699998186,5390.93021333368,1.0,0.6666666666666666,0.3333333333333333,43.333333333333336

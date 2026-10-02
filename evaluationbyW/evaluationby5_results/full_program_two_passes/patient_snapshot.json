@@ -1,0 +1,7802 @@
+[
+  {
+    "id": "e23c6ee9-13c0-4be6-9412-30800a3a9b97",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100001"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1939-12-09",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100001",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cb89a7b3-b5b5-46e2-a7a3-1fb6566939d5",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100002"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1949-11-24",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100002",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "734a3986-96cd-42dd-bc35-cda34c27fdda",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100003"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1940-01-03",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100003",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4fff94ac-b877-46e5-a732-547473fad20a",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100004"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1939-09-07",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100004",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "65bbebe7-d7fb-44d5-b8be-a33f184cc94c",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100005"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1989-04-15",
+    "condition": "arthritis",
+    "identifier": [
+      {
+        "value": "100005",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ef1c6bb1-3aaf-49cb-8a59-65f4361b99b1",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100006"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1990-06-09",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100006",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0169bbfc-96f5-43db-bbec-ff9d37b9e80a",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100007"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1947-07-04",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100007",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ca5df47a-938e-4e30-a097-368ac69f111d",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100008"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1941-12-15",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100008",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "48dd45c4-3b63-4c6b-8317-34dfc9062796",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100009"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "2006-05-27",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100009",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "417c42eb-9a55-472a-8cc9-8c04e11eb4e2",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100010"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1960-12-03",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100010",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dbf91294-dcd6-4b46-bd27-7d1f8a0f5587",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100011"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1946-04-28",
+    "condition": "heart_failure",
+    "identifier": [
+      {
+        "value": "100011",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "28082236-e51f-4712-a8bb-053db229280b",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100012"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1982-03-12",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100012",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1bbaa2ac-0c59-4d58-8eb6-63f7ccfb032f",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100013"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1945-10-21",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100013",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2d92fa45-ec3b-4e1a-a56f-3182aa54f7f3",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100014"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1956-08-13",
+    "condition": "arthritis",
+    "identifier": [
+      {
+        "value": "100014",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7ccc80d2-211a-4fe0-8084-eae2da82de86",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100015"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1964-11-11",
+    "condition": "arthritis",
+    "identifier": [
+      {
+        "value": "100015",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a03dda82-5d45-4a63-a650-b02a55d85bb0",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100016"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1987-05-03",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100016",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "99583dd4-a21f-400b-be78-b893427ba4ad",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100017"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1963-11-16",
+    "condition": "arthritis",
+    "identifier": [
+      {
+        "value": "100017",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "383b94f2-f284-42e6-b66e-71cbd7772474",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100018"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1969-03-08",
+    "condition": "anemia",
+    "identifier": [
+      {
+        "value": "100018",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6f05c649-b061-4642-86c3-aca0f31000eb",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100019"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1990-10-13",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100019",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aad57b66-e21d-49fa-9ff5-973dc343805d",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100020"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1999-02-25",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100020",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4058a8a6-e47f-4fd3-8ea1-7f4f847234a2",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100021"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1956-11-14",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100021",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "30ac344b-1513-4c2a-b61c-2f32cec3c4e7",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100022"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1995-09-09",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100022",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "274a5bd0-3efe-40fc-b6f0-7e9f2ffe0420",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100023"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1950-11-18",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100023",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "51c1b4d3-bc3f-4a8a-89a8-47ac591f8b83",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100024"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1973-07-06",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100024",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d56a4772-bf4a-4a9d-89d6-2bc71c78ce83",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100025"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1969-09-25",
+    "condition": "arthritis",
+    "identifier": [
+      {
+        "value": "100025",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f0951b86-42af-4923-889e-c2cf3e042329",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100026"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1974-11-17",
+    "condition": "diabetes",
+    "identifier": [
+      {
+        "value": "100026",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "e2876e13-7c46-463d-b305-b109fbeddf64",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100027"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1956-09-25",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100027",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "e558a126-0dd7-4414-bf92-d001ab5f59e8",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100028"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1998-01-04",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100028",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6ffc3c47-4959-440b-b148-a8d0e4ec2dd7",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100029"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1966-10-03",
+    "condition": "heart_failure",
+    "identifier": [
+      {
+        "value": "100029",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d57db032-d015-449c-95fe-a6f2f86e0b06",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100030"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "2004-03-05",
+    "condition": "anemia",
+    "identifier": [
+      {
+        "value": "100030",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "193d9cb1-1a11-4256-b8d4-fefdacaf8d74",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100031"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1969-09-28",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100031",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ec10b3f3-48ec-4f7d-b0ee-d0b2e5efa965",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100032"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1961-12-10",
+    "condition": "heart_failure",
+    "identifier": [
+      {
+        "value": "100032",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "73c82848-06b2-455a-b5dd-f928a71650fb",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100033"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1992-09-15",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100033",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8fb2c845-c1b6-409b-a86f-a41d26ffddc8",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100034"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1979-01-19",
+    "condition": "heart_failure",
+    "identifier": [
+      {
+        "value": "100034",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1721be8e-ba0a-40ad-a9f3-610de1889c5e",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100035"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1936-02-23",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100035",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9ec0ab4b-e67d-4a6f-be5c-d44de1be77cd",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100036"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1940-06-03",
+    "condition": "heart_failure",
+    "identifier": [
+      {
+        "value": "100036",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "adc40cac-eac8-4f87-8189-f2d7af8cc7ed",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100037"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1998-04-18",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100037",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "212eba62-a91e-4e8a-850a-da695d1c0f30",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100038"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1996-04-26",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100038",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "834c8b29-b3d4-4be7-a8e7-7712b9f4d9b3",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100039"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1948-11-14",
+    "condition": "heart_failure",
+    "identifier": [
+      {
+        "value": "100039",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5492d4a0-818b-4f9b-a466-dc88ec2be35d",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100040"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1942-11-21",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100040",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "61b5ce7f-0dd7-4be0-b6c6-8a7eca83cd33",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100041"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1979-02-08",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100041",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "245dead8-0007-42d3-a343-4497e4fcbba3",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100042"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1953-07-06",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100042",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6676faef-830c-4619-b199-633adbdabbd1",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100043"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1992-09-04",
+    "condition": "heart_failure",
+    "identifier": [
+      {
+        "value": "100043",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a9e31a4a-fa23-42f3-a461-a0119b384ada",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100044"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1947-04-06",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100044",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8e042a3c-c1c4-4db7-bc44-6682a3459153",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100045"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1987-01-06",
+    "condition": "anemia",
+    "identifier": [
+      {
+        "value": "100045",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "101d929b-c4ef-4ff7-a977-771b7ab46d71",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100046"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1994-05-14",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100046",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4a37bdb0-b17d-4fd1-afd6-bc4fbcc03b14",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100047"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1998-03-07",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100047",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9f7e65db-b7ec-41cf-8277-5a2de9d6caa1",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100048"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "2005-01-24",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100048",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "090f542c-8717-4748-b700-d9213c75dfaf",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100049"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1997-09-28",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100049",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d84bbc8d-3819-4dd8-8992-5f94d636c2a9",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100050"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1946-03-03",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100050",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "e8311fbc-c22b-4184-b45f-c57f4469adf2",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100051"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1987-02-19",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100051",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5a371828-9559-44fa-a1e2-0e1d4de3cdde",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100052"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1946-07-22",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100052",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "213ee168-b466-4a37-ae46-76c1323a18c7",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100053"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1969-04-22",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100053",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3d2addd4-27a6-4723-826a-40ed438c25f6",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100054"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1986-03-22",
+    "condition": "heart_failure",
+    "identifier": [
+      {
+        "value": "100054",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0fbbe3d9-6d8d-49a8-892e-417290252b7b",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100055"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1945-01-15",
+    "condition": "anemia",
+    "identifier": [
+      {
+        "value": "100055",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "54fdcfe2-7060-40bd-a1e2-08cbfdf0f422",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100056"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "2004-04-17",
+    "condition": "diabetes",
+    "identifier": [
+      {
+        "value": "100056",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "493bcac2-364f-4c59-9be6-d84ced0dd6ec",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100057"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1967-06-10",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100057",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "600d4bbd-24a1-4857-aa34-5a1ae2a224f0",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100058"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1974-10-26",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100058",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5e0e2f15-61ca-42a4-afef-60f4dfb980f7",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100059"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "2006-05-22",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100059",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "51c30753-1be6-4aeb-b04e-ac9b8eb23b80",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100060"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1949-12-18",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100060",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5d859f7c-9755-48e4-be86-b266221f461b",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100061"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1962-12-11",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100061",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5c660bbc-bbcd-4003-92e7-cea12865a344",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100062"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "2000-08-09",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100062",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7768c52b-f4ce-4b98-80db-6f64f8284654",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100063"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1971-01-01",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100063",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6c2692a4-dbee-4f06-adbb-1d279af06ad4",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100064"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1956-12-15",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100064",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "e1ffbffc-0b3e-44f6-9eb5-3b601e58d772",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100065"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1937-02-03",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100065",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9ba6a6ad-0d60-49f0-910a-f185a388aa46",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100066"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1983-10-18",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100066",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5507030b-65a9-4c57-a7bb-6733c247d12a",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100067"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1975-06-26",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100067",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5047bd8a-8177-42ab-a6fc-eb91dc2f3c41",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100068"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1967-11-04",
+    "condition": "heart_failure",
+    "identifier": [
+      {
+        "value": "100068",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4cfe0622-7718-4bd1-ad5f-663714b9643c",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100069"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1955-04-28",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100069",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "03b50efc-cba3-433d-9bed-9b47b5630443",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100070"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1958-12-11",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100070",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a616c1b5-3107-4fa8-a8dd-d1869d090f61",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100071"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1970-03-26",
+    "condition": "arthritis",
+    "identifier": [
+      {
+        "value": "100071",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aa7756b8-45c5-40ed-9c29-e7da2c19ecbe",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100072"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1996-04-07",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100072",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c0801368-a209-4559-8b9c-7b8bcf0ff938",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100073"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1964-01-22",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100073",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cf5159c6-2533-4c92-92ef-378b4c1823e4",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100074"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1944-05-12",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100074",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "61ab4dd0-bfe5-45de-a18d-669baed39823",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100075"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "2004-06-01",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100075",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fb33dd9e-cdf4-4f1a-a3ea-89106d356328",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100076"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1969-01-04",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100076",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d6c8c518-e1c9-4145-b59f-a08cc6631a03",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100077"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1976-07-20",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100077",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "64605505-0a78-43a1-a98f-be853cf624be",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100078"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1960-05-02",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100078",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "77391159-2aae-47f8-8ed2-9857f469c5a2",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100079"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "2004-11-24",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100079",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ae68e893-a137-4aae-b69f-f7d724fcef01",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100080"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1982-07-03",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100080",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "76f743ff-6f11-43a3-9f86-572a4707a625",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100081"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1951-12-10",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100081",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "11ef901e-0af9-4da6-9610-147a14ef5f6d",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100082"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1977-07-23",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100082",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f9af7ad4-aced-4b09-a2bb-0cc06ba2c777",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100083"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1989-11-13",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100083",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3f711e66-59d4-438c-a8cb-5935e570b2bb",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100084"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "2008-05-13",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100084",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "84526071-aff3-401c-bcb5-6d0f61c7bb9e",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100085"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1962-07-26",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100085",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3de9e5ba-a2c3-4957-a962-2c76c78944fb",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100086"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1995-08-15",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100086",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "af97ec15-cbd6-430c-9f50-36c211017604",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100087"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1957-11-03",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100087",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "10de4577-0c41-41e3-8639-2be31f7e30a1",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100088"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1978-02-27",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100088",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eae447ba-ddc9-4877-9a98-3f1ea2422515",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100089"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1961-03-01",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100089",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "667f6a66-996f-4211-95dd-c99dc96e8c19",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100090"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1945-08-14",
+    "condition": "anemia",
+    "identifier": [
+      {
+        "value": "100090",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "16ee789f-06e4-482c-bafd-154594a0b029",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100091"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1985-08-13",
+    "condition": "heart_failure",
+    "identifier": [
+      {
+        "value": "100091",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "689b92c2-23fe-46bc-a726-7385f608cbba",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100092"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1936-02-25",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100092",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a85e29ea-dc56-409d-a4b8-178d3c1c6837",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100093"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "2002-08-02",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100093",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f0988116-9e84-4198-b404-14b1d6fe1077",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100094"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1953-08-22",
+    "condition": "diabetes",
+    "identifier": [
+      {
+        "value": "100094",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cb8fa9ee-a0db-4bd2-9714-11f62a6cfeb5",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100095"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1992-10-27",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100095",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "e1247617-35ff-4d71-a1c9-b475f3d1e727",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100096"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1993-03-24",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100096",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "230538ab-d97d-473b-b858-4e55dd1385d4",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100097"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1971-09-16",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100097",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "e757f298-45da-448e-aeca-b854836dff2f",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100098"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1945-12-10",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100098",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7c56a110-6aad-4a30-9c98-185e2342b4c7",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100099"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "2005-02-05",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100099",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d530f272-c4ed-4d2b-94f0-f67ef0d413a1",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100100"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1955-12-07",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100100",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "932624b0-bd24-4e21-836b-dd5cf80dc461",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100101"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "2005-08-14",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100101",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4158321f-5db9-4f12-a51d-2b19a986a958",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100102"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1938-10-13",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100102",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c3df2494-4cd3-4d3b-bc06-9d839e543c36",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100103"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1985-07-18",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100103",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6efab3b8-8b2b-4676-ba69-16ff5e3a5e80",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100104"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1964-08-08",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100104",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8e300c7b-827d-4d5c-b392-9ffdd88fd8a7",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100105"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1985-06-22",
+    "condition": "anemia",
+    "identifier": [
+      {
+        "value": "100105",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0ed859b3-87c8-4214-bc7c-681ad9ef2781",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100106"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1995-03-20",
+    "condition": "arthritis",
+    "identifier": [
+      {
+        "value": "100106",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "72e062a7-7af3-480c-901a-01219d69af67",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100107"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "2008-11-01",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100107",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3943a125-16fa-4b16-a308-82e8c1bafbb2",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100108"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1995-03-02",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100108",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bb09dafd-c716-4a86-94cd-5bbbebdc7ab8",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100109"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1994-06-11",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100109",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "00ebd5f7-28c9-403e-98d3-5aafb93d22a2",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100110"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1946-08-01",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100110",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "428de0cf-0d15-4d88-b0ea-834abff995fa",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100111"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1964-11-03",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100111",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6fc57428-6efb-41a0-a684-4ba52d59024e",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100112"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1961-01-20",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100112",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b90e9a9b-e33d-49ca-95c2-c37122e5ecec",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100113"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1950-10-07",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100113",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bc88df8d-cc54-4882-8c5c-83aae92c25b0",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100114"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1957-10-20",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100114",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "688a0814-47b6-4fee-a287-061b09938160",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100115"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1975-02-19",
+    "condition": "diabetes",
+    "identifier": [
+      {
+        "value": "100115",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8eb0af1b-9605-4c39-bbcb-9a74474ff8cc",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100116"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1984-07-23",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100116",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5b703978-1685-45ae-8311-8bf6c70c1de4",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100117"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1967-02-23",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100117",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cc4429e2-8054-40dd-b80f-00ab47f39d04",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100118"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "2008-01-12",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100118",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "e9121e21-6ba1-4e3c-92ff-41f66533f34a",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100119"
+      }
+    ],
+    "gender": "female",
+    "birthDate": "1944-09-21",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100119",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0270588e-7072-4fb3-8165-f8ac4fc6245a",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100120"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1949-07-12",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100120",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cf81af1b-6a8a-4f62-8c15-85c9523443d4",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100121"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1991-03-24",
+    "condition": "arthritis",
+    "identifier": [
+      {
+        "value": "100121",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9643f72f-fe78-4644-9061-b84fdbd1b866",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100122"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "2004-08-15",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100122",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7bfd3019-6b23-4789-ad50-d566889b76e9",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100123"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1977-04-27",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100123",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8767cdb3-f79a-48e2-9a14-76110d82af14",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100124"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1995-10-20",
+    "condition": "anemia",
+    "identifier": [
+      {
+        "value": "100124",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4f044bfa-e482-4c80-9d37-9d369d24ad93",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100125"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1999-06-06",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100125",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0035d8ef-ac9a-47ef-ba30-46d573b8f9a3",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100126"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1979-05-20",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100126",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2811a389-3fad-4d89-aa0f-00027e16abc2",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100127"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "2002-04-03",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100127",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "136c9b8a-8440-4e45-8859-4107e072dcb5",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100128"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "2007-04-23",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100128",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2c3adff1-e881-4c63-bb7c-0b233c3c55cd",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100129"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1993-01-03",
+    "condition": "arthritis",
+    "identifier": [
+      {
+        "value": "100129",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5acb28eb-34a3-4813-b3d6-70bccdff3c7a",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100130"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1967-05-22",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100130",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3efab5af-527d-4527-a8fb-f0ede2c804ef",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100131"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "2003-06-14",
+    "condition": "anemia",
+    "identifier": [
+      {
+        "value": "100131",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "365ba55a-2f05-4bcb-9662-3b54c7ec41a2",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100132"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1994-05-10",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100132",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "48c9a200-3fcf-49e1-9cd7-9c0d989898af",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100133"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1960-06-04",
+    "condition": "diabetes",
+    "identifier": [
+      {
+        "value": "100133",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6ed8dbd1-220f-4165-b95b-ca850660a9f2",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100134"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1960-04-24",
+    "condition": "arthritis",
+    "identifier": [
+      {
+        "value": "100134",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "75bcaa04-f8a2-437e-8037-e814ee760646",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100135"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "2003-10-10",
+    "condition": "arthritis",
+    "identifier": [
+      {
+        "value": "100135",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cf015d6f-0bed-435e-b6b3-5ffcea539185",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100136"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1982-03-10",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100136",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "032f8fe5-e28a-4e71-b1f4-79fdf0f818e7",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100137"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1971-01-02",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100137",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f26cab0e-e338-446d-a738-f6b75269a85a",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100138"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1998-02-28",
+    "condition": "arthritis",
+    "identifier": [
+      {
+        "value": "100138",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d9268f94-77c7-4557-a094-c6c417c2b11e",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100139"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1997-08-11",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100139",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "db2b02bb-ade7-4279-a906-3aa8cbccb6c9",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100140"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1950-02-13",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100140",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d5538e96-bf58-4969-b938-7ce07ce43934",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100141"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1942-03-05",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100141",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f347c390-32eb-46aa-b6e6-3a0d11a947d8",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100142"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1951-09-25",
+    "condition": "diabetes",
+    "identifier": [
+      {
+        "value": "100142",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d1aea184-7309-440d-8900-789af5a28e94",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100143"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1964-09-13",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100143",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ecfb77ec-2f9c-423c-9fea-ca8d25adc9fd",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100144"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1990-05-19",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100144",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "80f134d2-a6b3-4ba5-aef7-d663356e65c0",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100145"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1948-04-21",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100145",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d940b737-0c6c-4fd8-a97b-b8525857b0ab",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100146"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1956-04-06",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100146",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4a775b51-4e3b-4e5e-9dec-5e8926cff70c",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100147"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1988-08-23",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100147",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "42da0ae2-777a-4407-909f-26f4ad102095",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100148"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1965-05-23",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100148",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7823c4ed-1b17-43a3-8bd8-ece496f0a21a",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100149"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1965-05-26",
+    "condition": "anemia",
+    "identifier": [
+      {
+        "value": "100149",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ff335297-c8b7-4eeb-9a3b-2e8905a95c36",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100150"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1990-02-18",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100150",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6b95af05-2c79-44c8-95c5-f7a78e86a762",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100151"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1954-02-02",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100151",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4d6ee028-5a0d-4e54-b864-f9ec987ce0de",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100152"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "2008-05-15",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100152",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7e786520-04ec-447b-b058-3fdf815454d6",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100153"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1987-05-17",
+    "condition": "arthritis",
+    "identifier": [
+      {
+        "value": "100153",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "829f61b3-f4a8-4031-8303-603d948d85ad",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100154"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1941-07-24",
+    "condition": "anemia",
+    "identifier": [
+      {
+        "value": "100154",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "96f3e9bd-ce48-4e30-a5e4-052e818cb8dd",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100155"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1947-04-22",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100155",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3f858126-7c75-4b88-a85f-8ef0116e723b",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100156"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1970-10-02",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100156",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "34ce2f45-eecd-48e3-8826-916726116fc3",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100157"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1992-05-06",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100157",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "288bfb34-b24a-4edd-9059-93af1f856ff1",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100158"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1947-08-12",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100158",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b8379eae-cf77-49a4-a2f0-03e202bb49a5",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100159"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1949-03-11",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100159",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dda46e4c-fad6-4e41-a946-48a79fa46525",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100160"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1987-09-02",
+    "condition": "anemia",
+    "identifier": [
+      {
+        "value": "100160",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a0c71f06-fe87-4e61-a625-ba554a5757db",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100161"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1977-02-25",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100161",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "78aaa5c8-6a97-49f7-bebb-c56da38f4051",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100162"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "2005-08-14",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100162",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "975ff13f-ca3c-4694-a22e-7214ef5ab504",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100163"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1999-11-15",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100163",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "10a762f4-59fd-422c-a50d-0dd58460d286",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100164"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1952-05-15",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100164",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "7a82b717-fc04-4897-a5fd-7a2a57bd8e60",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100165"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1966-12-06",
+    "condition": "diabetes",
+    "identifier": [
+      {
+        "value": "100165",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "555404de-986a-43b5-ab0b-43dcc14d9586",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100166"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1988-02-08",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100166",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0f96bd2a-3d7a-4867-a326-83f9093536b7",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100167"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1955-08-23",
+    "condition": "diabetes",
+    "identifier": [
+      {
+        "value": "100167",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ecf0b960-ad36-498b-a0da-acc9a99ba2b4",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100168"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1989-08-16",
+    "condition": "arthritis",
+    "identifier": [
+      {
+        "value": "100168",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "379c0c9d-9d95-4e9a-848d-1505aa26bdbd",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100169"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1985-04-20",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100169",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "8e1a7cbf-f145-4735-9abf-75f3d9e96f20",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100170"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1971-07-11",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100170",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "04189e66-ecaa-4aef-a887-abadeb6e1343",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100171"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1974-10-19",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100171",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "15c4092d-c6f0-4665-bfbc-d16b7f9f2cdd",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100172"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "2004-08-12",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100172",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "571769b7-d841-4dfe-8324-cd4b3bd607f8",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100173"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1994-06-28",
+    "condition": "arrhythmia",
+    "identifier": [
+      {
+        "value": "100173",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "6a452e1e-0127-4854-8b75-8e16f7ee5a97",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100174"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1985-04-28",
+    "condition": "heart_failure",
+    "identifier": [
+      {
+        "value": "100174",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "0c48b226-17d3-44c2-a0aa-b954a497a92c",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100175"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1996-12-26",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100175",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "44ed8149-b2a2-4f05-9109-75cb51d1d774",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100176"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1955-08-02",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100176",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cfa6322a-8a5e-4555-83c6-0821fd30e9f9",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100177"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1948-08-04",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100177",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d0e9f00f-cefa-46d2-822c-22945af138b7",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100178"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1954-07-28",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100178",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eebd44bb-c077-4a6f-a73f-bc759c4bfdc1",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100179"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1969-06-20",
+    "condition": "diabetes",
+    "identifier": [
+      {
+        "value": "100179",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b2f3398b-852c-4838-9334-7d8cb63bcd6d",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100180"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1978-11-28",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100180",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "07d0bdc3-a8fc-4ec1-bd13-363ba37ae733",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100181"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1998-09-02",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100181",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bfa9503c-882e-4375-9f98-caf691a0b36f",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100182"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1972-04-24",
+    "condition": "heart_failure",
+    "identifier": [
+      {
+        "value": "100182",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "5f420242-97df-44f1-8a5c-2e464fa4192e",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100183"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1948-08-06",
+    "condition": "diabetes",
+    "identifier": [
+      {
+        "value": "100183",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d21f2a2c-7aa6-41d0-93b0-a6da7c9b2d5d",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100184"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1977-01-10",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100184",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "463cc9ea-b307-4673-83c3-7c2509a36763",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100185"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1967-09-14",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100185",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9a316f4d-4ef3-492a-bd54-4a0599b4e09c",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100186"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1958-02-20",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100186",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "53241723-febb-4f62-be0c-9837897dc30d",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100187"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1999-10-05",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100187",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "f1ab5575-9055-49c3-b13b-8f88951f0b79",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100188"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1994-05-22",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100188",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "90f8dee9-987a-480e-a078-35ae42719231",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100189"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "2005-03-03",
+    "condition": "copd",
+    "identifier": [
+      {
+        "value": "100189",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ff17c5f0-4641-49e8-8071-f409f6d5da91",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100190"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1990-12-09",
+    "condition": "stroke_risk",
+    "identifier": [
+      {
+        "value": "100190",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "af0fba29-b933-4b93-b4ea-e952dc549b5f",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100191"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1997-02-08",
+    "condition": "heart_failure",
+    "identifier": [
+      {
+        "value": "100191",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fc5f851e-0767-42d0-a3b6-14500b37a22b",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100192"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1973-12-10",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100192",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "White"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9b8d06cc-423d-4fea-8403-4f878cff6b74",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100193"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1937-10-28",
+    "condition": "obesity",
+    "identifier": [
+      {
+        "value": "100193",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cb324cab-cc5d-4989-a2ed-15a2484e3dd6",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100194"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1999-05-25",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100194",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Black or African American"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b913bc2f-42a5-42d6-932a-b064b710af5c",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100195"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1960-10-09",
+    "condition": "renal_failure",
+    "identifier": [
+      {
+        "value": "100195",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ed771117-bd86-4a42-afba-ef231fe4fac9",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100196"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1953-11-04",
+    "condition": "depression",
+    "identifier": [
+      {
+        "value": "100196",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Other"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2cdcc61d-5266-4d66-8e3a-ab5d29897748",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100197"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1992-01-19",
+    "condition": "hypertension",
+    "identifier": [
+      {
+        "value": "100197",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Unknown"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "23b1a94b-317a-48be-9672-c21f872c95ce",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100198"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1973-06-24",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100198",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "American Indian or Alaska Native"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3408b7a3-0d20-46db-a85e-90d187f9bbed",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100199"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "2005-06-17",
+    "condition": "heart_failure",
+    "identifier": [
+      {
+        "value": "100199",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Native Hawaiian or Other Pacific Islander"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "21303449-d82f-4e9d-8d83-b416b3f133ba",
+    "resourceType": "Patient",
+    "name": [
+      {
+        "use": "official",
+        "family": "Patient_100200"
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1997-05-24",
+    "condition": "asthma",
+    "identifier": [
+      {
+        "value": "100200",
+        "system": "http://example.org/fhir/patient"
+      }
+    ],
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Asian"
+          }
+        ]
+      },
+      {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [
+          {
+            "url": "text",
+            "valueString": "Not Hispanic or Latino"
+          }
+        ]
+      }
+    ]
+  }
+]

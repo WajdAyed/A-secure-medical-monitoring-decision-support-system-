@@ -1,0 +1,27 @@
+Edit the supplied diagram to match the user's authoritative runtime below. Keep recognizable pale blue Hospital server side, green ZKP layer, orange patient room, Doctor, coordinator, EMR icon, Ruler Agent, knowledge icons, sensor and microcontroller. Expand layout generously for readable messages ON each arrow. Add a Decision Agent box between coordinator and ZKP. Remove former direct coordinator-to-Privacy ZKP request/response arrows. Keep coordinator sole orchestrator. Title "CDSS runtime and message flow". Number the five runtime phases with ordered substeps (1a, 1b, etc.) to faithfully express messages; Doctor entry/exit can say Start and End.
+Exact arrows and labels:
+Doctor -> Coordinator: "Start · run_cdss"
+Coordinator -> EMR: "1a · get_patient: minimum record"
+EMR -> Coordinator: "1b · Minimum EMR context"
+Small note inside coordinator: "Check minimum EMR record".
+Coordinator -> Ruler Agent: "2a · generate_policy: EMR context"
+Ruler Agent -> grouped knowledge box: "2b · Retrieve guideline passages"
+grouped knowledge box -> Ruler Agent: "2c · Evidence + range generation"
+Ruler Agent -> Coordinator: "2d · Generated safe clinical range"
+Knowledge box retains ChromaDB, Guidelines, and label "Ollama / Llama3 LLM". Ruler small subtitle "Check EMR context".
+Coordinator -> Decision Agent: "3a · validate_safe_range: generated range"
+Decision Agent -> Privacy ZKP: "3b · request_proof: bounds only"
+Inside ZKP boundary show small numbered processing annotation: "4 · Generate and validate range proof locally". Inside patient room sensor -> microcontroller arrow label "4a · Local sensor reading". Microcontroller and Privacy ZKP may have an internal connecting line labeled "4b · Local ZKP processing" but do NOT claim remote proof bytes or nonce exchange is currently deployed. Remove old nonce, commitments and request ID messages. Remove Prover/Verifier subtitles to avoid overstating deployed split.
+Privacy ZKP -> Decision Agent: "4c · Proof status only"
+Decision Agent -> Coordinator: "4d · Range proof status"
+Coordinator -> Decision Agent (distinct from step 3a): "5a · evaluate_decision: proof status"
+Decision Agent -> Coordinator (distinct from step 4d): "5b · Patient-safe / not-safe status"
+Coordinator -> Doctor: "End · Final patient status"
+Use multiple separate well-spaced orthogonal arrow lanes for the four coordinator-decision arrows. All arrow messages MUST directly sit along their corresponding arrows. No separate message legend. Design clear routing with no overlaps. Preserve single EMR database; label its subtitle "Single access layer · FHIR representation". Do not add FHIR as another box.
+Bottom small notes in two readable lines:
+"Privacy boundary: raw sensor readings remain inside ZKP; coordinator, Ruler and final decision receive no raw value."
+"Deployment note: current flow calls Rust via privacy_mcp/zkp_client.py; device_agent/ is an alternative local endpoint. Patient-room layout illustrates physical deployment."
+Additional compact footer: "Compatibility: get_patient · generate_policy · request_proof · evaluate_decision · run_cdss | Response fields: patient · policy · proof · decision"
+This is architecture intent from user, not an audited security guarantee. Keep visual clean and high resolution.
+
+Correction pass: put 3b and 4c on Decision Agent / Privacy ZKP arrows; use a separate internal 4b Local ZKP processing connection. Generated with built-in image_gen.

@@ -1,209 +1,51 @@
+"""Server-side verifier. It never reads or receives the sensor value."""
 import json
-import math
 import os
-import secrets
 import subprocess
-from time import perf_counter
+import secrets
 from pathlib import Path
-
-
-DEFAULT_ENGINE_NAME = "zkp_engine.exe" if os.name == "nt" else "zkp_engine"
-ENGINE_PATH_OVERRIDE = os.getenv("ZKP_ENGINE_PATH")
-
-if ENGINE_PATH_OVERRIDE:
-    ENGINE = Path(ENGINE_PATH_OVERRIDE).expanduser().resolve()
-else:
-    ENGINE = (
-        Path(__file__).resolve().parent.parent
-        / "zkp_engine"
-        / "target"
-        / "release"
-        / DEFAULT_ENGINE_NAME
-    )
-
-
-
-def generate_and_verify_proof(bounds, patient_id=None):
-
-    min_value = bounds["min"]
-    max_value = bounds["max"]
-
-    if isinstance(min_value, float) and not min_value.is_integer():
-        min_value = math.floor(min_value)
-    if isinstance(max_value, float) and not max_value.is_integer():
-        max_value = math.ceil(max_value)
-
-    min_value = int(min_value)
-    max_value = int(max_value)
-
-
-    print("\n" + "=" * 70)
-    print("DEVICE ZKP CLIENT")
-    print("=" * 70)
-
-
-
-    print("\nRust ZKP Engine:")
-
-    print(
-        ENGINE
-    )
-
-
-
-    if not ENGINE.exists():
-
-        print("\n❌ Rust engine not found")
-
-        raise FileNotFoundError(
-            ENGINE
-        )
-
-
-    print("✓ Rust engine found")
-
-
-
-    # ==================================================
-    # Device side sensor simulation
-    # ==================================================
-
-    print("\nDEVICE SENSOR")
-
-
-    print(
-        "Reading sensor value locally..."
-    )
-
-
-    # The actual value remains process-local.  Evaluation uses a repeatable
-    # patient-specific simulator solely for independently computed labels.
-    if os.getenv("CDSS_EVAL") == "1" and patient_id is not None:
-        from device_agent.sensor import evaluation_sensor_value
-        device_value = evaluation_sensor_value(str(patient_id))
-    else:
-        # Demo sensor: sample locally around the Ruler-generated bounds.
-        # The interval deliberately includes safe and unsafe readings.
-        device_value = secrets.SystemRandom().randint(
-            max(0, min_value - 30),
-            max_value + 30,
-        )
-
-    print("Sensor acquired inside the local ZKP boundary.")
-
-
-
-    print(
-        "\nPrivacy boundary:"
-    )
-
-
-    print(
-        "✓ This value never leaves the device"
-    )
-
-
-
-    # ==================================================
-    # ZKP generation
-    # ==================================================
-
-
-    print("\nPreparing Zero-Knowledge proof...")
-
-
-    request = {
-
-        "value": device_value,
-
-        "min": min_value,
-
-        "max": max_value
-
-    }
-
-
-
-    print("\nProof parameters:")
-
-    print({
-
-        "min": min_value,
-
-        "max": max_value
-
-    })
-
-
-    print(
-        "Sensor value hidden from external components 🔒"
-    )
-
-
-
-    print("\nCalling Rust Bulletproof Engine...")
-
-
-
-    try:
-
-
-        started = perf_counter()
-        result = subprocess.run(
-
-            [str(ENGINE)],
-
-            input=json.dumps(request),
-
-            capture_output=True,
-
-            text=True,
-
-            check=True,
-
-        )
-
-
-    except subprocess.CalledProcessError as e:
-
-
-        print("\n❌ Rust execution failed")
-
-        print(e.stderr)
-
-        raise e
-
-
-
-    print("\nRust response:")
-
-    print(
-        result.stdout
-    )
-
-
-
-    proof = json.loads(result.stdout)
-    # Local Doctor Console demo: expose the exact sampled value alongside the
-    # independent ZKP outcome. Do not use this response shape in deployment.
-    proof["sensor_value_for_console"] = device_value
+from time import perf_counter
+
+from cdss_rpc import call_tool
+
+ENGINE = Path(os.getenv("ZKP_ENGINE_PATH", Path(__file__).resolve().parent.parent / "zkp_engine" / "target" / "release" / ("zkp_engine.exe" if os.name == "nt" else "zkp_engine")))
+DEVICE_AGENT_URL = os.getenv("DEVICE_AGENT_URL", "http://127.0.0.1:8006")
+
+
+def generate_and_verify_proof(bounds, patient_id=None, debug_sensor_values=False):
+    if os.getenv("CDSS_REQUIRE_TLS") == "1" and not DEVICE_AGENT_URL.startswith("https://"):
+        raise ValueError("DEVICE_AGENT_URL must use HTTPS when CDSS_REQUIRE_TLS=1")
+    min_value, max_value = bounds["min"], bounds["max"]
+    parameter = bounds.get("parameter")
+    if not isinstance(parameter, str) or not parameter.strip():
+        raise ValueError("bounds must include a sensor parameter")
+    if not all(isinstance(x, int) and not isinstance(x, bool) for x in (min_value, max_value)) or not (0 <= min_value <= max_value < 2**64):
+        raise ValueError("bounds must be ordered unsigned 64-bit integers")
+    started = perf_counter()
+    nonce = secrets.token_hex(32)
+    args = {"min": min_value, "max": max_value, "nonce": nonce, "parameter": parameter}
+    args["debug_sensor_values"] = debug_sensor_values
+    if patient_id is not None:
+        args["patient_id"] = patient_id
+    device = call_tool(DEVICE_AGENT_URL, "prove", args, timeout=120)
+    if not isinstance(device, dict):
+        return {"status": "PROOF_FAILED", "verified": False, "error": "invalid device response"}
+    if device.get("status") == "ALERT" and device.get("package") is None:
+        response = {"status": "ALERT", "verified": False, "proof_type": "Bulletproofs", "public_bounds": bounds, "reason": "device reports reading outside range; no range proof was produced"}
+        if "sensor_value_for_debug" in device:
+            response["sensor_value_for_debug"] = device["sensor_value_for_debug"]
+        return response
+    package = device.get("package")
+    if not isinstance(package, dict) or package.get("min") != min_value or package.get("max") != max_value or package.get("nonce") != nonce:
+        return {"status": "PROOF_FAILED", "verified": False, "error": "missing proof or bounds mismatch"}
+    result = subprocess.run([str(ENGINE)], input=json.dumps({"action": "verify", "package": package, "expected_nonce": nonce}), capture_output=True, text=True, check=True)
+    verdict = json.loads(result.stdout)
+    proof_hex = package.get("proof")
+    response = {"status": verdict["status"], "verified": verdict["verified"], "proof_type": "Bulletproofs", "public_bounds": bounds, "proof_size_bytes": len(proof_hex) // 2 + 64 if isinstance(proof_hex, str) else None, "prove_ms": device.get("elapsed_ms"), "verify_ms": verdict.get("elapsed_ms")}
+    if "sensor_value_for_debug" in device:
+        response["sensor_value_for_debug"] = device["sensor_value_for_debug"]
     if os.getenv("CDSS_EVAL") == "1":
-        proof["zkp_process_ms"] = (perf_counter() - started) * 1000
-        # Rust reports these separately around RangeProof::prove_single and
-        # RangeProof::verify_single; retain unprefixed names for the evaluator.
-        proof["zkp_prove_ms"] = proof.get("prove_ms")
-        proof["zkp_verify_ms"] = proof.get("verify_ms")
-
-
-
-    print("\n✅ Proof generated")
-
-
-    print(proof)
-
-
-    print("=" * 70)
-
-
-
-    return proof
+        response["zkp_process_ms"] = (perf_counter() - started) * 1000
+        response["zkp_prove_ms"] = response["prove_ms"]
+        response["zkp_verify_ms"] = response["verify_ms"]
+    return response

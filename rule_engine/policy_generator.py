@@ -4,7 +4,9 @@ import json
 import math
 import re
 from time import perf_counter
-from cdss_rpc import call_tool
+from pathlib import Path
+from langchain_chroma import Chroma
+from langchain_ollama import OllamaEmbeddings
 
 
 def normalize_policy(policy):
@@ -131,8 +133,24 @@ def normalize_policy(policy):
 
     raise ValueError(f"Policy missing a valid min/max bound: {policy}")
 
-KNOWLEDGE_MCP_URL = os.getenv("KNOWLEDGE_MCP_URL", "http://127.0.0.1:8010")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://127.0.0.1:11434")
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", OLLAMA_HOST)
+CHROMA_DB_DIR = Path(__file__).resolve().parent.parent / "knowledge_mcp" / "chroma_db"
+GUIDELINE_PDF_DIR = Path(__file__).resolve().parent.parent / "RAG" / "guidelines"
+GUIDELINE_PDFS = {
+    "hypertension": "Hypertension guideline.pdf",
+    "diabetes": "Diabetes guideline.pdf",
+    "heart_failure": "Heart Failure guideline.pdf",
+}
+
+
+def search_guidelines(condition: str, k: int = 3) -> list[str]:
+    """Retrieve clinical guideline passages directly from ChromaDB."""
+    if not CHROMA_DB_DIR.exists():
+        raise FileNotFoundError(f"Guideline database missing: {CHROMA_DB_DIR}. Run knowledge_mcp/build_vector_db.py first.")
+    embeddings = OllamaEmbeddings(model="nomic-embed-text", base_url=OLLAMA_BASE_URL)
+    db = Chroma(persist_directory=str(CHROMA_DB_DIR), embedding_function=embeddings)
+    return [doc.page_content for doc in db.similarity_search(condition, k=k)]
 
 FALLBACK_POLICIES = {
     "hypertension": ("systolic_bp", 110, 135),
@@ -148,6 +166,11 @@ FALLBACK_POLICIES = {
     "depression": ("sleep_hours", 7, 9),
     "arthritis": ("pain_score", 0, 4),
 }
+SUPPORTED_SENSOR_PARAMETERS = {
+    "systolic_bp", "heart_rate", "oxygen_saturation", "temperature",
+    "sleep_hours", "blood_glucose", "peak_flow_percent", "weight_kg",
+    "creatinine", "bmi", "hemoglobin", "pain_score",
+}
 
 
 def fallback_policy(condition):
@@ -159,7 +182,7 @@ def fallback_policy(condition):
     return {"parameter": parameter, "min": lower, "max": upper}
 
 
-def generate_policy(patient, use_rag=True):
+def generate_policy(patient, use_rag=True, *, retriever=None, strict=False, observer=None):
 
 
     print("\n" + "=" * 70)
@@ -185,31 +208,12 @@ def generate_policy(patient, use_rag=True):
     # RAG retrieval
     # ============================================
 
-    print("\nCalling Knowledge MCP (RAG)...")
-
-    print("Knowledge MCP JSON-RPC endpoint:")
-    print(f"{KNOWLEDGE_MCP_URL}/rpc")
-
+    print("\nSearching clinical guidelines...")
 
     try:
-
         retrieval_start = perf_counter()
-        data = call_tool(KNOWLEDGE_MCP_URL, "search_guidelines", {"condition": condition}, timeout=30)
+        docs = (retriever or search_guidelines)(condition)
         retrieval_ms = (perf_counter() - retrieval_start) * 1000
-
-        print("\nKnowledge MCP response:")
-        print(data)
-
-        if "guidelines" not in data:
-
-            print("\n❌ KNOWLEDGE MCP ERROR")
-            print(data)
-
-            raise Exception(
-                f"Knowledge MCP Error:\n{data}"
-            )
-
-        docs = data["guidelines"]
 
     except Exception as e:
 
@@ -328,6 +332,8 @@ Example:
 
     llm_ms = (perf_counter() - llm_start) * 1000
     text = response["message"]["content"]
+    if observer is not None:
+        observer(text)
 
 
 
@@ -365,7 +371,14 @@ Example:
     try:
         policy = normalize_policy(policy)
     except ValueError as exc:
+        if strict:
+            raise
         print(f"Invalid model policy ({exc}); using documented fallback for {condition}.")
+        policy = fallback_policy(condition)
+    if policy.get("parameter") not in SUPPORTED_SENSOR_PARAMETERS:
+        if strict:
+            raise ValueError(f"Unsupported model parameter: {policy.get('parameter')!r}")
+        print(f"Unsupported model parameter {policy.get('parameter')!r}; using documented fallback for {condition}.")
         policy = fallback_policy(condition)
 
 
@@ -393,14 +406,44 @@ Example:
 
 
 def generate_policy_without_rag(patient):
-    """Generate the evaluation baseline without retrieving guideline context."""
+    """Generate a policy from the complete condition-specific guideline PDF.
+
+    This is the no-retrieval baseline: it deliberately bypasses ChromaDB and
+    reads the full local PDF for every patient.  It does not create embeddings;
+    embedding creation belongs to the Chroma indexing/retrieval path and would
+    make this baseline a different experiment.
+    """
+    condition = str(patient["condition"]).lower()
+    filename = GUIDELINE_PDFS.get(condition)
+    if filename is None:
+        raise FileNotFoundError(
+            f"No project guideline PDF is available for condition {condition!r}; "
+            "the no-RAG full-PDF baseline cannot invent a clinical range."
+        )
+    try:
+        from langchain_community.document_loaders import PyPDFLoader
+    except ImportError as exc:
+        raise RuntimeError("The no-RAG full-PDF baseline requires langchain-community.") from exc
+
+    source = GUIDELINE_PDF_DIR / filename
+    if not source.is_file():
+        raise FileNotFoundError(f"Guideline PDF missing: {source}")
+    pdf_started = perf_counter()
+    pages = PyPDFLoader(str(source)).load()
+    guideline_text = "\n\n".join(page.page_content for page in pages)
+    if not guideline_text.strip():
+        raise ValueError(f"Guideline PDF contains no extractable text: {source}")
     prompt = f"""
 Patient:
 
 Age: {patient['age']}
-Condition: {patient['condition']}
+Condition: {condition}
 
-Generate personalized safe limits.
+Full condition-specific clinical guideline PDF:
+
+{guideline_text}
+
+Using only the guideline above, generate personalized safe limits.
 Return ONLY JSON.
 
 Example:
@@ -423,10 +466,14 @@ Example:
     if not match:
         raise ValueError("No JSON found in no-RAG baseline response")
     policy = normalize_policy(json.loads(match.group()))
+    if policy.get("parameter") not in SUPPORTED_SENSOR_PARAMETERS:
+        policy = fallback_policy(patient["condition"])
     if os.getenv("CDSS_EVAL") == "1":
         policy["evaluation"] = {
-            "rag_retrieval_ms": 0.0, "llm_ms": (perf_counter() - started) * 1000,
+            "rag_retrieval_ms": 0.0, "pdf_scan_ms": (started - pdf_started) * 1000,
+            "llm_ms": (perf_counter() - started) * 1000,
             "prompt_chars": len(prompt), "retrieved_chunks": 0,
+            "guideline_pdf": filename, "guideline_pages": len(pages),
             "llm_raw_output": response["message"]["content"], "json_parse_ok": True,
             **{key: response.get(key) for key in ("prompt_eval_count", "eval_count", "total_duration", "load_duration", "prompt_eval_duration", "eval_duration")},
         }

@@ -1,0 +1,4458 @@
+{
+  "summary": {
+    "rag": {
+      "measured_patient_count": 198,
+      "successful_patient_count": 198,
+      "failed_patient_count": 0,
+      "T_seconds": 2614.494604000065,
+      "M_seconds_successful": 13.20451820202053,
+      "startup_included": false,
+      "timed_scope": "One client-side coordinator HTTP request per patient, including EMR, policy, proof, decision, and transport; process/service startup excluded."
+    },
+    "no_rag": {
+      "measured_patient_count": 198,
+      "successful_patient_count": 192,
+      "failed_patient_count": 6,
+      "T_seconds": 1170.5699096000026,
+      "M_seconds_successful": 5.602776628125032,
+      "startup_included": false,
+      "timed_scope": "One client-side coordinator HTTP request per patient, including EMR, policy, proof, decision, and transport; process/service startup excluded."
+    },
+    "comparison": {
+      "compatible": 69,
+      "incompatible": 68,
+      "not_comparable": 61
+    },
+    "definitions": {
+      "primary_compatibility": "Exact lower-bound and upper-bound agreement after canonical vital-sign naming and numeric normalization.",
+      "tolerance_compatibility": "Absolute bound difference <= 0.0; reported per bound in comparison details, never substituted for exact counts.",
+      "no_rag_source": "The project's generate_policy_without_rag branch; it does not query ChromaDB and does not load the RAG PDFs directly.",
+      "excluded_patient": "155",
+      "warmup_patient_id": "100001",
+      "shared_concurrency_resources": "Concurrent requests share the coordinator, EMR, rule engine, ChromaDB, Ollama model instances, and caches."
+    }
+  },
+  "scalability": [
+    {
+      "mode": "rag",
+      "concurrency": 1,
+      "repeat": 1,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 14.681834364998576,
+      "latency_stdev_seconds": 4.927748804473975,
+      "batch_wall_seconds": 293.6464713999958,
+      "throughput_patients_per_second": 0.06810911060721259,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "rag",
+      "concurrency": 1,
+      "repeat": 2,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 6.200684550000733,
+      "latency_stdev_seconds": 0.670486105006925,
+      "batch_wall_seconds": 124.01625330000388,
+      "throughput_patients_per_second": 0.16126918422231817,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "rag",
+      "concurrency": 2,
+      "repeat": 1,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 11.47327852000053,
+      "latency_stdev_seconds": 1.8289730094694472,
+      "batch_wall_seconds": 117.51520349999919,
+      "throughput_patients_per_second": 0.17019074472351264,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "rag",
+      "concurrency": 2,
+      "repeat": 2,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 11.154645525001252,
+      "latency_stdev_seconds": 1.4267857447279697,
+      "batch_wall_seconds": 114.77789589999884,
+      "throughput_patients_per_second": 0.17424957865951088,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "rag",
+      "concurrency": 4,
+      "repeat": 1,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 21.586703760001182,
+      "latency_stdev_seconds": 8.085846692964772,
+      "batch_wall_seconds": 115.74656210000103,
+      "throughput_patients_per_second": 0.17279130919431276,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "rag",
+      "concurrency": 4,
+      "repeat": 2,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 22.202892119999888,
+      "latency_stdev_seconds": 6.709602904313362,
+      "batch_wall_seconds": 119.54737390000082,
+      "throughput_patients_per_second": 0.16729769419050253,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "rag",
+      "concurrency": 8,
+      "repeat": 1,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 40.52003747500057,
+      "latency_stdev_seconds": 15.230278176941093,
+      "batch_wall_seconds": 121.97441929999331,
+      "throughput_patients_per_second": 0.16396880685949777,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "rag",
+      "concurrency": 8,
+      "repeat": 2,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 38.841904915000484,
+      "latency_stdev_seconds": 17.110301260951534,
+      "batch_wall_seconds": 116.2884189999968,
+      "throughput_patients_per_second": 0.17198617172704492,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "no_rag",
+      "concurrency": 1,
+      "repeat": 1,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 4.854536320000989,
+      "latency_stdev_seconds": 1.0525313646339014,
+      "batch_wall_seconds": 97.09239639999578,
+      "throughput_patients_per_second": 0.20598935386871212,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "no_rag",
+      "concurrency": 1,
+      "repeat": 2,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 4.5107435150017405,
+      "latency_stdev_seconds": 0.5969382543572151,
+      "batch_wall_seconds": 90.21653850000439,
+      "throughput_patients_per_second": 0.2216888425618217,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "no_rag",
+      "concurrency": 2,
+      "repeat": 1,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 8.939383254999848,
+      "latency_stdev_seconds": 1.193437426341403,
+      "batch_wall_seconds": 91.5960197999957,
+      "throughput_patients_per_second": 0.21835009909459993,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "no_rag",
+      "concurrency": 2,
+      "repeat": 2,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 9.227384419999362,
+      "latency_stdev_seconds": 1.1543974856574981,
+      "batch_wall_seconds": 94.82145270000183,
+      "throughput_patients_per_second": 0.21092273352187962,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "no_rag",
+      "concurrency": 4,
+      "repeat": 1,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 16.435234695000325,
+      "latency_stdev_seconds": 4.650466251033693,
+      "batch_wall_seconds": 88.20976679999876,
+      "throughput_patients_per_second": 0.226732262486837,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "no_rag",
+      "concurrency": 4,
+      "repeat": 2,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 20.52763312499992,
+      "latency_stdev_seconds": 7.731676226853654,
+      "batch_wall_seconds": 109.21024210000178,
+      "throughput_patients_per_second": 0.18313300671640645,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "no_rag",
+      "concurrency": 8,
+      "repeat": 1,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 31.18095819499904,
+      "latency_stdev_seconds": 12.601696766015856,
+      "batch_wall_seconds": 94.0644425999999,
+      "throughput_patients_per_second": 0.21262019363733542,
+      "shared_services_caches_model_instances": true
+    },
+    {
+      "mode": "no_rag",
+      "concurrency": 8,
+      "repeat": 2,
+      "workload_patients": 20,
+      "successful_requests": 20,
+      "failed_requests": 0,
+      "mean_latency_seconds": 30.40956741500049,
+      "latency_stdev_seconds": 12.988254147868584,
+      "batch_wall_seconds": 91.63270400000329,
+      "throughput_patients_per_second": 0.2182626849034083,
+      "shared_services_caches_model_instances": true
+    }
+  ],
+  "comparison_details": [
+    {
+      "patient_id": "100002",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100002",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100003",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100003",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 110.0,
+          "no_rag_upper": 135.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100004",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100004",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 90.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100005",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100005",
+          "vital_sign": "pain_score",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 0.0,
+          "no_rag_upper": 4.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100005",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100006",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100006",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 140.0,
+          "rag_upper": 155.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100007",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100007",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100007",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100008",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100008",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100009",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100009",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100010",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100010",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100010",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100011",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100011",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": 100.0,
+          "no_rag_upper": 120.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100012",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100012",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 88.0,
+          "no_rag_upper": 92.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100012",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100013",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100013",
+          "vital_sign": "sleep_hours",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100013",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100014",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100014",
+          "vital_sign": "pain_score",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 0.0,
+          "no_rag_upper": 4.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100014",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100015",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100015",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": 0.0,
+          "no_rag_upper": 4.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100016",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100016",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100017",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100017",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": 0.0,
+          "no_rag_upper": 4.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100018",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100018",
+          "vital_sign": "hemoglobin",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 12.0,
+          "no_rag_upper": 16.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100018",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100019",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100019",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100020",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100020",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100021",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100021",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100022",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100022",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100023",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"Policy field min is not numeric: 'low'\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100023",
+          "vital_sign": "sleep_hours",
+          "rag_lower": 7.0,
+          "rag_upper": 9.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100024",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100024",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100024",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100025",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100025",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": 0.0,
+          "no_rag_upper": 4.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100026",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100026",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100027",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100027",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 90.0,
+          "no_rag_upper": 95.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100027",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100028",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100028",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 100.0,
+          "no_rag_upper": 125.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100029",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100029",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100030",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100030",
+          "vital_sign": "hemoglobin",
+          "rag_lower": 12.0,
+          "rag_upper": 15.0,
+          "no_rag_lower": 12.0,
+          "no_rag_upper": 16.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100031",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100031",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100032",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100032",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 100.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100033",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"Policy missing a valid min/max bound: {'sleep_duration_min': 7.5, 'sleep_duration_max': 9.5, 'screen_time_min': 1, 'screen_time_max': 2.5, 'social_interaction_min': 3, 'social_interaction_max': 6, 'physical_activity_min': 30, 'physical_activity_max': 60, 'self_care_min': 15, 'self_care_max': 30, 'meditation_time_min': 5, 'meditation_time_max': 15}\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100033",
+          "vital_sign": "sleep_hours",
+          "rag_lower": 7.0,
+          "rag_upper": 9.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100034",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100034",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100035",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100035",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 110.0,
+          "no_rag_upper": 135.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100036",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100036",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 110.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100037",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100037",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 88.0,
+          "no_rag_upper": 92.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100038",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100038",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 110.0,
+          "no_rag_upper": 135.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100039",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100039",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100039",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 100.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100040",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100040",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100041",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100041",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100042",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100042",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 80.0,
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 90.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100043",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100043",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 90.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100043",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100044",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100044",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 80.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100045",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100045",
+          "vital_sign": "hemoglobin",
+          "rag_lower": 12.0,
+          "rag_upper": 16.0,
+          "no_rag_lower": 12.0,
+          "no_rag_upper": 16.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100046",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100046",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100047",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100047",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 90.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100048",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100048",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 90.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100049",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100049",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100050",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100050",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 140.0,
+          "rag_upper": 160.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100051",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100051",
+          "vital_sign": "sleep_hours",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 6.0,
+          "no_rag_upper": 10.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100051",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100052",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100052",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 130.0,
+          "no_rag_upper": 145.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100053",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100053",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 64.0,
+          "no_rag_upper": 82.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100054",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100054",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 110.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100055",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100055",
+          "vital_sign": "hemoglobin",
+          "rag_lower": 8.0,
+          "rag_upper": 12.0,
+          "no_rag_lower": 12.0,
+          "no_rag_upper": 16.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100056",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100056",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 120.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100057",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100057",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100057",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100058",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100058",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100059",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100059",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": 100.0,
+          "no_rag_upper": 125.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100060",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100060",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 85.0,
+          "no_rag_upper": 92.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100061",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100061",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 88.0,
+          "no_rag_upper": 92.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100062",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100062",
+          "vital_sign": "sleep_hours",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100062",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100063",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100063",
+          "vital_sign": "sleep_hours",
+          "rag_lower": 7.0,
+          "rag_upper": 9.0,
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100064",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100064",
+          "vital_sign": "sleep_hours",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100064",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100065",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100065",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100066",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100066",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 50.0,
+          "no_rag_upper": 80.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100067",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100067",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100068",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100068",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100068",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100069",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100069",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100070",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100070",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100071",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100071",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": 0.0,
+          "no_rag_upper": 4.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100072",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100072",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100073",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100073",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 92.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100074",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100074",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100074",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100075",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100075",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100076",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100076",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100076",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100077",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100077",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100077",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100078",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100078",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100079",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100079",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100080",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100080",
+          "vital_sign": "sleep_hours",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100080",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100081",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100081",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100082",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100082",
+          "vital_sign": "sleep_hours",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100082",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 100.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100083",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100083",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100084",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100084",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100085",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100085",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 88.0,
+          "no_rag_upper": 92.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100086",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"Policy missing a valid min/max bound: {'sleep_duration_min': 8, 'sleep_duration_max': 10, 'exercise_time_min': 30, 'exercise_time_max': 60, 'screens_before_bed': 0, 'screens_after_waking': 2, 'social_interaction_frequency': 'daily', 'social_interaction_quantity': 3, 'meditation_practice_frequency': 'thrice_a_week', 'meditation_practice_duration': 20, 'healthy_meal_preparation_frequency': 'every_other_day', 'healthy_meal_consumption_frequency': 'daily', 'journaling_frequency': 'daily', 'journaling_quantity': 1}\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100086",
+          "vital_sign": "sleep_hours",
+          "rag_lower": 7.0,
+          "rag_upper": 9.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100087",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100087",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 80.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100088",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100088",
+          "vital_sign": "sleep_hours",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100088",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 140.0,
+          "rag_upper": 160.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100089",
+      "classification": "not_comparable",
+      "reason": "missing range in no-RAG; missing range in RAG",
+      "details": [
+        {
+          "patient_id": "100089",
+          "vital_sign": "heart_rate",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        },
+        {
+          "patient_id": "100089",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 88.0,
+          "no_rag_upper": 92.0,
+          "reason": "missing range in RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100090",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100090",
+          "vital_sign": "hemoglobin",
+          "rag_lower": 12.0,
+          "rag_upper": 16.0,
+          "no_rag_lower": 12.0,
+          "no_rag_upper": 16.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100091",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100091",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 100.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100091",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100092",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': 'Policy bounds are invalid: min=30, max=15'}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100092",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100093",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100093",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100094",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100094",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100095",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100095",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 110.0,
+          "no_rag_upper": 135.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100096",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100096",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100097",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100097",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 92.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100098",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100098",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 85.0,
+          "no_rag_upper": 95.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100099",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100099",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100099",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100100",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100100",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100101",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100101",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100102",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100102",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100103",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100103",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100103",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100104",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100104",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100105",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100105",
+          "vital_sign": "hemoglobin",
+          "rag_lower": 12.0,
+          "rag_upper": 16.0,
+          "no_rag_lower": 10.0,
+          "no_rag_upper": 13.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100106",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100106",
+          "vital_sign": "pain_score",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 0.0,
+          "no_rag_upper": 4.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100106",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100107",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100107",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100108",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100108",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100109",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100109",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100109",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100110",
+      "classification": "not_comparable",
+      "reason": "missing range in no-RAG; missing range in RAG",
+      "details": [
+        {
+          "patient_id": "100110",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        },
+        {
+          "patient_id": "100110",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 90.0,
+          "reason": "missing range in RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100111",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100111",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 150.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100112",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100112",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100113",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100113",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 88.0,
+          "no_rag_upper": 92.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100113",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100114",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100114",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 88.0,
+          "no_rag_upper": 95.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100114",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100115",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100115",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 120.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100116",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100116",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 110.0,
+          "no_rag_upper": 135.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100117",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100117",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100118",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100118",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100119",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100119",
+          "vital_sign": "sleep_hours",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100119",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100120",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100120",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100121",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100121",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": 0.0,
+          "no_rag_upper": 4.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100122",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100122",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 92.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100123",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100123",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100124",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100124",
+          "vital_sign": "hemoglobin",
+          "rag_lower": 12.0,
+          "rag_upper": 16.0,
+          "no_rag_lower": 12.0,
+          "no_rag_upper": 16.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100125",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100125",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100125",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100126",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100126",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100126",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100127",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100127",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100128",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100128",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100129",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100129",
+          "vital_sign": "pain_score",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 0.0,
+          "no_rag_upper": 4.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100129",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100130",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100130",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100131",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100131",
+          "vital_sign": "hemoglobin",
+          "rag_lower": 12.0,
+          "rag_upper": 16.0,
+          "no_rag_lower": 10.0,
+          "no_rag_upper": 15.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100132",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100132",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100132",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 145.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100133",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100133",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100134",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100134",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": 0.0,
+          "no_rag_upper": 4.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100135",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100135",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": 0.0,
+          "no_rag_upper": 4.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100136",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100136",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 92.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100137",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100137",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 90.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100138",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': \"Policy missing a valid min/max bound: {'activity_duration': '30-60 minutes', 'max_weight_lifted': '5-7 kg (10-15 lbs)', 'step_count': '5000-7000 steps per day', 'frequency_of_stopping_to_rest': 'every 15-20 minutes'}\"}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100138",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100139",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100139",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 92.0,
+          "no_rag_upper": 100.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100139",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100140",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100140",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 85.0,
+          "no_rag_upper": 92.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100141",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100141",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100142",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100142",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 120.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100143",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100143",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 110.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": 110.0,
+          "no_rag_upper": 135.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100144",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100144",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 88.0,
+          "no_rag_upper": 92.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100145",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100145",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100146",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100146",
+          "vital_sign": "sleep_hours",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100146",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100147",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100147",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100148",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100148",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 88.0,
+          "no_rag_upper": 92.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100149",
+      "classification": "not_comparable",
+      "reason": "missing range in no-RAG; missing range in RAG",
+      "details": [
+        {
+          "patient_id": "100149",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 90.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        },
+        {
+          "patient_id": "100149",
+          "vital_sign": "hemoglobin",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 12.0,
+          "no_rag_upper": 16.0,
+          "reason": "missing range in RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100150",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100150",
+          "vital_sign": "sleep_hours",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100150",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100151",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100151",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100152",
+      "classification": "not_comparable",
+      "reason": "error: Tool generate_policy failed: {'error': 'Policy field min must be numeric, got dict'}; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100152",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100153",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100153",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": 0.0,
+          "no_rag_upper": 4.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100154",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100154",
+          "vital_sign": "hemoglobin",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 8.0,
+          "no_rag_upper": 13.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100154",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 110.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100156",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100156",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100157",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100157",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 64.0,
+          "no_rag_upper": 80.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100158",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100158",
+          "vital_sign": "sleep_hours",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100158",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100159",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100159",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100159",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100160",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100160",
+          "vital_sign": "hemoglobin",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 10.0,
+          "no_rag_upper": 13.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100160",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 110.0,
+          "rag_upper": 135.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100161",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100161",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100161",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100162",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100162",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 100.0,
+          "no_rag_upper": 125.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100163",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100163",
+          "vital_sign": "heart_rate",
+          "rag_lower": 70.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 120.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100164",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100164",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 88.0,
+          "no_rag_upper": 92.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100165",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100165",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100166",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100166",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100167",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100167",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100168",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100168",
+          "vital_sign": "pain_score",
+          "rag_lower": 0.0,
+          "rag_upper": 4.0,
+          "no_rag_lower": 0.0,
+          "no_rag_upper": 4.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100169",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100169",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 90.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100170",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100170",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100171",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100171",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 145.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100172",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100172",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100173",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100173",
+          "vital_sign": "heart_rate",
+          "rag_lower": 60.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 100.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100174",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100174",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 110.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 100.0,
+          "no_rag_upper": 120.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100175",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100175",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100175",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100176",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100176",
+          "vital_sign": "sleep_hours",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100176",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100177",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100177",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100178",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100178",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100179",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100179",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100180",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100180",
+          "vital_sign": "sleep_hours",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100180",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100181",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100181",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100181",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 150.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100182",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100182",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100183",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100183",
+          "vital_sign": "blood_glucose",
+          "rag_lower": 70.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 70.0,
+          "no_rag_upper": 140.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100184",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100184",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 150.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100185",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100185",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100186",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100186",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100187",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100187",
+          "vital_sign": "sleep_hours",
+          "rag_lower": 7.0,
+          "rag_upper": 9.0,
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100188",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100188",
+          "vital_sign": "sleep_hours",
+          "rag_lower": 7.0,
+          "rag_upper": 9.0,
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100189",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100189",
+          "vital_sign": "oxygen_saturation",
+          "rag_lower": 92.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 88.0,
+          "no_rag_upper": 92.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100190",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100190",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 139.0,
+          "no_rag_lower": 110.0,
+          "no_rag_upper": 135.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100191",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100191",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 80.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100191",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100192",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100192",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100192",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 150.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100193",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100193",
+          "vital_sign": "bmi",
+          "rag_lower": 18.0,
+          "rag_upper": 30.0,
+          "no_rag_lower": 18.0,
+          "no_rag_upper": 30.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    },
+    {
+      "patient_id": "100194",
+      "classification": "incompatible",
+      "reason": "upper differs",
+      "details": [
+        {
+          "patient_id": "100194",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 140.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 130.0,
+          "reason": "upper differs",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100195",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100195",
+          "vital_sign": "creatinine",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 1.0,
+          "no_rag_upper": 2.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100195",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100196",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100196",
+          "vital_sign": "sleep_hours",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 7.0,
+          "no_rag_upper": 9.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100196",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 120.0,
+          "rag_upper": 130.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100197",
+      "classification": "incompatible",
+      "reason": "lower differs; upper differs",
+      "details": [
+        {
+          "patient_id": "100197",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 130.0,
+          "rag_upper": 160.0,
+          "no_rag_lower": 120.0,
+          "no_rag_upper": 140.0,
+          "reason": "lower differs; upper differs",
+          "lower_compatible_exact": false,
+          "lower_compatible_tolerance": false,
+          "upper_compatible_exact": false,
+          "upper_compatible_tolerance": false
+        }
+      ]
+    },
+    {
+      "patient_id": "100198",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100198",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100198",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100199",
+      "classification": "not_comparable",
+      "reason": "missing range in RAG; missing range in no-RAG",
+      "details": [
+        {
+          "patient_id": "100199",
+          "vital_sign": "heart_rate",
+          "rag_lower": "",
+          "rag_upper": "",
+          "no_rag_lower": 60.0,
+          "no_rag_upper": 90.0,
+          "reason": "missing range in RAG"
+        },
+        {
+          "patient_id": "100199",
+          "vital_sign": "systolic_bp",
+          "rag_lower": 90.0,
+          "rag_upper": 120.0,
+          "no_rag_lower": "",
+          "no_rag_upper": "",
+          "reason": "missing range in no-RAG"
+        }
+      ]
+    },
+    {
+      "patient_id": "100200",
+      "classification": "compatible",
+      "reason": "",
+      "details": [
+        {
+          "patient_id": "100200",
+          "vital_sign": "peak_flow_percent",
+          "rag_lower": 80.0,
+          "rag_upper": 100.0,
+          "no_rag_lower": 80.0,
+          "no_rag_upper": 100.0,
+          "reason": "",
+          "lower_compatible_exact": true,
+          "lower_compatible_tolerance": true,
+          "upper_compatible_exact": true,
+          "upper_compatible_tolerance": true
+        }
+      ]
+    }
+  ]
+}
